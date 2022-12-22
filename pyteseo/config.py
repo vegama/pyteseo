@@ -1,15 +1,28 @@
+""" Logic needed to define variables needed to write cfg and run files 
+"""
 
-def write_cfg(dir_path):
-    print("doing something...")
+# NOTE - TO BE DEFINED !!!
 
+def floater_release():
+    pass
 
-def read_cfg(path):
-    print("doing something...")
+def oil_release():
+    pass
 
+def hns_release():
+    pass
 
-def write_run(dir_path):
-    print("doing something...")
+def forcings():
+    pass
 
+def domain():
+    pass
 
-def read_run(path):
-    print("doing something...")
+def environment():
+    pass
+
+def calibration_coef():
+    pass
+
+def simulation_type():
+    pass

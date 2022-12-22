@@ -1,3 +1,3 @@
-# pyTeseo
+# pyTESEO
 Python library to centralize and standarize python modules to manage TESEO model I/O, config, plot...
 Examples of the use of each functionality is provided through a set of notebooks

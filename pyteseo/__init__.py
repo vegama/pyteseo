@@ -1,6 +1,3 @@
-
 __version__= "0.0.1"
-
-
 from pyteseo import (config, io, plot)
 
