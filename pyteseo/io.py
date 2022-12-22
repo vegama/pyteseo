@@ -7,7 +7,6 @@ def read_grid(path):
 def write_grid(dir_path):
     print("doing something...")
 
-
 def read_coastline(path):
     print("doing something...")
     # return df
