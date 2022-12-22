@@ -29,6 +29,10 @@ def grids_to_xarray():
     # read_grids()
     print("doing something...")
 
+def grids_to_netcdf():
+    # read_grids()
+    print("doing something...")
+
 def grids_to_csv():
     # read_grids()
     print("doing something...")

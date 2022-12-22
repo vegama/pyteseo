@@ -1,7 +1,7 @@
 """ Logic needed to define variables needed to write cfg and run files 
 """
 
-# NOTE - TO BE DEFINED !!!
+# TODO - THINK, DEFINE MODULE AND ADD TASKS TO THE BACKLOG!!!
 
 def floater_release():
     pass
