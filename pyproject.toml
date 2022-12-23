@@ -29,16 +29,3 @@ dev = ["pytest", "sphinx", "black", "flit"]
 [project.urls]
 Home = "https://github.com/IHCantabria/pyteseo"
 
-
-dependencies = [
-    "requests >=2.6",
-    "configparser; python_version == '2.7'",
-]
-
-[project.optional-dependencies]
-test = [
-    "pytest >=2.7.3",
-    "pytest-cov",
-]
-
-doc = ["sphinx"]
