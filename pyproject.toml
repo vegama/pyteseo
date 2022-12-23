@@ -1,0 +1,44 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "pyteseo"
+authors = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
+readme = "README.md"
+dynamic = ["version", "description"]
+
+dependencies = [
+    "python",
+    "xarray",
+    "dask",
+    "netcdf4",
+    "bottleneck",
+    "ipykernel",
+    "matplotlib",
+    "geojson",
+]
+
+[project.optional-dependencies]
+
+test = ["pytest"]
+doc = ["sphinx"]
+dev = ["pytest", "sphinx", "black", "flit"]
+
+
+[project.urls]
+Home = "https://github.com/IHCantabria/pyteseo"
+
+
+dependencies = [
+    "requests >=2.6",
+    "configparser; python_version == '2.7'",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest >=2.7.3",
+    "pytest-cov",
+]
+
+doc = ["sphinx"]

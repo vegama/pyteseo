@@ -1,0 +1,16 @@
+name: pyteseo-dev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - xarray
+  - dask
+  - netcdf4
+  - bottleneck
+  - ipykernel
+  - matplotlib
+  - geojson
+  - pytest
+  - flit
+  - black
