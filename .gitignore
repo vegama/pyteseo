@@ -1,0 +1,20 @@
+# Folders
+data
+__pycache__/
+.pytest_cache/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Files
+*.nc
+*.csv
+*.json
+*.geojson
+*.pyc
+*.log
+.env
+.env*
+.venv
