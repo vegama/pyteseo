@@ -11,7 +11,9 @@ classifiers = ["Topic :: Scientific/Engineering", "Programming Language :: Pytho
 dynamic = ["version", "description"]
 
 dependencies = [
-    "xarray",
+    "numpy",
+    "pandas",
+    "xarray[complete]",
     "dask",
     "netcdf4",
     "bottleneck",
