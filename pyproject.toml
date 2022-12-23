@@ -6,10 +6,11 @@ build-backend = "flit_core.buildapi"
 name = "pyteseo"
 authors = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
 readme = "README.md"
+requires-python = "3.10"
+classifiers = ["Topic :: Scientific/Engineering", "Programming Language :: Python"]
 dynamic = ["version", "description"]
 
 dependencies = [
-    "python",
     "xarray",
     "dask",
     "netcdf4",
@@ -20,7 +21,6 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-
 test = ["pytest"]
 doc = ["sphinx"]
 dev = ["pytest", "sphinx", "black", "flit"]
