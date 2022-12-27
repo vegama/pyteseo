@@ -1,5 +1,9 @@
-# pyTESEO
-![pyTESEO_logo](img/pyTESEO_logo.png)
+
+<p align="center">
+<img align="center" width="600" src="img/pyTESEO_logo.png">
+</p>
+
+
 ![GitHub top language](https://img.shields.io/github/languages/top/IHCantabria/pyteseo?style=plastic)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=latest%20tag&style=plastic)
 ![GitHub repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo?style=plastic)
