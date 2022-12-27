@@ -14,3 +14,4 @@ dependencies:
   - pytest
   - flit
   - black
+  - sphinx
