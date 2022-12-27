@@ -1,0 +1,55 @@
+:py:mod:`pyteseo.config`
+========================
+
+.. py:module:: pyteseo.config
+
+.. autoapi-nested-parse::
+
+   Logic needed to define variables needed to write cfg and run files
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyteseo.config.floater_release
+   pyteseo.config.oil_release
+   pyteseo.config.hns_release
+   pyteseo.config.forcings
+   pyteseo.config.domain
+   pyteseo.config.environment
+   pyteseo.config.calibration_coef
+   pyteseo.config.simulation_type
+
+
+
+.. py:function:: floater_release()
+
+
+.. py:function:: oil_release()
+
+
+.. py:function:: hns_release()
+
+
+.. py:function:: forcings()
+
+
+.. py:function:: domain()
+
+
+.. py:function:: environment()
+
+
+.. py:function:: calibration_coef()
+
+
+.. py:function:: simulation_type()
+
+

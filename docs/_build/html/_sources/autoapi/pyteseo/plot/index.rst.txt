@@ -1,0 +1,50 @@
+:py:mod:`pyteseo.plot`
+======================
+
+.. py:module:: pyteseo.plot
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyteseo.plot.plot_grid
+   pyteseo.plot.plot_coastline
+   pyteseo.plot.plot_currents
+   pyteseo.plot.plot_winds
+   pyteseo.plot.plot_waves
+   pyteseo.plot.plot_particles
+   pyteseo.plot.plot_properties
+   pyteseo.plot.plot_grids
+
+
+
+.. py:function:: plot_grid(df)
+
+
+.. py:function:: plot_coastline(df)
+
+
+.. py:function:: plot_currents(df)
+
+
+.. py:function:: plot_winds(df)
+
+
+.. py:function:: plot_waves(df)
+
+
+.. py:function:: plot_particles(df)
+
+
+.. py:function:: plot_properties(df)
+
+
+.. py:function:: plot_grids(ds)
+
+

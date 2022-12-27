@@ -15,3 +15,6 @@ dependencies:
   - flit
   - black
   - sphinx
+  - myst-parser
+  - furo
+  - sphinx-autoapi

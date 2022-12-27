@@ -1,0 +1,113 @@
+:py:mod:`pyteseo.io`
+====================
+
+.. py:module:: pyteseo.io
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyteseo.io.read_grid
+   pyteseo.io.write_grid
+   pyteseo.io.read_coastline
+   pyteseo.io.write_coastline
+   pyteseo.io.read_currents
+   pyteseo.io.write_currents
+   pyteseo.io.read_winds
+   pyteseo.io.write_winds
+   pyteseo.io.read_waves
+   pyteseo.io.write_waves
+   pyteseo.io.read_currents_depth_avg
+   pyteseo.io.write_currents_depth_avg
+   pyteseo.io.write_cfg
+   pyteseo.io.read_cfg
+   pyteseo.io.write_run
+   pyteseo.io.read_run
+   pyteseo.io.read_particles
+   pyteseo.io.read_properties
+   pyteseo.io.read_grids
+
+
+
+.. py:function:: read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pandas.DataFrame
+
+   Read TESEO grid-file and load it in a pandas DataFrame
+
+   :param path: path to the grid-file
+   :type path: str | PosixPath
+   :param nan_value: value to set nans. Defaults to -999.
+   :type nan_value: float | int, optional
+
+   :returns: _description_
+   :rtype: pd.DataFrame
+
+
+.. py:function:: write_grid(df: pandas.DataFrame, path: str | PosixPath, nan_value: int | float = -999) -> None
+
+   Write TESEO grid-file
+
+   :param df: DataFrame with columns 'lon', 'lat', 'depth' (lon:[-180,180], lat:[-90,90])
+   :type df: pd.DataFrame
+   :param path: path of the new grid-file
+   :type path: str | PosixPath
+   :param nan_value: define how will be writted nan values in the grid-file. Defaults to -999.
+   :type nan_value: int | float, optional
+
+
+.. py:function:: read_coastline(path)
+
+
+.. py:function:: write_coastline(dir_path)
+
+
+.. py:function:: read_currents(path_list)
+
+
+.. py:function:: write_currents(dir_path)
+
+
+.. py:function:: read_winds(path_list)
+
+
+.. py:function:: write_winds(dir_path)
+
+
+.. py:function:: read_waves(path_list)
+
+
+.. py:function:: write_waves(dir_path)
+
+
+.. py:function:: read_currents_depth_avg(path_list)
+
+
+.. py:function:: write_currents_depth_avg(dir_path)
+
+
+.. py:function:: write_cfg(dir_path)
+
+
+.. py:function:: read_cfg(path)
+
+
+.. py:function:: write_run(dir_path)
+
+
+.. py:function:: read_run(path)
+
+
+.. py:function:: read_particles(path_list)
+
+
+.. py:function:: read_properties(path_list)
+
+
+.. py:function:: read_grids(path_list)
+
+

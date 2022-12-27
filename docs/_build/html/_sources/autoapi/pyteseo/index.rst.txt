@@ -1,0 +1,31 @@
+:py:mod:`pyteseo`
+=================
+
+.. py:module:: pyteseo
+
+.. autoapi-nested-parse::
+
+   Python library to centralize and standarize python modules to manage TESEO model
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   config/index.rst
+   export/index.rst
+   io/index.rst
+   plot/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   :annotation: = 0.0.1
+
+   
+
