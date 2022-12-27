@@ -11,7 +11,7 @@ pyTESEO is a Python package to setup [TESEO](https://ihcantabria.com/en/speciali
 :align: center
 ```
 ---
-PyTESEO is a Python package to help users to setup TESEO's simulations. The package includes a bunch of use case examples in jupyter notebook format under the folder `notebooks`. The group of submodules provided is located under the folder `pyteseo`.
+PyTESEO is a Python package developed to help users to setup TESEO's simulations. The package includes a bunch of use case examples in jupyter notebook format under the folder `notebooks`. The group of submodules provided is located under the folder `pyteseo`.
 
 1. `io.py` - Bunch of functions to read and write all the necesary files for a TESEO simulation.
 2. `config.py` - Bunch of functions to obtain configuration variables to write TESEO's configuration files (*.cfg and *.run)
