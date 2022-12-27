@@ -212,7 +212,7 @@
 <p>pyTESEO is a Python package to setup <a class="reference external" href="https://ihcantabria.com/en/specialized-software/teseo/">TESEO</a>, lagrangian model developed by <a class="reference external" href="https://ihcantabria.com/en/">IHCantabria</a></p>
 <a class="reference internal image-reference" href="_images/pyTESEO_logo.png"><img alt="_images/pyTESEO_logo.png" class="align-center" src="_images/pyTESEO_logo.png" style="width: 400px;" /></a>
 <hr class="docutils" />
-<p>PyTESEO is a Python package to help users to setup TESEO’s simulations. The package includes a bunch of use case examples in jupyter notebook format under the folder <code class="docutils literal notranslate"><span class="pre">notebooks</span></code>. The group of submodules provided is located under the folder <code class="docutils literal notranslate"><span class="pre">pyteseo</span></code>.</p>
+<p>PyTESEO is a python package developed to help users to setup TESEO’s simulations. The package includes a bunch of use case examples in jupyter notebook format under the folder <code class="docutils literal notranslate"><span class="pre">notebooks</span></code>. The group of submodules provided is located under the folder <code class="docutils literal notranslate"><span class="pre">pyteseo</span></code>.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">io.py</span></code> - Bunch of functions to read and write all the necesary files for a TESEO simulation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">config.py</span></code> - Bunch of functions to obtain configuration variables to write TESEO’s configuration files (*.cfg and *.run)</p></li>
@@ -221,7 +221,8 @@
 </ol>
 <hr class="docutils" />
 <a class="reference internal image-reference" href="_images/TESEO_logo.png"><img alt="_images/TESEO_logo.png" class="align-right" src="_images/TESEO_logo.png" style="width: 300px;" /></a>
-<p>TESEO is a lagrangian numerical model developed by IHCantabria. The model allows to calculate trajectories of particles based on metocean conditions like ocean currents, winds and waves and also includes wethering submodels to evaluate the degradation and physical characteristics of oil and hns substances. The soruce code of the model is located in this <a class="reference external" href="https://github.com/IHCantabria/TESEO">github repository</a></p>
+<p>TESEO is a lagrangian numerical model developed by IHCantabria. The model allows to calculate trajectories of particles based on metocean conditions like ocean currents, winds and waves. It also includes weathering submodels to evaluate the degradation and physical characteristics of oil and hns substances. Implementation of a marine litter submodel is under development!</p>
+<p>The soruce code of the model is located in this <a class="reference external" href="https://github.com/IHCantabria/TESEO">github repository</a></p>
 <hr class="docutils" />
 <section id="get-started">
 <h2>Get started<a class="headerlink" href="#get-started" title="Permalink to this heading"></a></h2>
@@ -249,14 +250,14 @@
 <p>TESEO model uses a grid of the computational domain where the depth of the water cells are defined as positive values. As default land values are defined as -999. To write this file you can use the function <a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_grid" title="pyteseo.io.write_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyteseo.io.write_grid()</span></code></a>. Also you can use the function <a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_grid" title="pyteseo.io.read_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyteseo.io.read_grid()</span></code></a> to read this file and load it into a pandas DataFrame.</p>
 <p>TESEO domain files can be ploted using <a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_grid" title="pyteseo.plot.plot_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyteseo.plot.plot_grid()</span></code></a> and <a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_coastline" title="pyteseo.plot.plot_coastline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyteseo.plot.plot_coastline()</span></code></a>.</p>
 </section>
-<section id="create-forcings-files">
-<h3>Create forcings files<a class="headerlink" href="#create-forcings-files" title="Permalink to this heading"></a></h3>
+<section id="create-forcing-files">
+<h3>Create forcing files<a class="headerlink" href="#create-forcing-files" title="Permalink to this heading"></a></h3>
 </section>
-<section id="obtain-forcing-configuration-variables">
-<h3>Obtain forcing configuration variables<a class="headerlink" href="#obtain-forcing-configuration-variables" title="Permalink to this heading"></a></h3>
+<section id="get-forcing-configuration-variables">
+<h3>Get forcing configuration variables<a class="headerlink" href="#get-forcing-configuration-variables" title="Permalink to this heading"></a></h3>
+</section>
 <section id="create-configuration-files">
-<h4>Create Configuration files<a class="headerlink" href="#create-configuration-files" title="Permalink to this heading"></a></h4>
-</section>
+<h3>Create Configuration files<a class="headerlink" href="#create-configuration-files" title="Permalink to this heading"></a></h3>
 </section>
 <section id="export-reults-to-standard-formats">
 <h3>Export reults to standard formats<a class="headerlink" href="#export-reults-to-standard-formats" title="Permalink to this heading"></a></h3>
@@ -461,11 +462,9 @@
 </li>
 <li><a class="reference internal" href="#user-guide">User Guide</a><ul>
 <li><a class="reference internal" href="#create-domain-files">Create domain files</a></li>
-<li><a class="reference internal" href="#create-forcings-files">Create forcings files</a></li>
-<li><a class="reference internal" href="#obtain-forcing-configuration-variables">Obtain forcing configuration variables</a><ul>
+<li><a class="reference internal" href="#create-forcing-files">Create forcing files</a></li>
+<li><a class="reference internal" href="#get-forcing-configuration-variables">Get forcing configuration variables</a></li>
 <li><a class="reference internal" href="#create-configuration-files">Create Configuration files</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#export-reults-to-standard-formats">Export reults to standard formats</a></li>
 </ul>
 </li>

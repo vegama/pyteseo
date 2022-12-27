@@ -11,7 +11,7 @@ pyTESEO is a Python package to setup [TESEO](https://ihcantabria.com/en/speciali
 :align: center
 ```
 ---
-PyTESEO is a Python package to help users to setup TESEO's simulations. The package includes a bunch of use case examples in jupyter notebook format under the folder `notebooks`. The group of submodules provided is located under the folder `pyteseo`.
+PyTESEO is a python package developed to help users to setup TESEO's simulations. The package includes a bunch of use case examples in jupyter notebook format under the folder `notebooks`. The group of submodules provided is located under the folder `pyteseo`.
 
 1. `io.py` - Bunch of functions to read and write all the necesary files for a TESEO simulation.
 2. `config.py` - Bunch of functions to obtain configuration variables to write TESEO's configuration files (*.cfg and *.run)
@@ -22,7 +22,9 @@ PyTESEO is a Python package to help users to setup TESEO's simulations. The pack
 :width: 300px
 :align: right
 ```
-TESEO is a lagrangian numerical model developed by IHCantabria. The model allows to calculate trajectories of particles based on metocean conditions like ocean currents, winds and waves and also includes wethering submodels to evaluate the degradation and physical characteristics of oil and hns substances. The soruce code of the model is located in this [github repository](https://github.com/IHCantabria/TESEO)
+TESEO is a lagrangian numerical model developed by IHCantabria. The model allows to calculate trajectories of particles based on metocean conditions like ocean currents, winds and waves. It also includes weathering submodels to evaluate the degradation and physical characteristics of oil and hns substances. Implementation of a marine litter submodel is under development!
+
+The soruce code of the model is located in this [github repository](https://github.com/IHCantabria/TESEO)
 
 ---
 ## Get started
@@ -50,11 +52,11 @@ TESEO model uses a grid of the computational domain where the depth of the water
 
 TESEO domain files can be ploted using {py:func}`pyteseo.plot.plot_grid` and {py:func}`pyteseo.plot.plot_coastline`.
 
-### Create forcings files
+### Create forcing files
 
-### Obtain forcing configuration variables
+### Get forcing configuration variables
 
-#### Create Configuration files
+### Create Configuration files
 
 ### Export reults to standard formats
 Bla bla bla

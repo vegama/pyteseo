@@ -52,11 +52,11 @@ TESEO model uses a grid of the computational domain where the depth of the water
 
 TESEO domain files can be ploted using {py:func}`pyteseo.plot.plot_grid` and {py:func}`pyteseo.plot.plot_coastline`.
 
-### Create forcings files
+### Create forcing files
 
-### Obtain forcing configuration variables
+### Get forcing configuration variables
 
-#### Create Configuration files
+### Create Configuration files
 
 ### Export reults to standard formats
 Bla bla bla
