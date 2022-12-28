@@ -136,8 +136,11 @@ def test_write_coastline(error):
     else:
         write_coastline(df=df, path=output_path)
         newdf = read_coastline(path=output_path)
+        
         output_path.unlink()
         output_path.parent.rmdir()
 
         assert all(newdf.get(["lon", "lat"]) == df.get(["lon", "lat"]))
     
+    if tmp_path.exists():
+        tmp_path.rmdir()
