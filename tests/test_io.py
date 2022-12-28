@@ -24,12 +24,9 @@ def test_read_grid(file, error):
     if error == "not_exist":
         with pytest.raises(FileNotFoundError) as err:
             df = read_grid(path, nan_value=-9999)
-            print(err.value)
-
     elif error == "bad_format":
         with pytest.raises(ValueError) as err:
             df = read_grid(path, nan_value=-9999)
-            print(err.value)
     else:
         df = read_grid(path, nan_value=-9999)
         assert isinstance(df, pd.DataFrame)
@@ -52,19 +49,16 @@ def test_write_grid(error):
         df["var"] = 123
         with pytest.raises(ValueError) as err:
             write_grid(df=df, path=output_path, nan_value=-999)
-            print(err.value)
 
     elif error == "df_varnames":
         df = df.rename(columns={"lon": "longitude"})
         with pytest.raises(ValueError) as err:
             write_grid(df=df, path=output_path, nan_value=-999)
-            print(err.value)
 
     elif error == "lonlat_range":
         df["lon"][0] = 360
         with pytest.raises(ValueError) as err:
             write_grid(df=df, path=output_path, nan_value=-999)
-            print(err.value)
 
     elif error == "sorting":
         df["lat"][0] == 90
@@ -89,8 +83,30 @@ def test_write_grid(error):
         )
 
 
-def test_read_coastline():
-    assert True
+@pytest.mark.parametrize(
+    "file, error",
+    [
+        ("coastline.dat", None),
+        ("not_existent_file.dat", "not_exist"),
+        ("grid_badformat3.dat", "bad_format"),
+    ],
+)
+def test_read_coastline(file, error):
+
+    path = Path(base_path, file)
+    
+    if error == "not_exist":
+        with pytest.raises(FileNotFoundError) as err:
+            df = read_coastline(path)
+            print(err.value)
+    elif error == "bad_format":
+        with pytest.raises(ValueError) as err:
+            df = read_coastline(path)
+            print(err.value)
+    else:
+        df = read_coastline(path)
+        assert isinstance(df, pd.DataFrame)
+        assert not df.empty
 
 
 def test_write_coastline():

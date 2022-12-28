@@ -5,6 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "pyteseo"
 authors = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
+mantainers = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
 readme = "README.md"
 requires-python = "3.10"
 classifiers = ["Topic :: Scientific/Engineering", "Programming Language :: Python"]
@@ -30,4 +31,5 @@ dev = ["pytest", "sphinx", "black", "flit"]
 
 [project.urls]
 Home = "https://github.com/IHCantabria/pyteseo"
+Documentation = "https://ihcantabria.github.io/pyteseo"
 

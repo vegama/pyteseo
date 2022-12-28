@@ -49,7 +49,7 @@ Functions
    :param nan_value: value to set nans. Defaults to -999.
    :type nan_value: float | int, optional
 
-   :returns: _description_
+   :returns: DataFrame with TESEO's grid data [lon, lat, depth]
    :rtype: pd.DataFrame
 
 
@@ -65,7 +65,15 @@ Functions
    :type nan_value: int | float, optional
 
 
-.. py:function:: read_coastline(path)
+.. py:function:: read_coastline(path: str | PosixPath) -> pandas.DataFrame
+
+   Read TESEO coastline-file and load it in a pandas DataFrame
+
+   :param path: path to the coastline-file
+   :type path: str | PosixPath
+
+   :returns: DataFrame with TESEO's coastline data [lon, lat]
+   :rtype: pd.DataFrame
 
 
 .. py:function:: write_coastline(dir_path)

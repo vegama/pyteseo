@@ -64,8 +64,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">USE CASES</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/01_create_domain.html">1. Create domain from GEBCO and GSHHS datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/02_create_forcings.html">2. Create forcings through CMEMS opendap service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/01_create_domain.html">1. Create domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/02_create_forcings.html">2. Create forcings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/03_floater_simulation.html">3. Floater simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/04_oil_simulation.html">4. Oil simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/05_hns_simulation.html">5. Hns simulation</a></li>
@@ -138,8 +138,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.write_grid" title="pyteseo.io.write_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_grid</span></code></a>(→ None)</p></td>
 <td><p>Write TESEO grid-file</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.read_coastline" title="pyteseo.io.read_coastline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_coastline</span></code></a>(path)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.read_coastline" title="pyteseo.io.read_coastline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_coastline</span></code></a>(→ pandas.DataFrame)</p></td>
+<td><p>Read TESEO coastline-file and load it in a pandas DataFrame</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.write_coastline" title="pyteseo.io.write_coastline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_coastline</span></code></a>(dir_path)</p></td>
 <td><p></p></td>
@@ -203,7 +203,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>_description_</p>
+<dd class="field-even"><p>DataFrame with TESEO’s grid data [lon, lat, depth]</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pd.DataFrame</p>
@@ -228,8 +228,20 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyteseo.io.read_coastline">
-<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_coastline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyteseo.io.read_coastline" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_coastline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PosixPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#pyteseo.io.read_coastline" title="Permalink to this definition"></a></dt>
+<dd><p>Read TESEO coastline-file and load it in a pandas DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em><em> | </em><em>PosixPath</em>) – path to the coastline-file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame with TESEO’s coastline data [lon, lat]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyteseo.io.write_coastline">

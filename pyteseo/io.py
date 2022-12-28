@@ -13,18 +13,19 @@ def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFr
         nan_value (float | int, optional): value to set nans. Defaults to -999.
 
     Returns:
-        pd.DataFrame: _description_
+        pd.DataFrame: DataFrame with TESEO's grid data [lon, lat, depth]
     """
 
     df = pd.read_csv(
-        path, names=["lon", "lat", "depth"], delimiter="\s+", na_values=nan_value
+        path, delimiter="\s+", na_values=nan_value, header=None
     )
 
     if df.shape[1] != 3:
         raise ValueError(
             "TESEO grid-file should contains lon, lat and depth values only!"
         )
-
+    
+    df.columns=["lon", "lat", "depth"]
     if (
         df.lon.max() >= 180
         or df.lon.min() <= -180
@@ -88,9 +89,22 @@ def write_grid(
     df.to_csv(path, sep="\t", na_rep=nan_value, header=False, index=False)
 
 
-def read_coastline(path):
-    print("doing something...")
-    # return df
+def read_coastline(path: str|PosixPath) -> pd.DataFrame:
+    """Read TESEO coastline-file and load it in a pandas DataFrame
+
+    Args:
+        path (str | PosixPath): path to the coastline-file
+
+    Returns:
+        pd.DataFrame: DataFrame with TESEO's coastline data [lon, lat]
+    """       
+    df = pd.read_csv(path, delimiter="\s+", header=None)
+    if df.shape[1] != 2:
+        raise ValueError(
+            "TESEO coastline-file should contains lon, lat values only!"
+        )
+    df.names=["lon", "lat"]
+    return df
 
 
 def write_coastline(dir_path):
