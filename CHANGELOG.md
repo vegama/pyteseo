@@ -8,6 +8,7 @@
 4) Testing using pytest
 5) Initial documentation using sphynx, myst_parser, autoapi...
 6) Logo images for TESEO and pyTESEO
+7) First CHANGELOG
 ### Changed:
 1) None
 ### Fixed:
