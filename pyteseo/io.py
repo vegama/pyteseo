@@ -114,7 +114,13 @@ def write_grid(
     df.to_csv(path, sep="\t", na_rep=nan_value, header=False, index=False)
 
 
-def write_coastline(df, path) -> None:
+def write_coastline(df: pd.DataFrame, path:PosixPath) -> None:
+
+    def _write_polygons(df:pd.DataFrame, dir_path:PosixPath) -> None:
+        
+        # TODO - separar en df's entre nans y escribir polygonos
+        pass
+
 
     if "lon" not in df.keys().values or "lat" not in df.keys().values:
         raise ValueError("variable names in DataFrame should be 'lon' and 'lat'!")
@@ -132,9 +138,9 @@ def write_coastline(df, path) -> None:
             "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
         )
 
-    # TODO - Separar en diferentes df's entre Nan's y escribir poligonos
-
     df.to_csv(path, sep="\t", header=False, index=False, na_rep="NaN")
+    _write_polygons(df, path.parent)
+
 
 
 # 2. FORCINGS
