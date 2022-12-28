@@ -10,7 +10,7 @@ This can be done also from a conda environment, but always using pip.
 $ pip install git+ssh://git@github.com/IHCantabria/pyteseo
 ```
 
-## Overview
+## Structure
 1. {py:mod}`pyteseo.io` - Bunch of functions to read and write all the necesary files for a TESEO simulation.
 2. {py:mod}`pyteseo.config` - Bunch of functions to obtain configuration variables to write TESEO's configuration files (*.cfg and *.run)
 3. {py:mod}`pyteseo.plot` - Bunch of functions to plot default figures of all the results calculated by TESEO model

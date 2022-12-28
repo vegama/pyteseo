@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyTESEO &mdash; pyTESEO v0.0.1</title>
@@ -15,9 +15,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -107,27 +105,35 @@
     text-align: unset;
 }
 </style>
-<div class="admonition error">
-<p class="admonition-title">Error</p>
-<p>This project is under heavy development. Documentation is also under construction!</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This project is currently under heavy development.
+Stable version of this package will be released as soon as posible!</p>
 </div>
-<section id="pyteseo">
-<h1>pyTESEO<a class="headerlink" href="#pyteseo" title="Permalink to this heading"></a></h1>
-<p>pyTESEO is a Python package to setup <a class="reference external" href="https://ihcantabria.com/en/specialized-software/teseo/">TESEO</a>, lagrangian model developed by <a class="reference external" href="https://ihcantabria.com/en/">IHCantabria</a></p>
-<a class="reference internal image-reference" href="_images/pyTESEO_logo.png"><img alt="_images/pyTESEO_logo.png" class="align-center" src="_images/pyTESEO_logo.png" style="width: 400px;" /></a>
 <hr class="docutils" />
+<section id="pyteseo">
+<h1>pyTESEO<a class="headerlink" href="#pyteseo" title="Permalink to this headline"></a></h1>
+<p><strong>pyTESEO</strong> is a python package developed at <a class="reference external" href="https://ihcantabria.com/en/">IHCantabria</a> to simplify and facilitate the setup of <a class="reference external" href="https://ihcantabria.com/en/specialized-software/teseo/">TESEO</a> simulations <em>(TESEO is a lagrangian numerical model also developed at IHCantabria.)</em> The soruce code of this package is located at <a class="reference external" href="https://github.com/IHCantabria/pyteseo">https://github.com/IHCantabria/pyteseo</a>.</p>
+<a class="reference internal image-reference" href="_images/pyTESEO_logo.png"><img alt="_images/pyTESEO_logo.png" class="align-center" src="_images/pyTESEO_logo.png" style="width: 500px;" /></a>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
 <p>PyTESEO is a python package developed to help users to setup TESEO’s simulations. The package includes a bunch of use case examples in jupyter notebook format under the folder <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> and a bunch of python functions grouped by submodules under the folder <a class="reference internal" href="autoapi/pyteseo/index.html#module-pyteseo" title="pyteseo"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo</span></code></a>. The package uses mainly numpy, pandas, matplotlib and xarray packages to manage and plot data. Based on these functions, the user can read and write all the necessary files to run a TESEO simulation, plot default figures of the results and export results to standard formats as CSV, JSON, netCDF, GeoJSON…</p>
 <hr class="docutils" />
-<a class="reference internal image-reference" href="_images/TESEO_logo.png"><img alt="_images/TESEO_logo.png" class="align-right" src="_images/TESEO_logo.png" style="width: 300px;" /></a>
-<p>TESEO is a lagrangian numerical model developed by IHCantabria. The model allows to calculate trajectories of particles based on metocean conditions like ocean currents, winds and waves. It also includes weathering submodels to evaluate the degradation and physical characteristics of oil and hns substances. Implementation of a marine litter submodel is under development!</p>
-<p>The soruce code of the model is located in this <a class="reference external" href="https://github.com/IHCantabria/TESEO">github repository</a></p>
+<a class="reference external image-reference" href="https://ihcantabria.com/en/specialized-software/teseo"><img alt="_images/TESEO_logo.png" class="align-left" src="_images/TESEO_logo.png" style="width: 300px;" /></a>
+<p>TESEO is a lagrangian numerical model developed by IHCantabria. The model allows to calculate trajectories of particles based on metocean conditions like ocean currents, winds and waves. It also includes weathering submodels to evaluate the degradation and physical characteristics of oil, hns substances and marine litter.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Marine litter submodel is currently under development!</p>
+</div>
+<p>The soruce code of the model is located at <a class="reference external" href="https://github.com/IHCantabria/TESEO">https://github.com/IHCantabria/TESEO</a>.</p>
 <hr class="docutils" />
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">CONTENTS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="get-started.html">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="get-started.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get-started.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-started.html#structure">Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-started.html#use-cases">Use Cases</a></li>
 </ul>
 </li>
@@ -154,14 +160,6 @@
 <li class="toctree-l4"><a class="reference internal" href="autoapi/pyteseo/config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.config</span></code></a><ul>
 <li class="toctree-l5"><a class="reference internal" href="autoapi/pyteseo/config/index.html#module-contents">Module Contents</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="autoapi/pyteseo/config/index.html#functions">Functions</a><ul>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.floater_release"><code class="docutils literal notranslate"><span class="pre">floater_release()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.oil_release"><code class="docutils literal notranslate"><span class="pre">oil_release()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.hns_release"><code class="docutils literal notranslate"><span class="pre">hns_release()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.forcings"><code class="docutils literal notranslate"><span class="pre">forcings()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.domain"><code class="docutils literal notranslate"><span class="pre">domain()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.environment"><code class="docutils literal notranslate"><span class="pre">environment()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.calibration_coef"><code class="docutils literal notranslate"><span class="pre">calibration_coef()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.simulation_type"><code class="docutils literal notranslate"><span class="pre">simulation_type()</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.floater_release">floater_release</a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.oil_release">oil_release</a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/config/index.html#pyteseo.config.hns_release">hns_release</a></li>
@@ -179,15 +177,6 @@
 <li class="toctree-l4"><a class="reference internal" href="autoapi/pyteseo/export/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.export</span></code></a><ul>
 <li class="toctree-l5"><a class="reference internal" href="autoapi/pyteseo/export/index.html#module-contents">Module Contents</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="autoapi/pyteseo/export/index.html#functions">Functions</a><ul>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.particles_to_csv"><code class="docutils literal notranslate"><span class="pre">particles_to_csv()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.particles_to_json"><code class="docutils literal notranslate"><span class="pre">particles_to_json()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.particles_to_geojson"><code class="docutils literal notranslate"><span class="pre">particles_to_geojson()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.properties_to_csv"><code class="docutils literal notranslate"><span class="pre">properties_to_csv()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.properties_to_json"><code class="docutils literal notranslate"><span class="pre">properties_to_json()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.grids_to_xarray"><code class="docutils literal notranslate"><span class="pre">grids_to_xarray()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.grids_to_netcdf"><code class="docutils literal notranslate"><span class="pre">grids_to_netcdf()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.grids_to_csv"><code class="docutils literal notranslate"><span class="pre">grids_to_csv()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.grids_to_json"><code class="docutils literal notranslate"><span class="pre">grids_to_json()</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.particles_to_csv">particles_to_csv</a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.particles_to_json">particles_to_json</a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/export/index.html#pyteseo.export.particles_to_geojson">particles_to_geojson</a></li>
@@ -206,25 +195,6 @@
 <li class="toctree-l4"><a class="reference internal" href="autoapi/pyteseo/io/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.io</span></code></a><ul>
 <li class="toctree-l5"><a class="reference internal" href="autoapi/pyteseo/io/index.html#module-contents">Module Contents</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="autoapi/pyteseo/io/index.html#functions">Functions</a><ul>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_grid"><code class="docutils literal notranslate"><span class="pre">read_grid()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_grid"><code class="docutils literal notranslate"><span class="pre">write_grid()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_coastline"><code class="docutils literal notranslate"><span class="pre">read_coastline()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_coastline"><code class="docutils literal notranslate"><span class="pre">write_coastline()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_currents"><code class="docutils literal notranslate"><span class="pre">read_currents()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_currents"><code class="docutils literal notranslate"><span class="pre">write_currents()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_winds"><code class="docutils literal notranslate"><span class="pre">read_winds()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_winds"><code class="docutils literal notranslate"><span class="pre">write_winds()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_waves"><code class="docutils literal notranslate"><span class="pre">read_waves()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_waves"><code class="docutils literal notranslate"><span class="pre">write_waves()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_currents_depth_avg"><code class="docutils literal notranslate"><span class="pre">read_currents_depth_avg()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_currents_depth_avg"><code class="docutils literal notranslate"><span class="pre">write_currents_depth_avg()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_cfg"><code class="docutils literal notranslate"><span class="pre">write_cfg()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_cfg"><code class="docutils literal notranslate"><span class="pre">read_cfg()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_run"><code class="docutils literal notranslate"><span class="pre">write_run()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_run"><code class="docutils literal notranslate"><span class="pre">read_run()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_particles"><code class="docutils literal notranslate"><span class="pre">read_particles()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_properties"><code class="docutils literal notranslate"><span class="pre">read_properties()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_grids"><code class="docutils literal notranslate"><span class="pre">read_grids()</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_grid">read_grid</a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.write_grid">write_grid</a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/io/index.html#pyteseo.io.read_coastline">read_coastline</a></li>
@@ -253,14 +223,6 @@
 <li class="toctree-l4"><a class="reference internal" href="autoapi/pyteseo/plot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.plot</span></code></a><ul>
 <li class="toctree-l5"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#module-contents">Module Contents</a><ul>
 <li class="toctree-l6"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#functions">Functions</a><ul>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_grid"><code class="docutils literal notranslate"><span class="pre">plot_grid()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_coastline"><code class="docutils literal notranslate"><span class="pre">plot_coastline()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_currents"><code class="docutils literal notranslate"><span class="pre">plot_currents()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_winds"><code class="docutils literal notranslate"><span class="pre">plot_winds()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_waves"><code class="docutils literal notranslate"><span class="pre">plot_waves()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_particles"><code class="docutils literal notranslate"><span class="pre">plot_particles()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_properties"><code class="docutils literal notranslate"><span class="pre">plot_properties()</span></code></a></li>
-<li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_grids"><code class="docutils literal notranslate"><span class="pre">plot_grids()</span></code></a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_grid">plot_grid</a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_coastline">plot_coastline</a></li>
 <li class="toctree-l7"><a class="reference internal" href="autoapi/pyteseo/plot/index.html#pyteseo.plot.plot_currents">plot_currents</a></li>
@@ -278,7 +240,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="autoapi/pyteseo/index.html#package-contents">Package Contents</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="autoapi/pyteseo/index.html#pyteseo.__version__"><code class="docutils literal notranslate"><span class="pre">__version__</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="autoapi/pyteseo/index.html#pyteseo.__version__">__version__</a></li>
 </ul>
 </li>
@@ -300,6 +261,7 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/07_stochastic_kmeans.html">7. Kmeans clustering methodology</a></li>
 </ul>
 </div>
+</section>
 </section>
 
 

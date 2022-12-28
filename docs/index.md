@@ -1,26 +1,36 @@
 
-```{error}
-This project is under heavy development. Documentation is also under construction!
+```{warning}
+This project is currently under heavy development. 
+Stable version of this package will be released as soon as posible!
 
 ```
+---
 
 # pyTESEO
-pyTESEO is a Python package to setup [TESEO](https://ihcantabria.com/en/specialized-software/teseo/), lagrangian model developed by [IHCantabria](https://ihcantabria.com/en/)
+
+**pyTESEO** is a python package developed at [IHCantabria](https://ihcantabria.com/en/) to simplify and facilitate the setup of [TESEO](https://ihcantabria.com/en/specialized-software/teseo/) simulations *(TESEO is a lagrangian numerical model also developed at IHCantabria.)* The soruce code of this package is located at [https://github.com/IHCantabria/pyteseo](https://github.com/IHCantabria/pyteseo).
+
 ```{image} _static/pyTESEO_logo.png
-:width: 400px
+:width: 500px
 :align: center
 ```
 ---
+
+## Overview
 PyTESEO is a python package developed to help users to setup TESEO's simulations. The package includes a bunch of use case examples in jupyter notebook format under the folder `notebooks` and a bunch of python functions grouped by submodules under the folder {py:mod}`pyteseo`. The package uses mainly numpy, pandas, matplotlib and xarray packages to manage and plot data. Based on these functions, the user can read and write all the necessary files to run a TESEO simulation, plot default figures of the results and export results to standard formats as CSV, JSON, netCDF, GeoJSON...
 
 ---
 ```{image} _static/TESEO_logo.png
 :width: 300px
-:align: right
+:align: left
+:target: https://ihcantabria.com/en/specialized-software/teseo
 ```
-TESEO is a lagrangian numerical model developed by IHCantabria. The model allows to calculate trajectories of particles based on metocean conditions like ocean currents, winds and waves. It also includes weathering submodels to evaluate the degradation and physical characteristics of oil and hns substances. Implementation of a marine litter submodel is under development!
+TESEO is a lagrangian numerical model developed by IHCantabria. The model allows to calculate trajectories of particles based on metocean conditions like ocean currents, winds and waves. It also includes weathering submodels to evaluate the degradation and physical characteristics of oil, hns substances and marine litter. 
+```{important}
+Marine litter submodel is currently under development!
 
-The soruce code of the model is located in this [github repository](https://github.com/IHCantabria/TESEO)
+```
+The soruce code of the model is located at [https://github.com/IHCantabria/TESEO](https://github.com/IHCantabria/TESEO).
 
 ---
 
