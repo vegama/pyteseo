@@ -1,5 +1,5 @@
 
-```{warning}
+```{error}
 This project is currently under heavy development. 
 Stable version of this package will be released as soon as posible!
 
