@@ -2,7 +2,7 @@
 """
 
 import pandas as pd
-from pathlib import PosixPath
+from pathlib import Path, PosixPath
 
 # 1. DOMAIN
 def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFrame:
@@ -16,16 +16,14 @@ def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFr
         pd.DataFrame: DataFrame with TESEO's grid data [lon, lat, depth]
     """
 
-    df = pd.read_csv(
-        path, delimiter="\s+", na_values=nan_value, header=None
-    )
+    df = pd.read_csv(path, delimiter="\s+", na_values=nan_value, header=None)
 
     if df.shape[1] != 3:
         raise ValueError(
             "TESEO grid-file should contains lon, lat and depth values only!"
         )
-    
-    df.columns=["lon", "lat", "depth"]
+
+    df.columns = ["lon", "lat", "depth"]
     if (
         df.lon.max() >= 180
         or df.lon.min() <= -180
@@ -33,7 +31,7 @@ def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFr
         or df.lon.min() <= -90
     ):
         raise ValueError(
-            "lon and lat values in TESEO grid-file should be inside -180<=>180 and -90<=>90!"
+            "lon and lat values in TESEO grid-file should be inside ranges lon[-180,180] and lat[-90,90]!"
         )
 
     if not all(
@@ -41,6 +39,33 @@ def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFr
     ):
         raise ValueError(
             "lon and lat values in TESEO grid-file should be monotonic increasing!"
+        )
+
+    return df
+
+
+def read_coastline(path: str | PosixPath) -> pd.DataFrame:
+    """Read TESEO coastline-file and load it in a pandas DataFrame
+
+    Args:
+        path (str | PosixPath): path to the coastline-file
+
+    Returns:
+        pd.DataFrame: DataFrame with TESEO's coastline data [lon, lat]
+    """
+    df = pd.read_csv(path, delimiter="\s+", header=None)
+    if df.shape[1] != 2:
+        raise ValueError("TESEO coastline-file should contains lon, lat values only!")
+
+    df.columns = ["lon", "lat"]
+    if (
+        df.lon.max() >= 180
+        or df.lon.min() <= -180
+        or df.lat.max() >= 90
+        or df.lat.min() <= -90
+    ):
+        raise ValueError(
+            "lon and lat values in TESEO grid-file should be inside ranges lon[-180,180] and lat[-90,90]!"
         )
 
     return df
@@ -74,11 +99,11 @@ def write_grid(
     if (
         df.lon.max() >= 180
         or df.lon.min() <= -180
-        or df.lon.max() >= 90
-        or df.lon.min() <= -90
+        or df.lat.max() >= 90
+        or df.lat.min() <= -90
     ):
         raise ValueError(
-            "lon and lat values in DataFrame should be inside -180<=>180 and -90<=>90!"
+            "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
         )
 
     if not all(
@@ -89,26 +114,27 @@ def write_grid(
     df.to_csv(path, sep="\t", na_rep=nan_value, header=False, index=False)
 
 
-def read_coastline(path: str|PosixPath) -> pd.DataFrame:
-    """Read TESEO coastline-file and load it in a pandas DataFrame
+def write_coastline(df, path) -> None:
 
-    Args:
-        path (str | PosixPath): path to the coastline-file
+    if "lon" not in df.keys().values or "lat" not in df.keys().values:
+        raise ValueError("variable names in DataFrame should be 'lon' and 'lat'!")
 
-    Returns:
-        pd.DataFrame: DataFrame with TESEO's coastline data [lon, lat]
-    """       
-    df = pd.read_csv(path, delimiter="\s+", header=None)
     if df.shape[1] != 2:
+        raise ValueError("DataFrame should contains column variables lon and lat only!")
+
+    if (
+        df.lon.max() >= 180
+        or df.lon.min() <= -180
+        or df.lat.max() >= 90
+        or df.lat.min() <= -90
+    ):
         raise ValueError(
-            "TESEO coastline-file should contains lon, lat values only!"
+            "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
         )
-    df.names=["lon", "lat"]
-    return df
 
+    # TODO - Separar en diferentes df's entre Nan's y escribir poligonos
 
-def write_coastline(dir_path):
-    print("doing something...")
+    df.to_csv(path, sep="\t", header=False, index=False, na_rep="NaN")
 
 
 # 2. FORCINGS
