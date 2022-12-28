@@ -1,6 +1,6 @@
 
 <p align="center">
-<img align="center" width="600" src="img/pyTESEO_logo.png">
+<img align="center" width="600" src="docs/_static/pyTESEO_logo.png">
 </p>
 
 
@@ -61,6 +61,6 @@ Check [DEPLOY_REQUIREMENTS.md](https://github.com/IHCantabria/TESEO.Apiprocess/b
 --- -->
 
 ## :copyright: Credits
-Developed and maintained by :man_technologist: [German Aragon](https://ihcantabria.com/en/directorio-personal/investigador/german-aragon/) @ :office: [IHCantabria](https://github.com/IHCantabria).
+Developed and maintained by :man_technologist: [German Aragon](https://github.com/aragong) @ :office: [IHCantabria](https://github.com/IHCantabria).
 
 ---

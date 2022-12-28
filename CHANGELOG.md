@@ -1,4 +1,6 @@
-# v0.0.1 - 00/00/0000
+# CHANGELOG
+
+## v0.0.1 - 00/00/0000
 ### Added:
 1) Initial repository
 ### Changed:
