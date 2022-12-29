@@ -7,9 +7,9 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 from pyteseo.__init__ import __version__
 
-project = 'pyTESEO'
-copyright = '2022, Germán Aragón Caminero'
-author = 'Germán Aragón Caminero'
+project = "pyTESEO"
+copyright = "2022, Germán Aragón Caminero"
+author = "Germán Aragón Caminero"
 release = __version__
 
 # -- General configuration ---------------------------------------------------
@@ -22,27 +22,24 @@ extensions = [
     "autoapi.extension",
     "sphinx_rtd_theme",
     "nbsphinx",
-
 ]
-templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
+templates_path = ["_templates"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = "sphinx_rtd_theme"
 # html_theme = 'furo'
 # html_theme = 'sphinx_book_theme'
 
-html_static_path = ['_static']
+html_static_path = ["_static"]
 html_logo = "_static/pyTESEO_logo.png"
 html_title = project + " v" + release
 
 # -- Options for autoapi ext -------------------------------------------------
 
-autoapi_modules = {'pyteseo': None}
-autoapi_dirs = ['../pyteseo']
+autoapi_modules = {"pyteseo": None}
+autoapi_dirs = ["../pyteseo"]
 # autoapi_add_toctree_entry = False
-

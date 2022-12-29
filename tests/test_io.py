@@ -168,4 +168,3 @@ def test_write_coastline(error):
 
     if tmp_path.exists():
         rmtree(tmp_path)
-
