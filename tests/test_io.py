@@ -3,10 +3,11 @@ from pyteseo.io import (
     write_grid,
     read_coastline,
     write_coastline,
-    _split_df_between_nans,
+    _split_polygons,
 )
 import pandas as pd
 from pathlib import Path
+from shutil import rmtree
 import pytest
 
 base_path = Path("./data/mock")
@@ -143,24 +144,21 @@ def test_write_coastline(error):
         write_coastline(df=df, path=output_path)
         newdf = read_coastline(path=output_path)
 
-        output_path.unlink()
-        output_path.parent.rmdir()
-
         assert all(newdf.get(["lon", "lat"]) == df.get(["lon", "lat"]))
 
     if tmp_path.exists():
-        tmp_path.rmdir()
+        rmtree(tmp_path)
 
 
 @pytest.mark.parametrize(
     "filename", [("coastline.dat"), ("coastline_othernanformat.dat")]
 )
-def test_split_df_between_nans(filename):
+def test_split_polygons(filename):
 
     coastline_path = Path(base_path, filename)
     df = read_coastline(coastline_path)
 
-    polygons = _split_df_between_nans(df)
+    polygons = _split_polygons(df)
 
     assert isinstance(polygons, list)
     assert len(polygons) == 3

@@ -6,7 +6,7 @@ from pathlib import Path, PosixPath
 
 # 1. DOMAIN
 def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFrame:
-    """Read TESEO grid-file and load it in a pandas DataFrame
+    """Read TESEO grid-file to pandas DataFrame
 
     Args:
         path (str | PosixPath): path to the grid-file
@@ -44,8 +44,9 @@ def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFr
     return df
 
 
+# FIXME - Improve i/o coastline logic by setting "polygon" and "point" indexes
 def read_coastline(path: str | PosixPath) -> pd.DataFrame:
-    """Read TESEO coastline-file and load it in a pandas DataFrame
+    """Read TESEO coastline-file to pandas DataFrame
 
     Args:
         path (str | PosixPath): path to the coastline-file
@@ -78,7 +79,7 @@ def write_grid(
 
     Args:
         df (pd.DataFrame): DataFrame with columns 'lon', 'lat', 'depth' (lon:[-180,180], lat:[-90,90])
-        path (str | PosixPath): path of the new grid-file
+        path (str | PosixPath): path to the new grid-file
         nan_value (int | float, optional): define how will be writted nan values in the grid-file. Defaults to -999.
     """
 
@@ -114,32 +115,31 @@ def write_grid(
     df.to_csv(path, sep="\t", na_rep=nan_value, header=False, index=False)
 
 
-
-def _split_df_between_nans(df:pd.DataFrame) -> list[pd.DataFrame]:
-    """Split DataFrame between nan values and return a list of new DataFrames
+def _split_polygons(df: pd.DataFrame) -> list[pd.DataFrame]:
+    """Split DataFrame between nan values
 
     Args:
         df (pd.DataFrame): input DataFrame with nans
 
     Returns:
         list: ouput splitted DataFrames without nan values
-    """    
-    splitted_dfs=[]
+    """
+    splitted_dfs = []
     previous_i = count = 0
     n_nans = len(df[df.isna().any(axis=1)])
-    
+
     for i in df[df.isna().any(axis=1)].index.values:
         count += 1
-        if i==0:
+        if i == 0:
             continue
-            
+
         if i == df.iloc[[-1]].index.values:
             break
         elif count == n_nans:
             splitted_dfs.append(df.iloc[previous_i:])
         else:
             splitted_dfs.append(df.iloc[previous_i:i])
-            previous_i=i
+            previous_i = i
 
     if splitted_dfs[0].equals(df):
         print("WARNING - There is nothing to split in this DataFrame!")
@@ -147,22 +147,31 @@ def _split_df_between_nans(df:pd.DataFrame) -> list[pd.DataFrame]:
     return splitted_dfs
 
 
+# FIXME - Improve i/o coastline logic by setting "polygon" and "point" indexes
+def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
+    """Write TESEO's coastline and coastal polygons files
 
-def write_coastline(df: pd.DataFrame, path: PosixPath) -> None:
+    Args:
+        df (pd.DataFrame): DataFrame with columns 'lon', 'lat' and polygons separated by nan lines (lon:[-180,180], lat:[-90,90])
+        path (str | PosixPath): path to the new coastline-file
+    """
 
+    def _write_polygons(
+        df: pd.DataFrame, dir_path: str | PosixPath, filename: str = "coastline_polygon"
+    ) -> None:
+        """Write polygons from a coastline DataFrame
 
-    
-    def _write_polygons(df: pd.DataFrame, dir_path: PosixPath, filename="coastline_polygon") -> None:
-
-        # TODO - escribir archivos de polygonos
-
-        polygons = _split_df_between_nans(df)
+        Args:
+            df (pd.DataFrame): input coastline DataFrame
+            dir_path (str | PosixPath): directory where polygon files will be created
+            filename (str, optional): filename for polygon-files (numbering and extension will be added). Defaults to "coastline_polygon".
+        """    
+        polygons = _split_polygons(df)
         del df
 
         for i, df in enumerate(polygons):
-            path_polygon = Path(dir_path, f"{filename}_{i:03d}.dat")
+            path_polygon = Path(dir_path, f"{filename}_{i+1:03d}.dat")
             df.to_csv(path_polygon, sep="\t", header=False, index=False, na_rep="NaN")
-
 
     if "lon" not in df.keys().values or "lat" not in df.keys().values:
         raise ValueError("variable names in DataFrame should be 'lon' and 'lat'!")

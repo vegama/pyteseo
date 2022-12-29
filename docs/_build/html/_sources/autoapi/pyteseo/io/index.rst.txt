@@ -19,8 +19,9 @@ Functions
 .. autoapisummary::
 
    pyteseo.io.read_grid
-   pyteseo.io.write_grid
    pyteseo.io.read_coastline
+   pyteseo.io.write_grid
+   pyteseo.io._split_polygons
    pyteseo.io.write_coastline
    pyteseo.io.read_currents
    pyteseo.io.write_currents
@@ -42,7 +43,7 @@ Functions
 
 .. py:function:: read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pandas.DataFrame
 
-   Read TESEO grid-file and load it in a pandas DataFrame
+   Read TESEO grid-file to pandas DataFrame
 
    :param path: path to the grid-file
    :type path: str | PosixPath
@@ -53,21 +54,9 @@ Functions
    :rtype: pd.DataFrame
 
 
-.. py:function:: write_grid(df: pandas.DataFrame, path: str | PosixPath, nan_value: int | float = -999) -> None
-
-   Write TESEO grid-file
-
-   :param df: DataFrame with columns 'lon', 'lat', 'depth' (lon:[-180,180], lat:[-90,90])
-   :type df: pd.DataFrame
-   :param path: path of the new grid-file
-   :type path: str | PosixPath
-   :param nan_value: define how will be writted nan values in the grid-file. Defaults to -999.
-   :type nan_value: int | float, optional
-
-
 .. py:function:: read_coastline(path: str | PosixPath) -> pandas.DataFrame
 
-   Read TESEO coastline-file and load it in a pandas DataFrame
+   Read TESEO coastline-file to pandas DataFrame
 
    :param path: path to the coastline-file
    :type path: str | PosixPath
@@ -76,7 +65,37 @@ Functions
    :rtype: pd.DataFrame
 
 
-.. py:function:: write_coastline(dir_path)
+.. py:function:: write_grid(df: pandas.DataFrame, path: str | PosixPath, nan_value: int | float = -999) -> None
+
+   Write TESEO grid-file
+
+   :param df: DataFrame with columns 'lon', 'lat', 'depth' (lon:[-180,180], lat:[-90,90])
+   :type df: pd.DataFrame
+   :param path: path to the new grid-file
+   :type path: str | PosixPath
+   :param nan_value: define how will be writted nan values in the grid-file. Defaults to -999.
+   :type nan_value: int | float, optional
+
+
+.. py:function:: _split_polygons(df: pandas.DataFrame) -> list[pandas.DataFrame]
+
+   Split DataFrame between nan values
+
+   :param df: input DataFrame with nans
+   :type df: pd.DataFrame
+
+   :returns: ouput splitted DataFrames without nan values
+   :rtype: list
+
+
+.. py:function:: write_coastline(df: pandas.DataFrame, path: str | PosixPath) -> None
+
+   Write TESEO's coastline and coastal polygons files
+
+   :param df: DataFrame with columns 'lon', 'lat' and polygons separated by nan lines (lon:[-180,180], lat:[-90,90])
+   :type df: pd.DataFrame
+   :param path: path to the new coastline-file
+   :type path: str | PosixPath
 
 
 .. py:function:: read_currents(path_list)
