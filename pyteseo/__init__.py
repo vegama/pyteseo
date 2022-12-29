@@ -2,6 +2,21 @@
 """
 __version__= "0.0.1"
 
-from tests.__init__ import tests, coverage
+import subprocess
 
+def test():
+    """run all available tests
+    """    
+    subprocess.run(["coverage", "run"])
+
+
+def coverage():
+    """run all available tests
+    """    
+    subprocess.run(["coverage", "report"])
+
+def coverage_html():
+    """run all available tests
+    """    
+    subprocess.run(["coverage", "html"])
 

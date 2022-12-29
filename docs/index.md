@@ -14,6 +14,7 @@ Stable version of this package will be released as soon as posible!
 :width: 500px
 :align: center
 ```
+
 ---
 
 ## Overview
@@ -52,4 +53,6 @@ autoapi/index.rst
 
 notebooks/*
 ```
+---
 
+<!-- [*TEST COVERAGE REPORT*](http://localhost:8001/) -->

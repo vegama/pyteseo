@@ -24,8 +24,46 @@ Submodules
 Package Contents
 ----------------
 
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyteseo.test
+   pyteseo.coverage
+   pyteseo.coverage_html
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyteseo.__version__
+
+
 .. py:data:: __version__
    :annotation: = 0.0.1
 
    
+
+.. py:function:: test()
+
+   run all available tests
+
+
+
+.. py:function:: coverage()
+
+   run all available tests
+
+
+
+.. py:function:: coverage_html()
+
+   run all available tests
+
+
 
