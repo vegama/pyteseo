@@ -55,14 +55,16 @@ conda install -c conda-forge pyteseo
 ---
 
 ## :heavy_check_mark: Testing
-Tests are located at `tests/` folder and use data located at `data/mock/` folder. Tests have been developed for [pytest](https://docs.pytest.org/)
+The function `run_all_tests` allows you to verify your package installation:
 
-```bash
-# For running test so far, you can clone the repo and run pytest from repositry root directory, like:
-$ pytest
-
-# TODO - Add coverage functionalities
+```python
+import pyteseo
+pyteseo.run_all_tests()
 ```
+
+
+Additionally, tests are located at `tests/` folder and use data located at `data/mock/` folder.
+Tests have been developed using [pytest](https://docs.pytest.org/).
 
 ---
 
