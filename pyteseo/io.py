@@ -1,8 +1,11 @@
 """Input and Output functionality for specific TESEO file formats
 """
+# NOTE - Restricts the loading when from "pyteseo.io import *"" to the names defined here but it are loaded in pytest.CHECK BEHAVIOUR
+__all__ = ["read_grid", "read_coastline", "write_grid", "write_coastline"]
 
 import pandas as pd
 from pathlib import Path, PosixPath
+
 
 # 1. DOMAIN
 def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
