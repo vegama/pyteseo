@@ -36,6 +36,7 @@ The soruce code of the model is located at [https://github.com/IHCantabria/TESEO
 
 ```{toctree}
 :caption: CONTENTS
+:maxdepth: 3
 
 get-started.md
 user-guide.md
