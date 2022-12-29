@@ -2,8 +2,8 @@
 
 ## v0.0.2 - xx/xx/xxx
 ### Added:
-1) 
-2) 
+1) coverage functionality
+2) tools configuration in pyproject.toml
 3) 
 4) 
 5) 
