@@ -32,17 +32,16 @@ pip install .
 ```
 
 
-* :warning: **UNDER CONSTRUCTION** :construction: - Installation from github repository using pip:
+* :warning: `UNDER CONSTRUCTION` :construction: - Installation from github repository using pip:
 ```bash
 pip install pyteseo
 ```
-* :warning: **UNDER CONSTRUCTION** :construction: - Install from conda-forge repositories:
+* :warning: `UNDER CONSTRUCTION` :construction: - Install from conda-forge repositories:
 ```bash
 conda install -c conda-forge pyteseo 
 ```
 
 ---
-
 
 ## :recycle: Continuous integration (CI)
 
