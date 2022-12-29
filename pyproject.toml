@@ -33,3 +33,9 @@ dev = ["pytest", "sphinx", "black", "flit"]
 Home = "https://github.com/IHCantabria/pyteseo"
 Documentation = "https://ihcantabria.github.io/pyteseo"
 
+
+[tool.pytest.ini_options]
+addopts = "-v --disable-warnings"
+testpaths = [
+    "tests",
+]
