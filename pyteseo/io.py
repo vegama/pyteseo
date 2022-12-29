@@ -150,7 +150,7 @@ def write_grid(
     ):
         df = df.sort_values(["lon", "lat"])
 
-    df.to_csv(path, sep="\t", na_rep=nan_value, header=False, index=False)
+    df.to_csv(path, sep="\t", na_rep=nan_value, header=False, index=False, float_format="%.8e")
 
 
 def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
@@ -175,7 +175,7 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
 
         for polygon, group in grouped:
             path_polygon = Path(dir_path, f"{filename}_{polygon:03d}.dat")
-            group.to_csv(path_polygon, sep="\t", header=False, index=False, na_rep="NaN")
+            group.to_csv(path_polygon, sep="\t", header=False, index=False, float_format="%.8e", na_rep="NaN")
 
     if "lon" not in df.keys().values or "lat" not in df.keys().values:
         raise ValueError("variable names in DataFrame should be 'lon' and 'lat'!")
@@ -193,7 +193,7 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
             "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
         )
 
-    df.to_csv(path, sep="\t", header=False, index=False, na_rep="NaN")
+    df.to_csv(path, sep="\t", header=False, index=False, float_format="%.8e", na_rep="NaN")
     _write_polygons(df, path.parent)
 
 
