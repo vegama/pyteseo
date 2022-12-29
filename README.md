@@ -41,9 +41,7 @@ pip install pyteseo
 
 ## :heavy_check_mark: Testing
 Tests are located at ```tests/``` folder and use data located at ```data/mock/``` folder.
-```warning
-    A way to allow user's to run the tests is under developed
-```
+`A way to allow user's to run the tests is under developed`
 ```bash
 # Unzip data for testing stored in "data.zip" in "tests/" folder
 7z x tests/data.zip -otests/ 
