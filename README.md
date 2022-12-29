@@ -67,7 +67,6 @@ $ pytest
 
 ---
 
-
 ## :copyright: Credits
 Developed and maintained by :man_technologist: [German Aragon](https://github.com/aragong) @ :office: [IHCantabria](https://github.com/IHCantabria).
 
