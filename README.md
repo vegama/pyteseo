@@ -40,7 +40,10 @@ pip install pyteseo
 ---
 
 ## :heavy_check_mark: Testing
-* To run tests manually:
+Tests are located at ```tests/``` folder and use data located at ```data/mock/``` folder.
+```warning
+    A way to allow user's to run the tests is under developed
+```
 ```bash
 # Unzip data for testing stored in "data.zip" in "tests/" folder
 7z x tests/data.zip -otests/ 
@@ -55,9 +58,6 @@ coverage-badge -o coverage.svg -f
 ```
 ---
 
-<!-- ## :rocket: Package deployment
-Check [DEPLOY_REQUIREMENTS.md](https://github.com/IHCantabria/TESEO.Apiprocess/blob/main/DEPLOY_REQUIREMENTS.md) for a full detailed explanation. 
---- -->
 
 ## :copyright: Credits
 Developed and maintained by :man_technologist: [German Aragon](https://github.com/aragong) @ :office: [IHCantabria](https://github.com/IHCantabria).
