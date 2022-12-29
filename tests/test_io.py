@@ -89,6 +89,21 @@ def test_write_grid(error):
 
 
 @pytest.mark.parametrize(
+    "filename", [("coastline.dat"), ("coastline_othernanformat.dat")]
+)
+def test_split_polygons(filename):
+
+    coastline_path = Path(base_path, filename)
+    df = pd.read_csv(coastline_path, delimiter="\s+", header=None)
+
+    coastline_df = _split_polygons(df)
+
+    assert isinstance(coastline_df, pd.DataFrame)
+    assert coastline_df.index.unique(0).values.max() == 3
+    assert not coastline_df.empty
+
+
+@pytest.mark.parametrize(
     "file, error",
     [
         ("coastline.dat", None),
@@ -109,8 +124,13 @@ def test_read_coastline(file, error):
             df = read_coastline(path)
     else:
         df = read_coastline(path)
+
         assert isinstance(df, pd.DataFrame)
         assert not df.empty
+        assert "lon" in df.columns
+        assert "lat" in df.columns
+        assert "polygon" in df.index.names
+        assert "point" in df.index.names
 
 
 @pytest.mark.parametrize(
@@ -149,20 +169,3 @@ def test_write_coastline(error):
     if tmp_path.exists():
         rmtree(tmp_path)
 
-
-@pytest.mark.parametrize(
-    "filename", [("coastline.dat"), ("coastline_othernanformat.dat")]
-)
-def test_split_polygons(filename):
-
-    coastline_path = Path(base_path, filename)
-    df = read_coastline(coastline_path)
-
-    polygons = _split_polygons(df)
-
-    assert isinstance(polygons, list)
-    assert len(polygons) == 3
-
-    for item in polygons:
-        assert isinstance(item, pd.DataFrame)
-        assert len(item.index) != 0
