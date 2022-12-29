@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## v0.0.2 - xx/xx/xxx
+### Added:
+1) 
+2) 
+3) 
+4) 
+5) 
+6) 
+7) 
+### Changed:
+1) Upgrade logic for coastlines
+### Fixed:
+1) None
+<br/><br/>
+
+
 ## v0.0.1 - 29/12/2022
 ### Added:
 1) Init repository using flit
