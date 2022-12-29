@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v0.0.1 - 28/12/2022
+## v0.0.1 - 29/12/2022
 ### Added:
 1) Init repository using flit
 2) Initial structure of the package
