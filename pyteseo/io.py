@@ -5,14 +5,14 @@ import pandas as pd
 from pathlib import Path, PosixPath
 
 # 1. DOMAIN
-def _split_polygons(df: pd.DataFrame) -> list[pd.DataFrame]:
+def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
     """Split DataFrame between nan values
 
     Args:
         df (pd.DataFrame): input DataFrame with nans
 
     Returns:
-        list: ouput splitted DataFrames without nan values
+        pd.DataFrame: DataFrame with polygon and point number as indexes 
     """
     splitted_dfs = []
     previous_i = count = 0
@@ -153,7 +153,6 @@ def write_grid(
     df.to_csv(path, sep="\t", na_rep=nan_value, header=False, index=False)
 
 
-# FIXME - Improve i/o coastline logic by setting "polygon" and "point" indexes
 def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
     """Write TESEO's coastline and coastal polygons files
 

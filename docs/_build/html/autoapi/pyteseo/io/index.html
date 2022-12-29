@@ -134,17 +134,17 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.read_grid" title="pyteseo.io.read_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_grid</span></code></a>(→ pandas.DataFrame)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io._split_polygons" title="pyteseo.io._split_polygons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_split_polygons</span></code></a>(→ pandas.DataFrame)</p></td>
+<td><p>Split DataFrame between nan values</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.read_grid" title="pyteseo.io.read_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_grid</span></code></a>(→ pandas.DataFrame)</p></td>
 <td><p>Read TESEO grid-file to pandas DataFrame</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.read_coastline" title="pyteseo.io.read_coastline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_coastline</span></code></a>(→ pandas.DataFrame)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.read_coastline" title="pyteseo.io.read_coastline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_coastline</span></code></a>(→ pandas.DataFrame)</p></td>
 <td><p>Read TESEO coastline-file to pandas DataFrame</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.write_grid" title="pyteseo.io.write_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_grid</span></code></a>(→ None)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.write_grid" title="pyteseo.io.write_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_grid</span></code></a>(→ None)</p></td>
 <td><p>Write TESEO grid-file</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io._split_polygons" title="pyteseo.io._split_polygons"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_split_polygons</span></code></a>(→ list[pandas.DataFrame])</p></td>
-<td><p>Split DataFrame between nan values</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.write_coastline" title="pyteseo.io.write_coastline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_coastline</span></code></a>(→ None)</p></td>
 <td><p>Write TESEO's coastline and coastal polygons files</p></td>
@@ -197,6 +197,23 @@
 </tbody>
 </table>
 <dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io._split_polygons">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">_split_polygons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#pyteseo.io._split_polygons" title="Permalink to this definition"></a></dt>
+<dd><p>Split DataFrame between nan values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – input DataFrame with nans</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>DataFrame with polygon and point number as indexes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyteseo.io.read_grid">
 <span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PosixPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-</span> <span class="pre">999</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#pyteseo.io.read_grid" title="Permalink to this definition"></a></dt>
 <dd><p>Read TESEO grid-file to pandas DataFrame</p>
@@ -244,23 +261,6 @@
 <li><p><strong>path</strong> (<em>str</em><em> | </em><em>PosixPath</em>) – path to the new grid-file</p></li>
 <li><p><strong>nan_value</strong> (<em>int</em><em> | </em><em>float</em><em>, </em><em>optional</em>) – define how will be writted nan values in the grid-file. Defaults to -999.</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyteseo.io._split_polygons">
-<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">_split_polygons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyteseo.io._split_polygons" title="Permalink to this definition"></a></dt>
-<dd><p>Split DataFrame between nan values</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – input DataFrame with nans</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>ouput splitted DataFrames without nan values</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>

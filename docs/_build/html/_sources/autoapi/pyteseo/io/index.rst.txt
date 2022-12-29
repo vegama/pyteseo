@@ -18,10 +18,10 @@ Functions
 
 .. autoapisummary::
 
+   pyteseo.io._split_polygons
    pyteseo.io.read_grid
    pyteseo.io.read_coastline
    pyteseo.io.write_grid
-   pyteseo.io._split_polygons
    pyteseo.io.write_coastline
    pyteseo.io.read_currents
    pyteseo.io.write_currents
@@ -39,6 +39,17 @@ Functions
    pyteseo.io.read_properties
    pyteseo.io.read_grids
 
+
+
+.. py:function:: _split_polygons(df: pandas.DataFrame) -> pandas.DataFrame
+
+   Split DataFrame between nan values
+
+   :param df: input DataFrame with nans
+   :type df: pd.DataFrame
+
+   :returns: DataFrame with polygon and point number as indexes
+   :rtype: pd.DataFrame
 
 
 .. py:function:: read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pandas.DataFrame
@@ -75,17 +86,6 @@ Functions
    :type path: str | PosixPath
    :param nan_value: define how will be writted nan values in the grid-file. Defaults to -999.
    :type nan_value: int | float, optional
-
-
-.. py:function:: _split_polygons(df: pandas.DataFrame) -> list[pandas.DataFrame]
-
-   Split DataFrame between nan values
-
-   :param df: input DataFrame with nans
-   :type df: pd.DataFrame
-
-   :returns: ouput splitted DataFrames without nan values
-   :rtype: list
 
 
 .. py:function:: write_coastline(df: pandas.DataFrame, path: str | PosixPath) -> None
