@@ -17,7 +17,7 @@ dependencies:
   - sphinx
   - myst-parser
   - myst-nb
-  - furo
   - sphinx-autoapi
+  - furo
   - sphinx_rtd_theme
   
