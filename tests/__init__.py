@@ -1,6 +1,12 @@
 import subprocess
 
-def run_all_tests():
+def tests():
     """run all available tests
     """    
-    subprocess.run("pytest")
+    subprocess.run(["coverage", "run"])
+
+
+def coverage():
+    """run all available tests
+    """    
+    subprocess.run(["coverage", "report"])

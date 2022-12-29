@@ -54,18 +54,26 @@ conda install -c conda-forge pyteseo
 
 ---
 
-## :heavy_check_mark: Testing
-The function `run_all_tests` allows you to verify your package installation:
+## :heavy_check_mark: Testing & Covergae
+Run tests to verify your package installation:
 
 ```python
 import pyteseo
-pyteseo.run_all_tests()
-```
+pyteseo.tests()
 
+# CLI: pytest pyteseo" or "coverage run -m pytest pyteseo" to update '.coverage'
+```
 
 Additionally, tests are located at `tests/` folder and use data located at `data/mock/` folder.
 Tests have been developed using [pytest](https://docs.pytest.org/).
 
+To see coverage report:
+```python
+import pyteseo
+pyteseo.coverage()
+
+# CLI: "coverage report"
+```
 ---
 
 ## :copyright: Credits

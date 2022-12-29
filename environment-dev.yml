@@ -12,6 +12,7 @@ dependencies:
   - matplotlib
   - geojson
   - pytest
+  - coverage
   - flit
   - black
   - sphinx

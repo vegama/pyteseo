@@ -24,9 +24,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest"]
-doc = ["sphinx"]
-dev = ["pytest", "sphinx", "black", "flit"]
+test = ["pytest", "coverage"]
+doc = ["sphinx", "myst-parser", "myst-nb", "sphinx-autoapi", "furo", "sphinx_rtd_theme"]
+dev = ["flit", "black", "pytest", "coverage[toml]", "sphinx", "myst-parser", "myst-nb", "sphinx-autoapi", "furo", "sphinx_rtd_theme"]
 
 
 [project.urls]
@@ -39,3 +39,6 @@ addopts = "-v --disable-warnings"
 testpaths = [
     "tests",
 ]
+
+[tool.coverage.run]
+command_line = "-m pytest"
