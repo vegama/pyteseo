@@ -114,12 +114,54 @@ def write_grid(
     df.to_csv(path, sep="\t", na_rep=nan_value, header=False, index=False)
 
 
-def write_coastline(df: pd.DataFrame, path:PosixPath) -> None:
 
-    def _write_polygons(df:pd.DataFrame, dir_path:PosixPath) -> None:
-        
-        # TODO - separar en df's entre nans y escribir polygonos
-        pass
+def _split_df_between_nans(df:pd.DataFrame) -> list[pd.DataFrame]:
+    """Split DataFrame between nan values and return a list of new DataFrames
+
+    Args:
+        df (pd.DataFrame): input DataFrame with nans
+
+    Returns:
+        list: ouput splitted DataFrames without nan values
+    """    
+    splitted_dfs=[]
+    previous_i = count = 0
+    n_nans = len(df[df.isna().any(axis=1)])
+    
+    for i in df[df.isna().any(axis=1)].index.values:
+        count += 1
+        if i==0:
+            continue
+            
+        if i == df.iloc[[-1]].index.values:
+            break
+        elif count == n_nans:
+            splitted_dfs.append(df.iloc[previous_i:])
+        else:
+            splitted_dfs.append(df.iloc[previous_i:i])
+            previous_i=i
+
+    if splitted_dfs[0].equals(df):
+        print("WARNING - There is nothing to split in this DataFrame!")
+
+    return splitted_dfs
+
+
+
+def write_coastline(df: pd.DataFrame, path: PosixPath) -> None:
+
+
+    
+    def _write_polygons(df: pd.DataFrame, dir_path: PosixPath, filename="coastline_polygon") -> None:
+
+        # TODO - escribir archivos de polygonos
+
+        polygons = _split_df_between_nans(df)
+        del df
+
+        for i, df in enumerate(polygons):
+            path_polygon = Path(dir_path, f"{filename}_{i:03d}.dat")
+            df.to_csv(path_polygon, sep="\t", header=False, index=False, na_rep="NaN")
 
 
     if "lon" not in df.keys().values or "lat" not in df.keys().values:
@@ -140,7 +182,6 @@ def write_coastline(df: pd.DataFrame, path:PosixPath) -> None:
 
     df.to_csv(path, sep="\t", header=False, index=False, na_rep="NaN")
     _write_polygons(df, path.parent)
-
 
 
 # 2. FORCINGS

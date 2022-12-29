@@ -1,4 +1,10 @@
-from pyteseo.io import read_grid, write_grid, read_coastline, write_coastline
+from pyteseo.io import (
+    read_grid,
+    write_grid,
+    read_coastline,
+    write_coastline,
+    _split_df_between_nans,
+)
 import pandas as pd
 from pathlib import Path
 import pytest
@@ -93,7 +99,7 @@ def test_write_grid(error):
 def test_read_coastline(file, error):
 
     path = Path(base_path, file)
-    
+
     if error == "not_exist":
         with pytest.raises(FileNotFoundError):
             df = read_coastline(path)
@@ -132,15 +138,33 @@ def test_write_coastline(error):
         df["lon"][0] = 360
         with pytest.raises(ValueError):
             write_coastline(df=df, path=output_path)
-    
+
     else:
         write_coastline(df=df, path=output_path)
         newdf = read_coastline(path=output_path)
-        
+
         output_path.unlink()
         output_path.parent.rmdir()
 
         assert all(newdf.get(["lon", "lat"]) == df.get(["lon", "lat"]))
-    
+
     if tmp_path.exists():
         tmp_path.rmdir()
+
+
+@pytest.mark.parametrize(
+    "filename", [("coastline.dat"), ("coastline_othernanformat.dat")]
+)
+def test_split_df_between_nans(filename):
+
+    coastline_path = Path(base_path, filename)
+    df = read_coastline(coastline_path)
+
+    polygons = _split_df_between_nans(df)
+
+    assert isinstance(polygons, list)
+    assert len(polygons) == 3
+
+    for item in polygons:
+        assert isinstance(item, pd.DataFrame)
+        assert len(item.index) != 0
