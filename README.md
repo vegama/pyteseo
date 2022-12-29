@@ -17,43 +17,55 @@ Examples of the use of each functionality is provided through a set of notebooks
 ---
 
 ## :house: Local installation
-Installation from github repository using pip:
+
+* Install from pypi repositories as any other dependecy:
 ```bash
-pip install git+https://github.com/IHCantabria/pytest
+pip install git+https://github.com/IHCantabria/pyteseo
 ```
-Install from conda-forge repositories:
+* Clone repository and install with pip from repository root directory:
+```bash
+git clone git+https://github.com/IHCantabria/pyteseo
+
+cd pyteseo
+
+pip install .
+```
+
+
+* :warning: **UNDER CONSTRUCTION** :construction: - Installation from github repository using pip:
+```bash
+pip install pyteseo
+```
+* :warning: **UNDER CONSTRUCTION** :construction: - Install from conda-forge repositories:
 ```bash
 conda install -c conda-forge pyteseo 
 ```
 
-Install from pypi repositories:
-```bash
-pip install pyteseo
-```
 ---
 
 
 ## :recycle: Continuous integration (CI)
-* Pre-commit with **black formatter** hook on `commit`. ([.pre-commit-config.yaml](https://github.com/IHCantabria/TESEO.Apiprocess/blob/main/.pre-commit-config.yaml))
-* Github workflow with conda based **deployment** and **testing** on `tag`. ([Github action](https://github.com/IHCantabria/TESEO.Apiprocess/blob/main/.github/workflows/main.yml))
-* Test and update coverage badge **manually** through vscode [task](https://github.com/IHCantabria/TESEO.Apiprocess/blob/main/.vscode/tasks.json): `run test and coverage`
+
+:warning: `THINK AND REBUILD!` (If able use precommit and github actions when push tags)
+* pass format -> Balck
+* pass linter
+* pass tests -> pytest
+* make documentation -> sphinx
+
+*For all the SO, and python versions required!*
+
 ---
 
 ## :heavy_check_mark: Testing
-Tests are located at ```tests/``` folder and use data located at ```data/mock/``` folder.
-`A way to allow user's to run the tests is under developed`
-```bash
-# Unzip data for testing stored in "data.zip" in "tests/" folder
-7z x tests/data.zip -otests/ 
+Tests are located at `tests/` folder and use data located at `data/mock/` folder. Tests have been developed for [pytest](https://docs.pytest.org/)
 
-# Run pytests from console
-pytest
-```
-* **Update coverage badge manually** through vscode task `run test and coverage` or running:
 ```bash
-pytest --cov=./
-coverage-badge -o coverage.svg -f
+# For running test so far, you can clone the repo and run pytest from repositry root directory, like:
+$ pytest
+
+# TODO - Add coverage functionalities
 ```
+
 ---
 
 
