@@ -211,10 +211,39 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
 
 
 # 2. FORCINGS
-def read_currents(path_list):
-    print("doing something...")
-    # return df
+def read_currents(path):
+    
+    with open(path, "r") as f:
+        files =  [Path(path.parent, line.rstrip()) for line in f]
 
+    df_list = []
+    
+    for file in files:
+        df = pd.read_csv(file, delimiter="\s+", header=None)
+
+        if df.shape[1] != 4:
+            raise ValueError("DataFrame should contains column variables lon, lat, u, and v only!")
+
+        df.columns = ["lon", "lat", "u", "v"]
+
+        if (
+            df.lon.max() >= 180
+            or df.lon.min() <= -180
+            or df.lat.max() >= 90
+            or df.lat.min() <= -90
+        ):
+            raise ValueError(
+                "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
+            )
+        
+        df["time"] = float(file.stem[-4:-1])
+        df_list.append(df)
+
+    n_rows = list(set([len(df.index) for df in df_list]))
+    if len(n_rows) != 1:
+        raise ValueError("Number of lines in each file are not equal!")
+    
+    return pd.concat(df_list), len(files), n_rows[0]
 
 def write_currents(dir_path):
     print("doing something...")

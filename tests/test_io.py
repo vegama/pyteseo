@@ -181,8 +181,10 @@ def test_write_coastline(error):
 
 def test_read_currents():
     
-    pattern = "currents_*.txt"
-    path = Path.glob("data/mock/", pattern)
-    df = read_currents(path)
+    pattern = "lstcurr_UVW.pre"
+    path = Path("data/mock/", pattern)
+    df, n_files, n_grid_nodes = read_currents(path)
     
     assert isinstance(df, pd.DataFrame)
+    assert n_files == 4
+    assert n_grid_nodes == 2629710
