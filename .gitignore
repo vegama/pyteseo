@@ -7,7 +7,7 @@ ENV/
 env.bak/
 venv.bak/
 htmlcov/
-
+data/mock
 
 
 # Files
