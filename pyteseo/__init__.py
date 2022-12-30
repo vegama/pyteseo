@@ -2,8 +2,10 @@
 """
 __version__ = "0.0.1"
 
-import subprocess
 
+#  ---------------------------------------------
+# NOTE - Think about move thid to cli_scripts.py
+import subprocess
 
 def test():
     """run all available tests"""
@@ -18,3 +20,4 @@ def coverage():
 def coverage_html():
     """run all available tests"""
     subprocess.run(["coverage", "html"])
+#  ---------------------------------------------

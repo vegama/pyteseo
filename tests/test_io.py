@@ -4,7 +4,15 @@ from pyteseo.io import (
     read_coastline,
     write_coastline,
     _split_polygons,
+    read_currents,
+    read_winds,
+    read_waves,
+    write_currents,
+    write_winds,
+    write_waves
 )
+
+
 import pandas as pd
 from pathlib import Path
 from shutil import rmtree
@@ -12,6 +20,7 @@ import pytest
 
 base_path = Path("./data/mock")
 tmp_path = Path("./tmp")
+# TODO - Put a @fixture to setup the base path
 
 
 @pytest.mark.parametrize(
@@ -168,3 +177,12 @@ def test_write_coastline(error):
 
     if tmp_path.exists():
         rmtree(tmp_path)
+
+
+def test_read_currents():
+    
+    pattern = "currents_*.txt"
+    path = Path.glob("data/mock/", pattern)
+    df = read_currents(path)
+    
+    assert isinstance(df, pd.DataFrame)
