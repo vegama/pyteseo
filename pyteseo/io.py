@@ -297,43 +297,39 @@ def write_waves(dir_path):
     print("doing something...")
 
 
-def read_currents_depth_avg(path_list):
-    print("doing something...")
-    # return df
+# def read_currents_depth_avg(path_list):
+#     print("doing something...")
 
 
-def write_currents_depth_avg(dir_path):
-    print("doing something...")
+# def write_currents_depth_avg(dir_path):
+#     print("doing something...")
 
 
-# 3. CONFIGURATION
-def write_cfg(dir_path):
-    print("doing something...")
+# # 3. CONFIGURATION
+# def write_cfg(dir_path):
+#     print("doing something...")
 
 
-def read_cfg(path):
-    print("doing something...")
+# def read_cfg(path):
+#     print("doing something...")
 
 
-def write_run(dir_path):
-    print("doing something...")
+# def write_run(dir_path):
+#     print("doing something...")
 
 
-def read_run(path):
-    print("doing something...")
+# def read_run(path):
+#     print("doing something...")
 
 
-# 4. RESULTS
-def read_particles(path_list):
-    print("doing something...")
-    # return df
+# # 4. RESULTS
+# def read_particles(path_list):
+#     print("doing something...")
 
 
-def read_properties(path_list):
-    print("doing something...")
-    # return df
+# def read_properties(path_list):
+#     print("doing something...")
 
 
-def read_grids(path_list):
-    print("doing something...")
-    # return df
+# def read_grids(path_list):
+#     print("doing something...")
