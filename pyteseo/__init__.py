@@ -19,5 +19,6 @@ def coverage():
 
 def coverage_html():
     """run all available tests"""
+    subprocess.run(["coverage", "report"])
     subprocess.run(["coverage", "html"])
 #  ---------------------------------------------
