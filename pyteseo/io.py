@@ -1,7 +1,19 @@
 """Input and Output functionality for specific TESEO file formats
 """
 # NOTE - Restricts the loading when from "pyteseo.io import *"" to the names defined here but it are loaded in pytest.CHECK BEHAVIOUR
-__all__ = ["read_grid", "read_coastline", "write_grid", "write_coastline"]
+# NOTE - Restricts what is documented by Sphinx (!!!)
+__all__ = [
+    "read_grid",
+    "read_coastline",
+    "write_grid",
+    "write_coastline",
+    "read_currents",
+    "read_winds",
+    "read_waves",
+    "write_currents",
+    "write_winds",
+    "write_waves"
+]
 
 from pathlib import Path, PosixPath
 from typing import Tuple
@@ -57,7 +69,7 @@ def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFr
         nan_value (float | int, optional): value to set nans. Defaults to -999.
 
     Returns:
-        pd.DataFrame: DataFrame with TESEO's grid data [lon, lat, depth]
+        pd.DataFrame: DataFrame with TESEO grid data [lon, lat, depth]
     """
 
     df = pd.read_csv(path, delimiter="\s+", na_values=nan_value, header=None)
@@ -94,7 +106,7 @@ def read_coastline(path: str | PosixPath) -> pd.DataFrame:
         path (str | PosixPath): path to the coastline-file
 
     Returns:
-        pd.DataFrame: DataFrame with TESEO's coastline data [lon, lat]
+        pd.DataFrame: DataFrame with TESEO coastline data [lon, lat]
     """
     df = pd.read_csv(path, delimiter="\s+", header=None)
     if df.shape[1] != 2:
@@ -160,7 +172,7 @@ def write_grid(
 
 
 def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
-    """Write TESEO's coastline and coastal polygons files
+    """Write TESEO coastline and polygons files
 
     Args:
         df (pd.DataFrame): DataFrame with columns 'lon', 'lat' and polygons separated by nan lines (lon:[-180,180], lat:[-90,90])
@@ -214,10 +226,10 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
 
 # 2. FORCINGS
 def read_currents(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
-    """Read TESEO's currents file based on lstcurr.pre file
+    """Read TESEO currents-files
 
     Args:
-        path (str | PosixPath): path to TESEO's lstcurr.pre file
+        path (str | PosixPath): path to TESEO lstcurr.pre file
 
     Returns:
         Tuple[pd.DataFrame, float, float]: DataFrame of currents, number of files (times), and number of nodes
@@ -257,22 +269,20 @@ def read_currents(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
     return pd.concat(df_list), len(files), n_rows[0]
 
 
-def write_currents(dir_path):
-    print("doing something...")
-
-
 def read_winds(path_list):
-    print("doing something...")
-    # return df
-
-
-def write_winds(dir_path):
     print("doing something...")
 
 
 def read_waves(path_list):
     print("doing something...")
-    # return df
+
+
+def write_currents(dir_path):
+    print("doing something...")
+
+
+def write_winds(dir_path):
+    print("doing something...")
 
 
 def write_waves(dir_path):

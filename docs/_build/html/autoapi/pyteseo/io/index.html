@@ -144,7 +144,25 @@
 <td><p>Write TESEO grid-file</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.write_coastline" title="pyteseo.io.write_coastline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_coastline</span></code></a>(→ None)</p></td>
-<td><p>Write TESEO's coastline and coastal polygons files</p></td>
+<td><p>Write TESEO coastline and coastal polygons files</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.read_currents" title="pyteseo.io.read_currents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_currents</span></code></a>(→ Tuple[pandas.DataFrame, float, float])</p></td>
+<td><p>Read TESEO currents file based on lstcurr.pre file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.read_winds" title="pyteseo.io.read_winds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_winds</span></code></a>(path_list)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.read_waves" title="pyteseo.io.read_waves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_waves</span></code></a>(path_list)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.write_currents" title="pyteseo.io.write_currents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_currents</span></code></a>(dir_path)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.write_winds" title="pyteseo.io.write_winds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_winds</span></code></a>(dir_path)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.write_waves" title="pyteseo.io.write_waves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_waves</span></code></a>(dir_path)</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -160,7 +178,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>DataFrame with TESEO’s grid data [lon, lat, depth]</p>
+<dd class="field-even"><p>DataFrame with TESEO grid data [lon, lat, depth]</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>pd.DataFrame</p>
@@ -177,7 +195,7 @@
 <dd class="field-odd"><p><strong>path</strong> (<em>str</em><em> | </em><em>PosixPath</em>) – path to the coastline-file</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>DataFrame with TESEO’s coastline data [lon, lat]</p>
+<dd class="field-even"><p>DataFrame with TESEO coastline data [lon, lat]</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>pd.DataFrame</p>
@@ -203,7 +221,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="pyteseo.io.write_coastline">
 <span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">write_coastline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PosixPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyteseo.io.write_coastline" title="Permalink to this definition"></a></dt>
-<dd><p>Write TESEO’s coastline and coastal polygons files</p>
+<dd><p>Write TESEO coastline and coastal polygons files</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -213,6 +231,48 @@
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.read_currents">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_currents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PosixPath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyteseo.io.read_currents" title="Permalink to this definition"></a></dt>
+<dd><p>Read TESEO currents file based on lstcurr.pre file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em><em> | </em><em>PosixPath</em>) – path to TESEO lstcurr.pre file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>DataFrame of currents, number of files (times), and number of nodes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[pd.DataFrame, float, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.read_winds">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_winds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyteseo.io.read_winds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.read_waves">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_waves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyteseo.io.read_waves" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.write_currents">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">write_currents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyteseo.io.write_currents" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.write_winds">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">write_winds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyteseo.io.write_winds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.write_waves">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">write_waves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyteseo.io.write_waves" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </section>
 </section>
