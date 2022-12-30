@@ -60,8 +60,10 @@ Run tests to verify your package installation:
 ```python
 import pyteseo
 pyteseo.test()
-
-# CLI: pytest pyteseo" or "coverage run -m pytest pyteseo" to update '.coverage'
+```
+or using bash Command Line Interface:
+```bash
+pyteseo-test
 ```
 
 Additionally, tests are located at `tests/` folder and use data located at `data/mock/` folder.
@@ -70,12 +72,15 @@ Tests have been developed using [pytest](https://docs.pytest.org/).
 To prompt or create html coverage report:
 ```python
 import pyteseo
-pyteseo.coverage()
-# CLI: "coverage report"
-
+pyteseo.coverage() # To assess coverage
 pyteseo.coverage_html() # To build HTML report in folder "htmlcov"
-# CLI: "coverage html"
 ```
+or using bash Command Line Interface:
+```bash
+pyteseo-coverage # To assess coverage
+pyteseo-coverage-html # To build HTML report in folder "htmlcov"
+```
+
 ---
 
 ## :copyright: Credits

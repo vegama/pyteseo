@@ -34,6 +34,12 @@ Home = "https://github.com/IHCantabria/pyteseo"
 Documentation = "https://ihcantabria.github.io/pyteseo"
 
 
+[project.scripts]
+pyteseo-test = "pyteseo.__init__:test"
+pyteseo-coverage = "pyteseo.__init__:coverage"
+pyteseo-coverage-html = "pyteseo.__init__:coverage_html"
+
+
 [tool.pytest.ini_options]
 addopts = "-v --disable-warnings"
 testpaths = [
