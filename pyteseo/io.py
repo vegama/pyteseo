@@ -3,8 +3,10 @@
 # NOTE - Restricts the loading when from "pyteseo.io import *"" to the names defined here but it are loaded in pytest.CHECK BEHAVIOUR
 __all__ = ["read_grid", "read_coastline", "write_grid", "write_coastline"]
 
-import pandas as pd
 from pathlib import Path, PosixPath
+from typing import Tuple
+
+import pandas as pd
 
 
 # 1. DOMAIN
@@ -211,18 +213,27 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
 
 
 # 2. FORCINGS
-def read_currents(path):
-    
+def read_currents(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
+    """Read TESEO's currents file based on lstcurr.pre file
+
+    Args:
+        path (str | PosixPath): path to TESEO's lstcurr.pre file
+
+    Returns:
+        Tuple[pd.DataFrame, float, float]: DataFrame of currents, number of files (times), and number of nodes
+    """
     with open(path, "r") as f:
-        files =  [Path(path.parent, line.rstrip()) for line in f]
+        files = [Path(path.parent, line.rstrip()) for line in f]
 
     df_list = []
-    
+
     for file in files:
         df = pd.read_csv(file, delimiter="\s+", header=None)
 
         if df.shape[1] != 4:
-            raise ValueError("DataFrame should contains column variables lon, lat, u, and v only!")
+            raise ValueError(
+                "DataFrame should contains column variables lon, lat, u, and v only!"
+            )
 
         df.columns = ["lon", "lat", "u", "v"]
 
@@ -235,15 +246,16 @@ def read_currents(path):
             raise ValueError(
                 "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
             )
-        
+
         df["time"] = float(file.stem[-4:-1])
         df_list.append(df)
 
     n_rows = list(set([len(df.index) for df in df_list]))
     if len(n_rows) != 1:
         raise ValueError("Number of lines in each file are not equal!")
-    
+
     return pd.concat(df_list), len(files), n_rows[0]
+
 
 def write_currents(dir_path):
     print("doing something...")
