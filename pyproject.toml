@@ -2,6 +2,7 @@
 requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
+
 [project]
 name = "pyteseo"
 authors = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
@@ -21,11 +22,12 @@ dependencies = [
     "ipykernel",
     "matplotlib",
     "geojson",
+    "pytest",
+    "coverage",
 ]
 
+
 [project.optional-dependencies]
-test = ["pytest", "coverage"]
-doc = ["sphinx", "myst-parser", "myst-nb", "sphinx-autoapi", "furo", "sphinx_rtd_theme"]
 dev = ["flit", "black", "pytest", "coverage[toml]", "sphinx", "myst-parser", "myst-nb", "sphinx-autoapi", "furo", "sphinx_rtd_theme"]
 
 
@@ -41,10 +43,8 @@ pyteseo-coverage-html = "pyteseo.__init__:coverage_html"
 
 
 [tool.pytest.ini_options]
-addopts = "-v --disable-warnings"
-testpaths = [
-    "tests",
-]
+addopts = "-v --durations=0 --durations-min=0.05"
+testpaths = ["tests"]
 
 [tool.coverage.run]
 command_line = "-m pytest"

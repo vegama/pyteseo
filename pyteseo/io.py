@@ -12,7 +12,7 @@ __all__ = [
     "read_waves",
     "write_currents",
     "write_winds",
-    "write_waves"
+    "write_waves",
 ]
 
 from pathlib import Path, PosixPath
@@ -53,8 +53,8 @@ def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
 
     new_polygons = []
     for i, polygon in enumerate(splitted_dfs):
-        polygon["polygon"] = i + 1
-        polygon["point"] = polygon.index
+        polygon.loc[:, ("polygon")] = i + 1
+        polygon.loc[:, ("point")] = polygon.index
         polygon = polygon.set_index(["polygon", "point"])
         new_polygons.append(polygon)
 
@@ -259,10 +259,18 @@ def read_currents(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
                 "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
             )
 
+        if not all(
+            df.get(["lon", "lat"]) == df.sort_values(["lon", "lat"]).get(["lon", "lat"])
+        ):
+            raise ValueError(
+                "lon and lat values in TESEO grid-file should be monotonic increasing!"
+            )
+
         df["time"] = float(file.stem[-4:-1])
         df_list.append(df)
 
     n_rows = list(set([len(df.index) for df in df_list]))
+
     if len(n_rows) != 1:
         raise ValueError("Number of lines in each file are not equal!")
 

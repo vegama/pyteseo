@@ -17,19 +17,13 @@ Examples of the use of each functionality is provided through a set of notebooks
 
 ## :house: Local installation
 
-* Install from pypi repositories as any other dependecy:
+* Install from github repositorie using `pip`:
 ```bash
 pip install git+https://github.com/IHCantabria/pyteseo
+# To install extra dev dependencies: pip install git+https://github.com/IHCantabria/pyteseo[dev]
+# Using editable mode: pip install -e git+https://github.com/IHCantabria/pyteseo[dev]
+
 ```
-* Clone repository and install with pip from repository root directory:
-```bash
-git clone git+https://github.com/IHCantabria/pyteseo
-
-cd pyteseo
-
-pip install .
-```
-
 
 * :warning: `UNDER CONSTRUCTION` :construction: - Installation from github repository using pip:
 ```bash
@@ -44,7 +38,7 @@ conda install -c conda-forge pyteseo
 
 ## :recycle: Continuous integration (CI)
 
-:warning: `THINK AND REBUILD!` (If able use precommit and github actions when push tags)
+:warning: `THINK AND DEVELOP!` (If able use precommit and github actions when push tags)
 * pass format -> Balck
 * pass linter
 * pass tests -> pytest
@@ -55,31 +49,19 @@ conda install -c conda-forge pyteseo
 ---
 
 ## :heavy_check_mark: Testing & Covergae
+Tests are located at `tests/` and data required for tests should be located in `data/mock/`.
+
 Run tests to verify your package installation:
-
-```python
-import pyteseo
-pyteseo.test()
-```
-or using bash Command Line Interface:
 ```bash
-pyteseo-test
+pyteseo-test            # Run tests and prompt pytest-report
 ```
-
-Additionally, tests are located at `tests/` folder and use data located at `data/mock/` folder.
+Also, you can run coverage assesment and generate html report:
+```bash
+pyteseo-coverage        # Run coverage and prompt coverage-report
+pyteseo-coverage-html   # Run coverage and bluid coverage-html-report
+```
 Tests have been developed using [pytest](https://docs.pytest.org/).
 
-To prompt or create html coverage report:
-```python
-import pyteseo
-pyteseo.coverage() # To assess coverage
-pyteseo.coverage_html() # To build HTML report in folder "htmlcov"
-```
-or using bash Command Line Interface:
-```bash
-pyteseo-coverage # To assess coverage
-pyteseo-coverage-html # To build HTML report in folder "htmlcov"
-```
 
 ---
 

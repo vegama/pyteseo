@@ -69,7 +69,7 @@ Functions
 
 .. py:function:: write_coastline(df: pandas.DataFrame, path: str | PosixPath) -> None
 
-   Write TESEO coastline and coastal polygons files
+   Write TESEO coastline and polygons files
 
    :param df: DataFrame with columns 'lon', 'lat' and polygons separated by nan lines (lon:[-180,180], lat:[-90,90])
    :type df: pd.DataFrame
@@ -79,7 +79,7 @@ Functions
 
 .. py:function:: read_currents(path: str | PosixPath) -> Tuple[pandas.DataFrame, float, float]
 
-   Read TESEO currents file based on lstcurr.pre file
+   Read TESEO currents-files
 
    :param path: path to TESEO lstcurr.pre file
    :type path: str | PosixPath

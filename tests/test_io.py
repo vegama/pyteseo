@@ -28,9 +28,9 @@ tmp_path = Path("./tmp")
     [
         ("grid.dat", None),
         ("not_existent_file.dat", "not_exist"),
-        ("grid_badformat1.dat", "bad_format"),
-        ("grid_badformat2.dat", "bad_format"),
-        ("grid_badformat3.dat", "bad_format"),
+        ("grid_error_sort.dat", "bad_format"),
+        ("grid_error_var.dat", "bad_format"),
+        ("grid_error_range.dat", "bad_format"),
     ],
 )
 def test_read_grid(file, error):
@@ -117,7 +117,7 @@ def test_split_polygons(filename):
     [
         ("coastline.dat", None),
         ("not_existent_file.dat", "not_exist"),
-        ("coastline_badformat.dat", "bad_format"),
+        ("coastline_error_range.dat", "bad_format"),
         ("grid.dat", "bad_format"),
     ],
 )
@@ -165,7 +165,7 @@ def test_write_coastline(error):
             write_coastline(df=df, path=output_path)
 
     elif error == "lonlat_range":
-        df["lon"][0] = 360
+        df.loc[:,("lon")].values[0] = 360
         with pytest.raises(ValueError):
             write_coastline(df=df, path=output_path)
 
@@ -179,12 +179,29 @@ def test_write_coastline(error):
         rmtree(tmp_path)
 
 
-def test_read_currents():
+@pytest.mark.parametrize(
+    "file, error",
+    [
+        ("lstcurr_UVW.pre", None),
+        ("lstcurr_UVW_not_exists.pre", "not_exist"),
+        ("lstcurr_UVW_sort.pre", "sort"),
+        ("lstcurr_UVW_range.pre", "range"),
+        ("lstcurr_UVW_var.pre", "var"),
+    ],
+)
+def test_read_currents(file, error):
     
-    pattern = "lstcurr_UVW.pre"
-    path = Path("data/mock/", pattern)
-    df, n_files, n_grid_nodes = read_currents(path)
+    path = Path(base_path, file)
+
+    if error == "not_exist":
+        with pytest.raises(FileNotFoundError):
+            df, n_files, n_grid_nodes = read_currents(path)
+    elif error in ["sort", "range","var"]:
+        with pytest.raises(ValueError):
+            df, n_files, n_grid_nodes = read_currents(path)
+    else:
+        df, n_files, n_grid_nodes = read_currents(path)
     
-    assert isinstance(df, pd.DataFrame)
-    assert n_files == 4
-    assert n_grid_nodes == 2629710
+        assert isinstance(df, pd.DataFrame)
+        assert n_files == 4
+        assert n_grid_nodes == 2629710
