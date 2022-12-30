@@ -18,38 +18,11 @@ Functions
 
 .. autoapisummary::
 
-   pyteseo.io._split_polygons
    pyteseo.io.read_grid
    pyteseo.io.read_coastline
    pyteseo.io.write_grid
    pyteseo.io.write_coastline
-   pyteseo.io.read_currents
-   pyteseo.io.write_currents
-   pyteseo.io.read_winds
-   pyteseo.io.write_winds
-   pyteseo.io.read_waves
-   pyteseo.io.write_waves
-   pyteseo.io.read_currents_depth_avg
-   pyteseo.io.write_currents_depth_avg
-   pyteseo.io.write_cfg
-   pyteseo.io.read_cfg
-   pyteseo.io.write_run
-   pyteseo.io.read_run
-   pyteseo.io.read_particles
-   pyteseo.io.read_properties
-   pyteseo.io.read_grids
 
-
-
-.. py:function:: _split_polygons(df: pandas.DataFrame) -> pandas.DataFrame
-
-   Split DataFrame between nan values
-
-   :param df: input DataFrame with nans
-   :type df: pd.DataFrame
-
-   :returns: DataFrame with polygon and point number as indexes
-   :rtype: pd.DataFrame
 
 
 .. py:function:: read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pandas.DataFrame
@@ -96,50 +69,5 @@ Functions
    :type df: pd.DataFrame
    :param path: path to the new coastline-file
    :type path: str | PosixPath
-
-
-.. py:function:: read_currents(path_list)
-
-
-.. py:function:: write_currents(dir_path)
-
-
-.. py:function:: read_winds(path_list)
-
-
-.. py:function:: write_winds(dir_path)
-
-
-.. py:function:: read_waves(path_list)
-
-
-.. py:function:: write_waves(dir_path)
-
-
-.. py:function:: read_currents_depth_avg(path_list)
-
-
-.. py:function:: write_currents_depth_avg(dir_path)
-
-
-.. py:function:: write_cfg(dir_path)
-
-
-.. py:function:: read_cfg(path)
-
-
-.. py:function:: write_run(dir_path)
-
-
-.. py:function:: read_run(path)
-
-
-.. py:function:: read_particles(path_list)
-
-
-.. py:function:: read_properties(path_list)
-
-
-.. py:function:: read_grids(path_list)
 
 

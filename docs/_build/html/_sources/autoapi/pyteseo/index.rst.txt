@@ -54,16 +54,13 @@ Attributes
    run all available tests
 
 
-
 .. py:function:: coverage()
 
    run all available tests
 
 
-
 .. py:function:: coverage_html()
 
    run all available tests
-
 
 
