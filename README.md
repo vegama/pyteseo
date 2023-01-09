@@ -67,13 +67,14 @@ Tests have been developed using [pytest](https://docs.pytest.org/).
 ## :recycle: Continuous integration and deployment (CI & CD)
 
 :warning: `THINK AND DEVELOP!` (If able use precommit and github actions when push tags)
-* pass format -> Balck
-* pass linter
-* pass tests -> pytest
-* make documentation -> sphinx
-* install and pass tests in different systems -> github-actions for tags?
+* deploy documentation on github page -> github action :heavy_check_mark:
+* pass format -> Balck :x:
+* pass linter -> ? :x:
+* pass tests -> pytest :x:
+* make documentation -> sphinx :x:
+* install and pass tests in different systems -> github actions :x:
 
-*For all the SO, and python versions required!*
+*For all the SO (Windows, Linux, Mac), and python versions (3.10) required!*
 
 ---
 
