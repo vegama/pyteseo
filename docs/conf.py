@@ -42,4 +42,5 @@ html_title = project + " v" + release
 
 autoapi_modules = {"pyteseo": None}
 autoapi_dirs = ["../pyteseo"]
+autoapi_ignore = ["../pyteseo/tests"]
 # autoapi_add_toctree_entry = False
