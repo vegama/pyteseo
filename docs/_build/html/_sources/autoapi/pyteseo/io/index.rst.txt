@@ -24,10 +24,8 @@ Functions
    pyteseo.io.write_coastline
    pyteseo.io.read_currents
    pyteseo.io.read_winds
-   pyteseo.io.read_waves
    pyteseo.io.write_currents
    pyteseo.io.write_winds
-   pyteseo.io.write_waves
 
 
 
@@ -99,15 +97,9 @@ Functions
    :rtype: Tuple[pd.DataFrame, float, float]
 
 
-.. py:function:: read_waves(path_list)
-
-
 .. py:function:: write_currents(dir_path)
 
 
 .. py:function:: write_winds(dir_path)
-
-
-.. py:function:: write_waves(dir_path)
 
 

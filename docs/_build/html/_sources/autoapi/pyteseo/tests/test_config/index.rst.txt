@@ -1,0 +1,6 @@
+:py:mod:`pyteseo.tests.test_config`
+===================================
+
+.. py:module:: pyteseo.tests.test_config
+
+
