@@ -51,8 +51,8 @@ Documentation of all the package, usage and examples based on mockup input data 
 
 ---
 
-## :heavy_check_mark: Testing & Covergae
-Tests are located at `tests/` and data required for tests should be located in `data/mock/`.
+## :heavy_check_mark: Testing & Coverage
+Tests are located at `tests/` and data required for tests are located in `test/data/`. You need to run cli commands from the package installation path (`pip show teseo` to show current installation path)
 
 Run tests to verify your package installation:
 ```bash
