@@ -29,22 +29,21 @@ pip install git+https://github.com/IHCantabria/pyteseo
 ```bash
 pip install pyteseo
 ```
-* :warning: `UNDER CONSTRUCTION` :construction: - Install from conda-forge repositories:
+* :warning: `UNDER CONSTRUCTION` :construction: - Install from conda-forge repository:
 ```bash
 conda install -c conda-forge pyteseo 
 ```
 
 ---
 
-## :recycle: Continuous integration (CI)
+## :books: Documentation
 
-:warning: `THINK AND DEVELOP!` (If able use precommit and github actions when push tags)
-* pass format -> Balck
-* pass linter
-* pass tests -> pytest
-* make documentation -> sphinx
+Comprenhensive documentation is developed and mantained at https://ihcantabria.github.io/pyteseo
 
-*For all the SO, and python versions required!*
+Documentation of all the package, usage and examples based on mockup input data are provided in [Jupyter Notebooks](https://jupyter.org/) format and ready to be used under [Google Colab](https://colab.research.google.com/) online platform.
+
+
+![pyteseo_doc](docs/_static/doc_snapshoot.png)
 
 ---
 
@@ -62,6 +61,18 @@ pyteseo-coverage-html   # Run coverage and bluid coverage-html-report
 ```
 Tests have been developed using [pytest](https://docs.pytest.org/).
 
+---
+
+## :recycle: Continuous integration and deployment (CI & CD)
+
+:warning: `THINK AND DEVELOP!` (If able use precommit and github actions when push tags)
+* pass format -> Balck
+* pass linter
+* pass tests -> pytest
+* make documentation -> sphinx
+* install and pass tests in different systems -> github-actions for tags?
+
+*For all the SO, and python versions required!*
 
 ---
 
