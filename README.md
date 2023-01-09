@@ -7,6 +7,7 @@
 </p>
 
 
+[![Github release (latest by date)](https://img.shields.io/github/v/release/ihcantabria/pyteseo?label=latest%20release)](https://github.com/IHCantabria/pyteseo/releases)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=latest%20tag)](https://github.com/IHCantabria/pyteseo/tags)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ihcantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/commits/main)
 ![GitHub repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo)
