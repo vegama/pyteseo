@@ -23,7 +23,7 @@ dependencies = [
     "matplotlib",
     "geojson",
     "pytest",
-    "coverage",
+    "coverage[toml]",
 ]
 
 
@@ -32,8 +32,10 @@ dev = ["flit", "black", "pytest", "coverage[toml]", "sphinx", "myst-parser", "my
 
 
 [project.urls]
-Home = "https://github.com/IHCantabria/pyteseo"
-Documentation = "https://ihcantabria.github.io/pyteseo"
+home = "https://ihcantabria.com/specialized-software/english-teseo/"
+documentation = "https://ihcantabria.github.io/pyteseo"
+repository = "https://github.com/IHCantabria/pyteseo"
+changelog = "https://github.com/IHCantabria/pyteseo/blob/main/CHANGELOG.md"
 
 
 [project.scripts]
@@ -41,10 +43,9 @@ pyteseo-test = "pyteseo.__init__:test"
 pyteseo-coverage = "pyteseo.__init__:coverage"
 pyteseo-coverage-html = "pyteseo.__init__:coverage_html"
 
-
 [tool.pytest.ini_options]
 addopts = "-v --durations=0 --durations-min=0.05"
-testpaths = ["tests"]
+testpaths = "tests"
 
 [tool.coverage.run]
 command_line = "-m pytest"

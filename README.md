@@ -10,8 +10,7 @@
 ![license](https://img.shields.io/github/license/IHCantabria/pyteseo?style=plastic)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-Python library to centralize and standarize python modules to manage TESEO model I/O, config, plot...
-Examples of the use of each functionality is provided through a set of notebooks
+**pyTESEO** is a python package developed by [IHCantabria](https://ihcantabria.com/en/) to simplify and facilitate the setup and processing of [TESEO](https://ihcantabria.com/en/specialized-software/teseo/) simulations *(TESEO is a lagrangian numerical model also developed by IHCantabria.)*
 
 
 ---

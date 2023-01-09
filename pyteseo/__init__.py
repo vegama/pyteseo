@@ -6,13 +6,13 @@ __version__ = "0.0.1"
 #  ---------------------------------------------
 # NOTE - Think about move thid to cli_scripts.py
 import subprocess
-from pathlib import Path
+import pyteseo
 
 
 
 def test():
     """run all available tests"""
-    subprocess.run(["python", "-m", "coverage", "run", Path(__file__).parent])
+    subprocess.run(["coverage", "run"])
 
 
 def coverage():
