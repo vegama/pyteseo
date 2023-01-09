@@ -39,11 +39,12 @@ def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
         count += 1
         if i == 0:
             continue
-
-        if i == df.iloc[[-1]].index.values:
-            break
-        elif count == n_nans:
-            splitted_dfs.append(df.iloc[previous_i:])
+        if count == n_nans:
+            splitted_dfs.append(df.iloc[previous_i:i])
+            if i == df.iloc[[-1]].index.values:
+                break
+            else:
+                splitted_dfs.append(df.iloc[i:])
         else:
             splitted_dfs.append(df.iloc[previous_i:i])
             previous_i = i
@@ -263,7 +264,7 @@ def read_currents(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
             df.get(["lon", "lat"]) == df.sort_values(["lon", "lat"]).get(["lon", "lat"])
         ):
             raise ValueError(
-                "lon and lat values in TESEO grid-file should be monotonic increasing!"
+                "lon and lat values should be monotonic increasing!"
             )
 
         df["time"] = float(file.stem[-4:-1])

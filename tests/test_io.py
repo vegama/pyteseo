@@ -108,7 +108,7 @@ def test_split_polygons(filename):
     coastline_df = _split_polygons(df)
 
     assert isinstance(coastline_df, pd.DataFrame)
-    assert coastline_df.index.unique(0).values.max() == 3
+    assert coastline_df.index.unique(0).values.max() == 4
     assert not coastline_df.empty
 
 
@@ -140,6 +140,7 @@ def test_read_coastline(file, error):
         assert "lat" in df.columns
         assert "polygon" in df.index.names
         assert "point" in df.index.names
+        assert df.index.unique(0).values.max() == 4
 
 
 @pytest.mark.parametrize(
