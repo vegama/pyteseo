@@ -9,10 +9,10 @@ __all__ = [
     "write_coastline",
     "read_currents",
     "read_winds",
-    "read_waves",
+    # "read_waves",
     "write_currents",
     "write_winds",
-    "write_waves",
+    # "write_waves",
 ]
 
 from pathlib import Path, PosixPath
@@ -22,44 +22,6 @@ import pandas as pd
 
 
 # 1. DOMAIN
-def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
-    """Split DataFrame between nan values
-
-    Args:
-        df (pd.DataFrame): input DataFrame with nans
-
-    Returns:
-        pd.DataFrame: DataFrame with polygon and point number as indexes
-    """
-    splitted_dfs = []
-    previous_i = count = 0
-    n_nans = len(df[df.isna().any(axis=1)])
-
-    for i in df[df.isna().any(axis=1)].index.values:
-        count += 1
-        if i == 0:
-            continue
-        if count == n_nans:
-            splitted_dfs.append(df.iloc[previous_i:i])
-            if i == df.iloc[[-1]].index.values:
-                break
-            else:
-                splitted_dfs.append(df.iloc[i:])
-        else:
-            splitted_dfs.append(df.iloc[previous_i:i])
-            previous_i = i
-
-    if splitted_dfs[0].equals(df):
-        print("WARNING - There is nothing to split in this DataFrame!")
-
-    new_polygons = []
-    for i, polygon in enumerate(splitted_dfs):
-        polygon.loc[:, ("polygon")] = i + 1
-        polygon.loc[:, ("point")] = polygon.index
-        polygon = polygon.set_index(["polygon", "point"])
-        new_polygons.append(polygon)
-
-    return pd.concat(new_polygons)
 
 
 def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFrame:
@@ -278,44 +240,8 @@ def read_winds(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
 
 
 
-def _read_2dh_uv(files):
-    df_list = []
-    for file in files:
-        df = pd.read_csv(file, delimiter="\s+", header=None)
-
-        if df.shape[1] != 4:
-            raise ValueError(
-                "DataFrame should contains column variables lon, lat, u, and v only!"
-            )
-
-        df.columns = ["lon", "lat", "u", "v"]
-
-        if (
-            df.lon.max() >= 180
-            or df.lon.min() <= -180
-            or df.lat.max() >= 90
-            or df.lat.min() <= -90
-        ):
-            raise ValueError(
-                "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
-            )
-
-        if not all(
-            df.get(["lon", "lat"]) == df.sort_values(["lon", "lat"]).get(["lon", "lat"])
-        ):
-            raise ValueError(
-                "lon and lat values should be monotonic increasing!"
-            )
-
-        df["time"] = float(file.stem[-4:-1])
-        df_list.append(df)
-    return df_list
 
 
-
-
-def read_waves(path_list):
-    print("doing something...")
 
 
 def write_currents(dir_path):
@@ -326,8 +252,12 @@ def write_winds(dir_path):
     print("doing something...")
 
 
-def write_waves(dir_path):
-    print("doing something...")
+# def read_waves(path_list):
+#     print("doing something...")
+
+
+# def write_waves(dir_path):
+#     print("doing something...")
 
 
 # def read_currents_depth_avg(path_list):
@@ -366,3 +296,85 @@ def write_waves(dir_path):
 
 # def read_grids(path_list):
 #     print("doing something...")
+
+
+def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
+    """Split DataFrame between nan values
+
+    Args:
+        df (pd.DataFrame): input DataFrame with nans
+
+    Returns:
+        pd.DataFrame: DataFrame with polygon and point number as indexes
+    """
+    splitted_dfs = []
+    previous_i = count = 0
+    n_nans = len(df[df.isna().any(axis=1)])
+
+    for i in df[df.isna().any(axis=1)].index.values:
+        count += 1
+        if i == 0:
+            continue
+        if count == n_nans:
+            splitted_dfs.append(df.iloc[previous_i:i])
+            if i == df.iloc[[-1]].index.values:
+                break
+            else:
+                splitted_dfs.append(df.iloc[i:])
+        else:
+            splitted_dfs.append(df.iloc[previous_i:i])
+            previous_i = i
+
+    if splitted_dfs[0].equals(df):
+        print("WARNING - There is nothing to split in this DataFrame!")
+
+    new_polygons = []
+    for i, polygon in enumerate(splitted_dfs):
+        polygon.loc[:, ("polygon")] = i + 1
+        polygon.loc[:, ("point")] = polygon.index
+        polygon = polygon.set_index(["polygon", "point"])
+        new_polygons.append(polygon)
+
+    return pd.concat(new_polygons)
+
+
+def _read_2dh_uv(files: list[PosixPath|str]) -> list[pd.DataFrame]:
+    """Read TESEO's 2dh velocity field files used for currents and winds. column format [lon, lat, u, v]
+
+    Args:
+        files (list[PosixPath | str]): paths where velocity field files are located. (sorted list)
+
+    Returns:
+        list[pd.DataFrame]: list of DataFrames for each file (adding time field)
+    """    
+    df_list = []
+    for file in files:
+        df = pd.read_csv(file, delimiter="\s+", header=None)
+
+        if df.shape[1] != 4:
+            raise ValueError(
+                "DataFrame should contains column variables lon, lat, u, and v only!"
+            )
+
+        df.columns = ["lon", "lat", "u", "v"]
+
+        if (
+            df.lon.max() >= 180
+            or df.lon.min() <= -180
+            or df.lat.max() >= 90
+            or df.lat.min() <= -90
+        ):
+            raise ValueError(
+                "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
+            )
+
+        if not all(
+            df.get(["lon", "lat"]) == df.sort_values(["lon", "lat"]).get(["lon", "lat"])
+        ):
+            raise ValueError(
+                "lon and lat values should be monotonic increasing!"
+            )
+
+        df["time"] = float(file.stem[-4:-1])
+        df_list.append(df)
+    return df_list
