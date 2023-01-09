@@ -14,6 +14,8 @@
 [![GitHub license](https://img.shields.io/github/license/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/blob/main/LICENSE.md)
 [![GitHub repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
 [![GitHub file count](https://img.shields.io/github/directory-file-count/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
+[![GitHub file count](https://img.shields.io/github/languages/count/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
+[![GitHub file count](https://img.shields.io/github/languages/top/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
