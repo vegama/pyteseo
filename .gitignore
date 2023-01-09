@@ -7,7 +7,7 @@ ENV/
 env.bak/
 venv.bak/
 htmlcov/
-pyteseo/tests/data
+# pyteseo/tests/data
 
 
 # Files
