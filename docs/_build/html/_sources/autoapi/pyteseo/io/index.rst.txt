@@ -79,7 +79,7 @@ Functions
 
 .. py:function:: read_currents(path: str | PosixPath) -> Tuple[pandas.DataFrame, float, float]
 
-   Read TESEO currents-files
+   Read TESEO currents-files (2dh: [lon, lat, u, v])
 
    :param path: path to TESEO lstcurr.pre file
    :type path: str | PosixPath
@@ -88,7 +88,15 @@ Functions
    :rtype: Tuple[pd.DataFrame, float, float]
 
 
-.. py:function:: read_winds(path_list)
+.. py:function:: read_winds(path: str | PosixPath) -> Tuple[pandas.DataFrame, float, float]
+
+   Read TESEO winds-files (2dh: [lon, lat, u, v])
+
+   :param path: path to TESEO lstwinds.pre file
+   :type path: str | PosixPath
+
+   :returns: DataFrame of winds, number of files (times), and number of nodes
+   :rtype: Tuple[pd.DataFrame, float, float]
 
 
 .. py:function:: read_waves(path_list)
