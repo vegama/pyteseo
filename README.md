@@ -7,8 +7,8 @@
 </p>
 
 
-[![Github release (latest by date)](https://img.shields.io/github/v/release/ihcantabria/pyteseo?label=latest%20release)](https://github.com/IHCantabria/pyteseo/releases)
-[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=latest%20tag)](https://github.com/IHCantabria/pyteseo/tags)
+[![Github release (latest by date)](https://img.shields.io/github/v/release/ihcantabria/pyteseo?label=last%20release)](https://github.com/IHCantabria/pyteseo/releases)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=last%20tag)](https://github.com/IHCantabria/pyteseo/tags)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ihcantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/commits/main)
 [![docs](https://img.shields.io/github/deployments/ihcantabria/pyteseo/deploy-docs?label=deploy-docs)](https://ihcantabria.github.io/pyteseo)
 
