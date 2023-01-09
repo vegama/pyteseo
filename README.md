@@ -7,7 +7,7 @@
 ![tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=latest%20tag&style=plastic)
 ![repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo?style=plastic)
 ![file count](https://img.shields.io/github/directory-file-count/IHCantabria/pyteseo?style=plastic)
-![license](https://img.shields.io/github/license/IHCantabria/pyteseo?style=plastic)
+<!-- ![license](https://img.shields.io/github/license/IHCantabria/pyteseo?style=plastic) -->
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 **pyTESEO** is a python package developed by [IHCantabria](https://ihcantabria.com/en/) to simplify and facilitate the setup and processing of [TESEO](https://ihcantabria.com/en/specialized-software/teseo/) simulations *(TESEO is a lagrangian numerical model also developed by IHCantabria.)*
