@@ -13,14 +13,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "1. Read bathymetry from TESEO's grid file and coastline from the coastline file\n",
-    "2. Select one polygon of the coastline by index\n",
+    "1. Read bathymetry and coastline from TESEO's format files\n",
+    "2. Select one polygon of the coastline by its index\n",
     "3. Plot bathymetry, coastline and the selected polygon"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -28,12 +28,12 @@
     "warnings.simplefilter(action='ignore')\n",
     "\n",
     "from matplotlib import pyplot as plt\n",
-    "from pyteseo.io import read_grid, read_coastline\n"
+    "from pyteseo.io import read_grid, read_coastline"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -43,7 +43,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
@@ -431,7 +431,7 @@
        "        14739 -3.770457  43.465932"
       ]
      },
-     "execution_count": 3,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -444,7 +444,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -453,7 +453,7 @@
        "(-3.878859987333, -3.6949486337070003, 43.363319567585, 43.524003830115)"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     },
