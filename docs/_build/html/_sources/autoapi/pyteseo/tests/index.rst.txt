@@ -4,15 +4,3 @@
 .. py:module:: pyteseo.tests
 
 
-Submodules
-----------
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   test_config/index.rst
-   test_export/index.rst
-   test_io/index.rst
-   test_plot/index.rst
-
-
