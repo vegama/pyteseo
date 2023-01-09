@@ -371,7 +371,7 @@ div.rendered_html tbody tr:hover {
 <li><p>Plot bathymetry, coastline and the selected polygon</p></li>
 </ol>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
@@ -383,7 +383,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">read_grid</span><span class="p">(</span><span class="s2">&quot;../../data/mock/grid.dat&quot;</span><span class="p">,</span> <span class="n">nan_value</span><span class="o">=-</span><span class="mi">9999</span><span class="p">)</span>
@@ -392,17 +392,17 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select polygon index</span>
 <span class="n">i</span><span class="o">=</span><span class="mi">4</span>
-<span class="n">coast</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">coast</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -437,68 +437,297 @@ div.rendered_html tbody tr:hover {
   </thead>
   <tbody>
     <tr>
-      <th rowspan="11" valign="top">1</th>
-      <th>0</th>
-      <td>-3.830782</td>
-      <td>43.435189</td>
+      <th rowspan="57" valign="top">4</th>
+      <th>14683</th>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>-3.830701</td>
-      <td>43.435122</td>
+      <th>14684</th>
+      <td>-3.770457</td>
+      <td>43.465932</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>-3.830620</td>
-      <td>43.435055</td>
+      <th>14685</th>
+      <td>-3.770418</td>
+      <td>43.465974</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>-3.830539</td>
-      <td>43.434988</td>
+      <th>14686</th>
+      <td>-3.770389</td>
+      <td>43.465960</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>-3.830458</td>
-      <td>43.434921</td>
+      <th>14687</th>
+      <td>-3.770315</td>
+      <td>43.465903</td>
     </tr>
     <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
+      <th>14688</th>
+      <td>-3.770242</td>
+      <td>43.465847</td>
     </tr>
     <tr>
-      <th>14310</th>
-      <td>-3.830348</td>
-      <td>43.435506</td>
+      <th>14689</th>
+      <td>-3.770271</td>
+      <td>43.465790</td>
     </tr>
     <tr>
-      <th>14311</th>
-      <td>-3.830435</td>
-      <td>43.435442</td>
+      <th>14690</th>
+      <td>-3.770286</td>
+      <td>43.465737</td>
     </tr>
     <tr>
-      <th>14312</th>
-      <td>-3.830522</td>
-      <td>43.435379</td>
+      <th>14691</th>
+      <td>-3.770301</td>
+      <td>43.465684</td>
     </tr>
     <tr>
-      <th>14313</th>
-      <td>-3.830609</td>
-      <td>43.435316</td>
+      <th>14692</th>
+      <td>-3.770389</td>
+      <td>43.465634</td>
     </tr>
     <tr>
-      <th>14314</th>
-      <td>-3.830695</td>
-      <td>43.435253</td>
+      <th>14693</th>
+      <td>-3.770467</td>
+      <td>43.465588</td>
+    </tr>
+    <tr>
+      <th>14694</th>
+      <td>-3.770545</td>
+      <td>43.465542</td>
+    </tr>
+    <tr>
+      <th>14695</th>
+      <td>-3.770610</td>
+      <td>43.465502</td>
+    </tr>
+    <tr>
+      <th>14696</th>
+      <td>-3.770675</td>
+      <td>43.465461</td>
+    </tr>
+    <tr>
+      <th>14697</th>
+      <td>-3.770740</td>
+      <td>43.465421</td>
+    </tr>
+    <tr>
+      <th>14698</th>
+      <td>-3.770779</td>
+      <td>43.465350</td>
+    </tr>
+    <tr>
+      <th>14699</th>
+      <td>-3.770858</td>
+      <td>43.465290</td>
+    </tr>
+    <tr>
+      <th>14700</th>
+      <td>-3.770936</td>
+      <td>43.465230</td>
+    </tr>
+    <tr>
+      <th>14701</th>
+      <td>-3.771029</td>
+      <td>43.465177</td>
+    </tr>
+    <tr>
+      <th>14702</th>
+      <td>-3.771121</td>
+      <td>43.465123</td>
+    </tr>
+    <tr>
+      <th>14703</th>
+      <td>-3.771200</td>
+      <td>43.465069</td>
+    </tr>
+    <tr>
+      <th>14704</th>
+      <td>-3.771278</td>
+      <td>43.465015</td>
+    </tr>
+    <tr>
+      <th>14705</th>
+      <td>-3.771356</td>
+      <td>43.464960</td>
+    </tr>
+    <tr>
+      <th>14706</th>
+      <td>-3.771444</td>
+      <td>43.464925</td>
+    </tr>
+    <tr>
+      <th>14707</th>
+      <td>-3.771512</td>
+      <td>43.464921</td>
+    </tr>
+    <tr>
+      <th>14708</th>
+      <td>-3.771581</td>
+      <td>43.464918</td>
+    </tr>
+    <tr>
+      <th>14709</th>
+      <td>-3.771654</td>
+      <td>43.464939</td>
+    </tr>
+    <tr>
+      <th>14710</th>
+      <td>-3.771727</td>
+      <td>43.464960</td>
+    </tr>
+    <tr>
+      <th>14711</th>
+      <td>-3.771737</td>
+      <td>43.465038</td>
+    </tr>
+    <tr>
+      <th>14712</th>
+      <td>-3.771776</td>
+      <td>43.465109</td>
+    </tr>
+    <tr>
+      <th>14713</th>
+      <td>-3.771698</td>
+      <td>43.465166</td>
+    </tr>
+    <tr>
+      <th>14714</th>
+      <td>-3.771813</td>
+      <td>43.465145</td>
+    </tr>
+    <tr>
+      <th>14715</th>
+      <td>-3.771927</td>
+      <td>43.465123</td>
+    </tr>
+    <tr>
+      <th>14716</th>
+      <td>-3.772042</td>
+      <td>43.465102</td>
+    </tr>
+    <tr>
+      <th>14717</th>
+      <td>-3.772157</td>
+      <td>43.465081</td>
+    </tr>
+    <tr>
+      <th>14718</th>
+      <td>-3.772177</td>
+      <td>43.465148</td>
+    </tr>
+    <tr>
+      <th>14719</th>
+      <td>-3.772196</td>
+      <td>43.465216</td>
+    </tr>
+    <tr>
+      <th>14720</th>
+      <td>-3.772079</td>
+      <td>43.465242</td>
+    </tr>
+    <tr>
+      <th>14721</th>
+      <td>-3.771962</td>
+      <td>43.465268</td>
+    </tr>
+    <tr>
+      <th>14722</th>
+      <td>-3.771844</td>
+      <td>43.465294</td>
+    </tr>
+    <tr>
+      <th>14723</th>
+      <td>-3.771750</td>
+      <td>43.465320</td>
+    </tr>
+    <tr>
+      <th>14724</th>
+      <td>-3.771656</td>
+      <td>43.465346</td>
+    </tr>
+    <tr>
+      <th>14725</th>
+      <td>-3.771561</td>
+      <td>43.465372</td>
+    </tr>
+    <tr>
+      <th>14726</th>
+      <td>-3.771502</td>
+      <td>43.465438</td>
+    </tr>
+    <tr>
+      <th>14727</th>
+      <td>-3.771444</td>
+      <td>43.465504</td>
+    </tr>
+    <tr>
+      <th>14728</th>
+      <td>-3.771385</td>
+      <td>43.465570</td>
+    </tr>
+    <tr>
+      <th>14729</th>
+      <td>-3.771297</td>
+      <td>43.465588</td>
+    </tr>
+    <tr>
+      <th>14730</th>
+      <td>-3.771209</td>
+      <td>43.465606</td>
+    </tr>
+    <tr>
+      <th>14731</th>
+      <td>-3.771146</td>
+      <td>43.465645</td>
+    </tr>
+    <tr>
+      <th>14732</th>
+      <td>-3.771082</td>
+      <td>43.465684</td>
+    </tr>
+    <tr>
+      <th>14733</th>
+      <td>-3.770989</td>
+      <td>43.465717</td>
+    </tr>
+    <tr>
+      <th>14734</th>
+      <td>-3.770897</td>
+      <td>43.465751</td>
+    </tr>
+    <tr>
+      <th>14735</th>
+      <td>-3.770804</td>
+      <td>43.465785</td>
+    </tr>
+    <tr>
+      <th>14736</th>
+      <td>-3.770711</td>
+      <td>43.465818</td>
+    </tr>
+    <tr>
+      <th>14737</th>
+      <td>-3.770626</td>
+      <td>43.465856</td>
+    </tr>
+    <tr>
+      <th>14738</th>
+      <td>-3.770542</td>
+      <td>43.465894</td>
+    </tr>
+    <tr>
+      <th>14739</th>
+      <td>-3.770457</td>
+      <td>43.465932</td>
     </tr>
   </tbody>
 </table>
-<p>14315 rows × 2 columns</p>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot grid and coastline</span>
@@ -511,7 +740,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
