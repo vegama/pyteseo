@@ -7,10 +7,11 @@
 </p>
 
 
-![tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=latest%20tag)
-![repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo)
-![file count](https://img.shields.io/github/directory-file-count/IHCantabria/pyteseo)
-![license](https://img.shields.io/github/license/IHCantabria/pyteseo)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=latest%20tag)](https://github.com/IHCantabria/pyteseo/tags)
+[![GitHub last commit](https://img.shields.io/github/last-commit/ihcantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/commits/main)
+![GitHub repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo)
+![GitHub file count](https://img.shields.io/github/directory-file-count/IHCantabria/pyteseo)
+[![GitHub license](https://img.shields.io/github/license/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/blob/main/LICENSE.md)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
