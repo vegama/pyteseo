@@ -1,3 +1,6 @@
+## :warning: Package under development!
+## :soon: First usable version (v1.0.0) will be released soon
+---
 
 <p align="center">
 <img align="center" width="600" src="docs/_static/pyTESEO_logo.png">
