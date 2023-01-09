@@ -9,7 +9,7 @@ from pyteseo.io import (
     read_waves,
     write_currents,
     write_winds,
-    write_waves
+    write_waves,
 )
 
 
@@ -18,7 +18,7 @@ from pathlib import Path
 from shutil import rmtree
 import pytest
 
-base_path = Path("./data/mock")
+base_path = Path("./pyteseo/tests/data")
 tmp_path = Path("./tmp")
 # TODO - Put a @fixture to setup the base path
 
@@ -166,7 +166,7 @@ def test_write_coastline(error):
             write_coastline(df=df, path=output_path)
 
     elif error == "lonlat_range":
-        df.loc[:,("lon")].values[0] = 360
+        df.loc[:, ("lon")].values[0] = 360
         with pytest.raises(ValueError):
             write_coastline(df=df, path=output_path)
 
@@ -185,52 +185,49 @@ def test_write_coastline(error):
     [
         ("lstcurr_UVW.pre", None),
         ("lstcurr_UVW_not_exists.pre", "not_exist"),
-        ("lstcurr_UVW_sort.pre", "sort"),
-        ("lstcurr_UVW_range.pre", "range"),
-        ("lstcurr_UVW_var.pre", "var"),
+        ("lstcurr_UVW_error_sort.pre", "sort"),
+        ("lstcurr_UVW_error_range.pre", "range"),
+        ("lstcurr_UVW_error_var.pre", "var"),
     ],
 )
 def test_read_currents(file, error):
-    
+
     path = Path(base_path, file)
 
     if error == "not_exist":
         with pytest.raises(FileNotFoundError):
             df, n_files, n_grid_nodes = read_currents(path)
-    elif error in ["sort", "range","var"]:
+    elif error in ["sort", "range", "var"]:
         with pytest.raises(ValueError):
             df, n_files, n_grid_nodes = read_currents(path)
     else:
         df, n_files, n_grid_nodes = read_currents(path)
-    
+
         assert isinstance(df, pd.DataFrame)
         assert n_files == 4
-        assert n_grid_nodes == 2629710
+        assert n_grid_nodes == 12
 
 
 @pytest.mark.parametrize(
     "file, error",
     [
-        ("lstcurr_UVW.pre", None),
+        ("lstwinds.pre", None),
         ("lstcurr_UVW_not_exists.pre", "not_exist"),
-        ("lstcurr_UVW_sort.pre", "sort"),
-        ("lstcurr_UVW_range.pre", "range"),
-        ("lstcurr_UVW_var.pre", "var"),
     ],
 )
 def test_read_winds(file, error):
-    
+
     path = Path(base_path, file)
 
     if error == "not_exist":
         with pytest.raises(FileNotFoundError):
             df, n_files, n_grid_nodes = read_winds(path)
-    elif error in ["sort", "range","var"]:
+    elif error in ["sort", "range", "var"]:
         with pytest.raises(ValueError):
             df, n_files, n_grid_nodes = read_winds(path)
     else:
         df, n_files, n_grid_nodes = read_winds(path)
-    
+
         assert isinstance(df, pd.DataFrame)
         assert n_files == 4
-        assert n_grid_nodes == 2629710
+        assert n_grid_nodes == 12
