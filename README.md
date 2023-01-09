@@ -13,7 +13,7 @@
 ![GitHub file count](https://img.shields.io/github/directory-file-count/IHCantabria/pyteseo)
 [![GitHub license](https://img.shields.io/github/license/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/blob/main/LICENSE.md)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![docs](https://img.shields.io/github/deployments/ihcantabria/pyteseo/deploy-docs)](https://ihcantabria.github.io/pyteseo)
+[![docs](https://img.shields.io/github/deployments/ihcantabria/pyteseo/deploy-docs?label=deploy-docs)](https://ihcantabria.github.io/pyteseo)
 
 
 **pyTESEO** is a python package developed by [IHCantabria](https://ihcantabria.com/en/) to simplify and facilitate the setup and processing of [TESEO](https://ihcantabria.com/en/specialized-software/teseo/) simulations *(TESEO is a lagrangian numerical model also developed by IHCantabria.)*
@@ -54,7 +54,7 @@ Documentation of all the package, usage and examples based on mockup input data 
 ---
 
 ## :heavy_check_mark: Testing & Coverage
-Tests are located at `tests/` and data required for tests are located in `test/data/`. You need to run cli commands from the package installation path (`pip show teseo` to show current installation path)
+Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`. You need to run cli commands from the package installation path (`pip show teseo` to show current installation path)
 
 Run tests to verify your package installation:
 ```bash
