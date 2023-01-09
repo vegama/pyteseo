@@ -6,7 +6,7 @@
 
 ![tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=latest%20tag&style=plastic)
 ![repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo?style=plastic)
-![file count](https://img.shields.io/github/directory-file-count/IHCantabria/pyteseo/pyteseo?style=plastic)
+![file count](https://img.shields.io/github/directory-file-count/IHCantabria/pyteseo?style=plastic)
 ![license](https://img.shields.io/github/license/IHCantabria/pyteseo?style=plastic)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
