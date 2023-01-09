@@ -206,3 +206,31 @@ def test_read_currents(file, error):
         assert isinstance(df, pd.DataFrame)
         assert n_files == 4
         assert n_grid_nodes == 2629710
+
+
+@pytest.mark.parametrize(
+    "file, error",
+    [
+        ("lstcurr_UVW.pre", None),
+        ("lstcurr_UVW_not_exists.pre", "not_exist"),
+        ("lstcurr_UVW_sort.pre", "sort"),
+        ("lstcurr_UVW_range.pre", "range"),
+        ("lstcurr_UVW_var.pre", "var"),
+    ],
+)
+def test_read_winds(file, error):
+    
+    path = Path(base_path, file)
+
+    if error == "not_exist":
+        with pytest.raises(FileNotFoundError):
+            df, n_files, n_grid_nodes = read_winds(path)
+    elif error in ["sort", "range","var"]:
+        with pytest.raises(ValueError):
+            df, n_files, n_grid_nodes = read_winds(path)
+    else:
+        df, n_files, n_grid_nodes = read_winds(path)
+    
+        assert isinstance(df, pd.DataFrame)
+        assert n_files == 4
+        assert n_grid_nodes == 2629710

@@ -227,7 +227,7 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
 
 # 2. FORCINGS
 def read_currents(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
-    """Read TESEO currents-files
+    """Read TESEO currents-files (2dh: [lon, lat, u, v])
 
     Args:
         path (str | PosixPath): path to TESEO lstcurr.pre file
@@ -238,8 +238,48 @@ def read_currents(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
     with open(path, "r") as f:
         files = [Path(path.parent, line.rstrip()) for line in f]
 
-    df_list = []
+    df_list = _read_2dh_uv(files)
 
+    n_rows = list(set([len(df.index) for df in df_list]))
+
+    if len(n_rows) != 1:
+        raise ValueError("Number of lines in each file are not equal!")
+
+    return pd.concat(df_list), len(files), n_rows[0]
+
+
+def read_winds(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
+    """Read TESEO winds-files (2dh: [lon, lat, u, v])
+
+    Args:
+        path (str | PosixPath): path to TESEO lstwinds.pre file
+
+    Returns:
+        Tuple[pd.DataFrame, float, float]: DataFrame of winds, number of files (times), and number of nodes
+    """
+    with open(path, "r") as f:
+        files = [Path(path.parent, line.rstrip()) for line in f]
+
+    df_list = _read_2dh_uv(files)
+
+    n_rows = list(set([len(df.index) for df in df_list]))
+
+    if len(n_rows) != 1:
+        raise ValueError("Number of lines in each file are not equal!")
+
+    return pd.concat(df_list), len(files), n_rows[0]
+
+
+
+
+
+
+
+
+
+
+def _read_2dh_uv(files):
+    df_list = []
     for file in files:
         df = pd.read_csv(file, delimiter="\s+", header=None)
 
@@ -269,17 +309,9 @@ def read_currents(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
 
         df["time"] = float(file.stem[-4:-1])
         df_list.append(df)
-
-    n_rows = list(set([len(df.index) for df in df_list]))
-
-    if len(n_rows) != 1:
-        raise ValueError("Number of lines in each file are not equal!")
-
-    return pd.concat(df_list), len(files), n_rows[0]
+    return df_list
 
 
-def read_winds(path_list):
-    print("doing something...")
 
 
 def read_waves(path_list):

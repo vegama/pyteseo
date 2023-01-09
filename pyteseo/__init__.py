@@ -6,10 +6,13 @@ __version__ = "0.0.1"
 #  ---------------------------------------------
 # NOTE - Think about move thid to cli_scripts.py
 import subprocess
+from pathlib import Path
+
+
 
 def test():
     """run all available tests"""
-    subprocess.run(["coverage", "run"])
+    subprocess.run(["python", "-m", "coverage", "run", Path(__file__).parent])
 
 
 def coverage():
