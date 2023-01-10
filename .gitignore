@@ -7,8 +7,6 @@ ENV/
 env.bak/
 venv.bak/
 htmlcov/
-# pyteseo/tests/data
-
 
 # Files
 *.nc

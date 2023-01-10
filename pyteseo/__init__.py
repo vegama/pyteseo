@@ -2,26 +2,11 @@
 """
 __version__ = "0.0.1"
 
-
-#  ---------------------------------------------
-# NOTE - Think about move thid to cli_scripts.py
-import subprocess
-import pyteseo
+from pathlib import Path
+import pytest
 
 
-
-def test():
+def run_tests():
     """run all available tests"""
-    subprocess.run(["coverage", "run"])
-
-
-def coverage():
-    """run all available tests"""
-    subprocess.run(["coverage", "report"])
-
-
-def coverage_html():
-    """run all available tests"""
-    subprocess.run(["coverage", "report"])
-    subprocess.run(["coverage", "html"])
-#  ---------------------------------------------
+    tests_path = Path(__file__).parent
+    pytest.main(["-v", "--durations=0", "--durations-min=0.05", tests_path])

@@ -16,7 +16,7 @@ from pathlib import Path
 from shutil import rmtree
 import pytest
 
-base_path = Path("./pyteseo/tests/data")
+data_path = Path(__file__).parent / "data"
 tmp_path = Path("./tmp")
 # TODO - Put a @fixture to setup the base path
 
@@ -33,7 +33,7 @@ tmp_path = Path("./tmp")
 )
 def test_read_grid(file, error):
 
-    path = Path(base_path, file)
+    path = Path(data_path, file)
 
     if error == "not_exist":
         with pytest.raises(FileNotFoundError):
@@ -53,7 +53,7 @@ def test_write_grid(error):
     if not tmp_path.exists():
         tmp_path.mkdir()
 
-    grid_path = Path(base_path, "grid.dat")
+    grid_path = Path(data_path, "grid.dat")
     output_path = Path(tmp_path, "test_grid.dat")
 
     df = read_grid(path=grid_path, nan_value=-9999)
@@ -100,7 +100,7 @@ def test_write_grid(error):
 )
 def test_split_polygons(filename):
 
-    coastline_path = Path(base_path, filename)
+    coastline_path = Path(data_path, filename)
     df = pd.read_csv(coastline_path, delimiter="\s+", header=None)
 
     coastline_df = _split_polygons(df)
@@ -121,7 +121,7 @@ def test_split_polygons(filename):
 )
 def test_read_coastline(file, error):
 
-    path = Path(base_path, file)
+    path = Path(data_path, file)
 
     if error == "not_exist":
         with pytest.raises(FileNotFoundError):
@@ -148,7 +148,7 @@ def test_write_coastline(error):
     if not tmp_path.exists():
         tmp_path.mkdir()
 
-    coastline_path = Path(base_path, "coastline.dat")
+    coastline_path = Path(data_path, "coastline.dat")
     output_path = Path(tmp_path, "test_coastline.dat")
 
     df = read_coastline(path=coastline_path)
@@ -190,7 +190,7 @@ def test_write_coastline(error):
 )
 def test_read_currents(file, error):
 
-    path = Path(base_path, file)
+    path = Path(data_path, file)
 
     if error == "not_exist":
         with pytest.raises(FileNotFoundError):
@@ -215,7 +215,7 @@ def test_read_currents(file, error):
 )
 def test_read_winds(file, error):
 
-    path = Path(base_path, file)
+    path = Path(data_path, file)
 
     if error == "not_exist":
         with pytest.raises(FileNotFoundError):
