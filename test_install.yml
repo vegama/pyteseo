@@ -6,4 +6,4 @@ dependencies:
   - python=3.10
   - pip
   - pip:
-    - git+https://github.com/IHCantabria/pyteseo[dev]
+    - git+https://github.com/IHCantabria/pyteseo
