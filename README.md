@@ -58,18 +58,23 @@ Documentation of all the package, usage and examples based on mockup input data 
 ---
 
 ## :heavy_check_mark: Testing & Coverage
-Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`. You need to run cli commands from the package installation path (`pip show teseo` to show current installation path)
+Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`. 
+Tests have been developed using [pytest](https://docs.pytest.org/).
 
 Run tests to verify your package installation:
 ```bash
-pyteseo-test            # Run tests and prompt pytest-report
+pyteseo-test        # Run tests and prompt pytest-report
 ```
-Also, you can run coverage assesment and generate html report:
+
+If you clone the repository, you also can run `coverage.py` functionalities based on current `pytproyect.toml` configuration from your terminal command line interface:
 ```bash
-pyteseo-coverage        # Run coverage and prompt coverage-report
-pyteseo-coverage-html   # Run coverage and bluid coverage-html-report
+# Commands should be executed from the root directory of the repo
+
+coverage run        # For run tests and generate ".coverage" file
+coverage report     # For prompt results from ".coverage" file
+coverage html       # For generate html report on "htmlcov" folder
 ```
-Tests have been developed using [pytest](https://docs.pytest.org/).
+
 
 ---
 
