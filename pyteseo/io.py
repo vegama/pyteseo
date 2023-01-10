@@ -234,14 +234,6 @@ def read_winds(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
 
 
 
-
-
-
-
-
-
-
-
 def write_currents(dir_path):
     print("doing something...")
 
