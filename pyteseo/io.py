@@ -9,10 +9,8 @@ __all__ = [
     "write_coastline",
     "read_currents",
     "read_winds",
-    # "read_waves",
     "write_currents",
     "write_winds",
-    # "write_waves",
 ]
 
 from pathlib import Path, PosixPath

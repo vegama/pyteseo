@@ -6,10 +6,8 @@ from pyteseo.io import (
     _split_polygons,
     read_currents,
     read_winds,
-    read_waves,
     write_currents,
     write_winds,
-    write_waves,
 )
 
 
