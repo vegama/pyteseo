@@ -39,7 +39,7 @@ changelog = "https://github.com/IHCantabria/pyteseo/blob/main/CHANGELOG.md"
 
 
 [project.scripts]
-pyteseo-tests = "pyteseo.__init__:run_tests"
+pyteseo-tests = "pyteseo.cli:run_tests"
 
 [tool.pytest.ini_options]
 addopts = "-v --durations=0 --durations-min=0.05"
