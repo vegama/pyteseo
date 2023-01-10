@@ -15,9 +15,11 @@ import pandas as pd
 from pathlib import Path
 from shutil import rmtree
 import pytest
+from pyteseo.__init__ import __version__ as v
 
 data_path = Path(__file__).parent / "data"
-tmp_path = Path("./tmp")
+tmp_path = Path(f"./tmp_pyteseo_{v}_tests")
+
 # TODO - Put a @fixture to setup the base path
 
 
