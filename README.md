@@ -3,7 +3,7 @@
 ---
 
 <p align="center">
-<img align="center" width="600" src="docs/_static/pyTESEO_logo.png">
+<img align="center" width="600" src="https://ihcantabria.github.io/pyteseo/_images/pyTESEO_logo.png">
 </p>
 
 
@@ -66,7 +66,7 @@ Run tests to verify your package installation:
 pyteseo-test        # Run tests and prompt pytest-report
 ```
 
-If you clone the repository, you also can run `coverage.py` functionalities based on current `pytproyect.toml` configuration from your terminal command line interface:
+If you have cloned the repository, you also can run `coverage.py` functionalities based on current `pytproyect.toml` configuration from your terminal command line interface:
 ```bash
 # Commands should be executed from the root directory of the repo
 
