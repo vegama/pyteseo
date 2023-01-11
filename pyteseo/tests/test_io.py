@@ -234,6 +234,35 @@ def test_read_winds(file, error):
 
 
 def test_write_currents():
+
+    currents_path = Path(data_path, "lstcurr_UVW.pre")
+    df, files, nodes = read_currents(currents_path)
+    
+    if not tmp_path.exists():
+        tmp_path.mkdir()
+
     lstcurr_path = tmp_path / "lstcurr_UVW.pre"
-    print("write currents!")
+    write_currents(df, lstcurr_path)
+
     assert Path(lstcurr_path).exists()
+
+    if tmp_path.exists():
+        rmtree(tmp_path)
+
+
+def test_write_winds():
+
+    winds_path = Path(data_path, "lstwinds.pre")
+    df, files, nodes = read_currents(winds_path)
+    
+    if not tmp_path.exists():
+        tmp_path.mkdir()
+
+    lstwinds_path = tmp_path / "lstwinds.pre"
+    write_winds(df, lstwinds_path)
+
+    assert Path(lstwinds_path).exists()
+
+    if tmp_path.exists():
+        rmtree(tmp_path)
+

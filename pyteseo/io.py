@@ -228,16 +228,39 @@ def read_winds(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
     return pd.concat(df_list), len(files), n_rows[0]
 
 
+def write_currents(df: pd.DataFrame, path: PosixPath | str, nan_value: int=0) -> None:
+    
+    forcing = "currents"
+    _write_2dh_uv(df, path, forcing)
 
 
+def write_winds(df: pd.DataFrame, path: PosixPath | str, nan_value: int=0) -> None:
+    
+    forcing = "winds"
+    _write_2dh_uv(df, path, forcing)
 
 
-def write_currents(dir_path):
-    print("doing something...")
-
-
-def write_winds(dir_path):
-    print("doing something...")
+def _write_2dh_uv(df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_value: int=0):
+    
+    path = Path(path) if isinstance(path, str) else path
+    df = df.sort_values(["time", "lon", "lat"])
+    
+    grouped = df.groupby("time")
+    
+    for time, group in grouped:
+        with open(path,"a") as f:
+            f.write(f"{forcing}_{int(time):03d}h.txt\n")
+        
+        path_currents = Path(path.parent, f"{forcing}_{int(time):03d}h.txt")
+        group.to_csv(
+            path_currents,
+            sep="\t",
+            columns=["lon", "lat", "u", "v"],
+            header=False,
+            index=False,
+            float_format="%.8e",
+            na_rep=nan_value,
+        )
 
 
 # def read_waves(path_list):
@@ -326,7 +349,7 @@ def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
     return pd.concat(new_polygons)
 
 
-def _read_2dh_uv(files: list[PosixPath|str]) -> list[pd.DataFrame]:
+def _read_2dh_uv(files: list[PosixPath | str]) -> list[pd.DataFrame]:
     """Read TESEO's 2dh velocity field files used for currents and winds. column format [lon, lat, u, v]
 
     Args:
@@ -334,7 +357,7 @@ def _read_2dh_uv(files: list[PosixPath|str]) -> list[pd.DataFrame]:
 
     Returns:
         list[pd.DataFrame]: list of DataFrames for each file (adding time field)
-    """    
+    """
     df_list = []
     for file in files:
         df = pd.read_csv(file, delimiter="\s+", header=None)
@@ -359,10 +382,9 @@ def _read_2dh_uv(files: list[PosixPath|str]) -> list[pd.DataFrame]:
         if not all(
             df.get(["lon", "lat"]) == df.sort_values(["lon", "lat"]).get(["lon", "lat"])
         ):
-            raise ValueError(
-                "lon and lat values should be monotonic increasing!"
-            )
+            raise ValueError("lon and lat values should be monotonic increasing!")
 
         df["time"] = float(file.stem[-4:-1])
         df_list.append(df)
     return df_list
+

@@ -7,6 +7,9 @@ ENV/
 env.bak/
 venv.bak/
 htmlcov/
+tmp/
+tmp_*/
+dist/
 
 # Files
 *.nc
