@@ -367,10 +367,19 @@ div.rendered_html tbody tr:hover {
 <section id="Read-TESEO’s-domain-files">
 <h1><span class="section-number">1. </span>Read TESEO’s domain files<a class="headerlink" href="#Read-TESEO’s-domain-files" title="Permalink to this headline"></a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/IHCantabria/pyteseo/blob/main/docs/notebooks/01_read_domain.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<ol class="arabic simple" start="0">
+<li><p>If you are running this notebook from <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">colab</span></code> uncomment and run <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">pytest</span> <span class="pre">and</span> <span class="pre">pytest-run</span></code> in the cell below. Doing this you will install <code class="docutils literal notranslate"><span class="pre">pyteseo</span></code> from <code class="docutils literal notranslate"><span class="pre">pypi</span></code> and run <code class="docutils literal notranslate"><span class="pre">pyteseo-tests</span></code> to check the installation (all tests have to succeed).</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install pyteseo &amp;&amp; pyteseo-run</span>
+</pre></div>
+</div>
+</div>
 <ol class="arabic simple">
 <li><p>Read bathymetry and coastline from TESEO’s format files</p></li>
-<li><p>Select one polygon of the coastline by its index</p></li>
-<li><p>Plot bathymetry, coastline and the selected polygon</p></li>
 </ol>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -382,6 +391,10 @@ div.rendered_html tbody tr:hover {
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">pyteseo.io</span> <span class="kn">import</span> <span class="n">read_grid</span><span class="p">,</span> <span class="n">read_coastline</span>
+<span class="kn">import</span> <span class="nn">pyteseo.tests</span> <span class="k">as</span> <span class="nn">tests_</span>
+
+<span class="c1"># path where example data needed by the use case is located</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tests_</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -389,9 +402,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyteseo.tests</span> <span class="k">as</span> <span class="nn">tests_</span>
-<span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tests_</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
-<span class="n">grid_path</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">/</span> <span class="s2">&quot;grid.dat&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_path</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">/</span> <span class="s2">&quot;grid.dat&quot;</span>
 <span class="n">coastline_path</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">/</span> <span class="s2">&quot;coastline.dat&quot;</span>
 </pre></div>
 </div>
@@ -405,13 +416,16 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<ol class="arabic simple" start="2">
+<li><p>Select one polygon of the coastline by its index</p></li>
+</ol>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select polygon index</span>
-<span class="n">i</span><span class="o">=</span><span class="mi">4</span>
-<span class="n">coast</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">coast</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -451,301 +465,68 @@ div.rendered_html tbody tr:hover {
   </thead>
   <tbody>
     <tr>
-      <th rowspan="57" valign="top">4</th>
-      <th>14683</th>
+      <th rowspan="10" valign="top">3</th>
+      <th>14415</th>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>14684</th>
-      <td>-3.770457</td>
-      <td>43.465932</td>
+      <th>14416</th>
+      <td>-3.730684</td>
+      <td>43.475636</td>
     </tr>
     <tr>
-      <th>14685</th>
-      <td>-3.770418</td>
-      <td>43.465974</td>
+      <th>14417</th>
+      <td>-3.730706</td>
+      <td>43.475614</td>
     </tr>
     <tr>
-      <th>14686</th>
-      <td>-3.770389</td>
-      <td>43.465960</td>
+      <th>14418</th>
+      <td>-3.730716</td>
+      <td>43.475672</td>
     </tr>
     <tr>
-      <th>14687</th>
-      <td>-3.770315</td>
-      <td>43.465903</td>
+      <th>14419</th>
+      <td>-3.730725</td>
+      <td>43.475729</td>
     </tr>
     <tr>
-      <th>14688</th>
-      <td>-3.770242</td>
-      <td>43.465847</td>
+      <th>14420</th>
+      <td>-3.730675</td>
+      <td>43.475793</td>
     </tr>
     <tr>
-      <th>14689</th>
-      <td>-3.770271</td>
-      <td>43.465790</td>
+      <th>14421</th>
+      <td>-3.730625</td>
+      <td>43.475857</td>
     </tr>
     <tr>
-      <th>14690</th>
-      <td>-3.770286</td>
-      <td>43.465737</td>
+      <th>14422</th>
+      <td>-3.730575</td>
+      <td>43.475921</td>
     </tr>
     <tr>
-      <th>14691</th>
-      <td>-3.770301</td>
-      <td>43.465684</td>
+      <th>14423</th>
+      <td>-3.730525</td>
+      <td>43.475985</td>
     </tr>
     <tr>
-      <th>14692</th>
-      <td>-3.770389</td>
-      <td>43.465634</td>
-    </tr>
-    <tr>
-      <th>14693</th>
-      <td>-3.770467</td>
-      <td>43.465588</td>
-    </tr>
-    <tr>
-      <th>14694</th>
-      <td>-3.770545</td>
-      <td>43.465542</td>
-    </tr>
-    <tr>
-      <th>14695</th>
-      <td>-3.770610</td>
-      <td>43.465502</td>
-    </tr>
-    <tr>
-      <th>14696</th>
-      <td>-3.770675</td>
-      <td>43.465461</td>
-    </tr>
-    <tr>
-      <th>14697</th>
-      <td>-3.770740</td>
-      <td>43.465421</td>
-    </tr>
-    <tr>
-      <th>14698</th>
-      <td>-3.770779</td>
-      <td>43.465350</td>
-    </tr>
-    <tr>
-      <th>14699</th>
-      <td>-3.770858</td>
-      <td>43.465290</td>
-    </tr>
-    <tr>
-      <th>14700</th>
-      <td>-3.770936</td>
-      <td>43.465230</td>
-    </tr>
-    <tr>
-      <th>14701</th>
-      <td>-3.771029</td>
-      <td>43.465177</td>
-    </tr>
-    <tr>
-      <th>14702</th>
-      <td>-3.771121</td>
-      <td>43.465123</td>
-    </tr>
-    <tr>
-      <th>14703</th>
-      <td>-3.771200</td>
-      <td>43.465069</td>
-    </tr>
-    <tr>
-      <th>14704</th>
-      <td>-3.771278</td>
-      <td>43.465015</td>
-    </tr>
-    <tr>
-      <th>14705</th>
-      <td>-3.771356</td>
-      <td>43.464960</td>
-    </tr>
-    <tr>
-      <th>14706</th>
-      <td>-3.771444</td>
-      <td>43.464925</td>
-    </tr>
-    <tr>
-      <th>14707</th>
-      <td>-3.771512</td>
-      <td>43.464921</td>
-    </tr>
-    <tr>
-      <th>14708</th>
-      <td>-3.771581</td>
-      <td>43.464918</td>
-    </tr>
-    <tr>
-      <th>14709</th>
-      <td>-3.771654</td>
-      <td>43.464939</td>
-    </tr>
-    <tr>
-      <th>14710</th>
-      <td>-3.771727</td>
-      <td>43.464960</td>
-    </tr>
-    <tr>
-      <th>14711</th>
-      <td>-3.771737</td>
-      <td>43.465038</td>
-    </tr>
-    <tr>
-      <th>14712</th>
-      <td>-3.771776</td>
-      <td>43.465109</td>
-    </tr>
-    <tr>
-      <th>14713</th>
-      <td>-3.771698</td>
-      <td>43.465166</td>
-    </tr>
-    <tr>
-      <th>14714</th>
-      <td>-3.771813</td>
-      <td>43.465145</td>
-    </tr>
-    <tr>
-      <th>14715</th>
-      <td>-3.771927</td>
-      <td>43.465123</td>
-    </tr>
-    <tr>
-      <th>14716</th>
-      <td>-3.772042</td>
-      <td>43.465102</td>
-    </tr>
-    <tr>
-      <th>14717</th>
-      <td>-3.772157</td>
-      <td>43.465081</td>
-    </tr>
-    <tr>
-      <th>14718</th>
-      <td>-3.772177</td>
-      <td>43.465148</td>
-    </tr>
-    <tr>
-      <th>14719</th>
-      <td>-3.772196</td>
-      <td>43.465216</td>
-    </tr>
-    <tr>
-      <th>14720</th>
-      <td>-3.772079</td>
-      <td>43.465242</td>
-    </tr>
-    <tr>
-      <th>14721</th>
-      <td>-3.771962</td>
-      <td>43.465268</td>
-    </tr>
-    <tr>
-      <th>14722</th>
-      <td>-3.771844</td>
-      <td>43.465294</td>
-    </tr>
-    <tr>
-      <th>14723</th>
-      <td>-3.771750</td>
-      <td>43.465320</td>
-    </tr>
-    <tr>
-      <th>14724</th>
-      <td>-3.771656</td>
-      <td>43.465346</td>
-    </tr>
-    <tr>
-      <th>14725</th>
-      <td>-3.771561</td>
-      <td>43.465372</td>
-    </tr>
-    <tr>
-      <th>14726</th>
-      <td>-3.771502</td>
-      <td>43.465438</td>
-    </tr>
-    <tr>
-      <th>14727</th>
-      <td>-3.771444</td>
-      <td>43.465504</td>
-    </tr>
-    <tr>
-      <th>14728</th>
-      <td>-3.771385</td>
-      <td>43.465570</td>
-    </tr>
-    <tr>
-      <th>14729</th>
-      <td>-3.771297</td>
-      <td>43.465588</td>
-    </tr>
-    <tr>
-      <th>14730</th>
-      <td>-3.771209</td>
-      <td>43.465606</td>
-    </tr>
-    <tr>
-      <th>14731</th>
-      <td>-3.771146</td>
-      <td>43.465645</td>
-    </tr>
-    <tr>
-      <th>14732</th>
-      <td>-3.771082</td>
-      <td>43.465684</td>
-    </tr>
-    <tr>
-      <th>14733</th>
-      <td>-3.770989</td>
-      <td>43.465717</td>
-    </tr>
-    <tr>
-      <th>14734</th>
-      <td>-3.770897</td>
-      <td>43.465751</td>
-    </tr>
-    <tr>
-      <th>14735</th>
-      <td>-3.770804</td>
-      <td>43.465785</td>
-    </tr>
-    <tr>
-      <th>14736</th>
-      <td>-3.770711</td>
-      <td>43.465818</td>
-    </tr>
-    <tr>
-      <th>14737</th>
-      <td>-3.770626</td>
-      <td>43.465856</td>
-    </tr>
-    <tr>
-      <th>14738</th>
-      <td>-3.770542</td>
-      <td>43.465894</td>
-    </tr>
-    <tr>
-      <th>14739</th>
-      <td>-3.770457</td>
-      <td>43.465932</td>
+      <th>14424</th>
+      <td>-3.730438</td>
+      <td>43.476049</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
+<ol class="arabic simple" start="3">
+<li><p>Plot bathymetry, coastline and the selected polygon (in red)</p></li>
+</ol>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot grid and coastline</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;depth&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;depth&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
 <span class="c1"># plt.fill(coast[&quot;lon&quot;], coast[&quot;lat&quot;], color=&quot;grey&quot;)</span>
 <span class="n">coast</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;coastline&quot;</span><span class="p">)</span>
 <span class="n">coast</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;coastline - polygon </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -766,7 +547,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_01_read_domain_6_1.png" src="../_images/notebooks_01_read_domain_6_1.png" />
+<img alt="../_images/notebooks_01_read_domain_10_1.png" src="../_images/notebooks_01_read_domain_10_1.png" />
 </div>
 </div>
 </section>
