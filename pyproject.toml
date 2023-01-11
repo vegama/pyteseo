@@ -7,8 +7,8 @@ build-backend = "flit_core.buildapi"
 name = "pyteseo"
 authors = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
 mantainers = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
-readme = "README.md"
-requires-python = "3.10"
+readme = "README_pypi.md"
+requires-python = ">=3.10"
 classifiers = ["Topic :: Scientific/Engineering", "Programming Language :: Python"]
 dynamic = ["version", "description"]
 

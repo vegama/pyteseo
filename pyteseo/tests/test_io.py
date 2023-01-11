@@ -231,3 +231,9 @@ def test_read_winds(file, error):
         assert isinstance(df, pd.DataFrame)
         assert n_files == 4
         assert n_grid_nodes == 12
+
+
+def test_write_currents():
+    lstcurr_path = tmp_path / "lstcurr_UVW.pre"
+    print("write currents!")
+    assert Path(lstcurr_path).exists()

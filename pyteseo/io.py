@@ -20,8 +20,6 @@ import pandas as pd
 
 
 # 1. DOMAIN
-
-
 def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFrame:
     """Read TESEO grid-file to pandas DataFrame
 

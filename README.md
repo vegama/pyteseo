@@ -25,7 +25,7 @@
 
 ---
 
-## :house: Local installation
+## :computer: Installation
 
 * Install from github repositorie using `pip`:
 ```bash
