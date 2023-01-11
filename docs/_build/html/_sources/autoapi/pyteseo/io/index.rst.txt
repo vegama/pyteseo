@@ -97,9 +97,9 @@ Functions
    :rtype: Tuple[pd.DataFrame, float, float]
 
 
-.. py:function:: write_currents(dir_path)
+.. py:function:: write_currents(df: pandas.DataFrame, path: PosixPath | str, nan_value: int = 0) -> None
 
 
-.. py:function:: write_winds(dir_path)
+.. py:function:: write_winds(df: pandas.DataFrame, path: PosixPath | str, nan_value: int = 0) -> None
 
 

@@ -1,10 +1,11 @@
 # Get started
 Quickstart guide to use pyTESEO
 
-## :computer: Installation
+---
+
+## Installation
 ```{note}
-For now, this package can only be installed directly from github repository through pip!
-This can be done also from a conda environment, but always using pip.
+For now, this package can only be installed directly from github repository. Will be published on pypi and conda-forge soon with the first stable release!
 ```
 Directly from `github`:
 ```bash
@@ -14,8 +15,10 @@ from `pypi` repository:
 ```bash
 pip install pyteseo
 ```
+
 ---
-## :heavy_check_mark: Testing & Coverage
+
+## Testing and coverage
 Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`. 
 Tests have been developed using [pytest](https://docs.pytest.org/).
 
@@ -33,33 +36,30 @@ coverage report     # For prompt results from ".coverage" file
 coverage html       # For generate html report on "htmlcov" folder
 ```
 
+---
+
+## Structure
+* {py:mod}`pyteseo.io` - Bunch of functions to read and write all the necesary files for a TESEO simulation.
+* {py:mod}`pyteseo.config` - Bunch of functions to obtain configuration variables to write TESEO's configuration files (*.cfg and *.run)
+* {py:mod}`pyteseo.plot` - Bunch of functions to plot default figures of all the results calculated by TESEO model.
+* {py:mod}`pyteseo.export` - Bunch of functions to export TESEO results to standard formats (*.csv, *.json, *.geojson, *.nc)
 
 ---
 
-## :recycle: Continuous integration and deployment (CI & CD)
-
-:warning: `THINK AND DEVELOP!` (If able use precommit and github actions when push tags)
-* deploy documentation on github page -> github action :heavy_check_mark:
-* pass format -> Balck :x:
-* pass linter -> ? :x:
-* pass tests -> pytest :x:
-* make documentation -> sphinx :x:
-* install and pass tests in different systems -> github actions :x:
-
-*For all the SO (Windows, Linux, Mac), and python versions (3.10) required!*
-
----
-
-
-## :house: Structure
-1. {py:mod}`pyteseo.io` - Bunch of functions to read and write all the necesary files for a TESEO simulation.
-2. {py:mod}`pyteseo.config` - Bunch of functions to obtain configuration variables to write TESEO's configuration files (*.cfg and *.run)
-3. {py:mod}`pyteseo.plot` - Bunch of functions to plot default figures of all the results calculated by TESEO model
-4. {py:mod}`pyteseo.export` - Bunch of functions to export TESEO results to standard formats (*.csv, *.json, *.geojson, *.nc)
-
-## :rocket: Use Cases
+## Use cases
 List of use cases developed as a guide to use this package
 ```{warning}
 Link to notebooks, To be completed!
 ```
 
+---
+
+## Continuous integration
+* deploy documentation on github page -> github action 
+* pass format -> Balck?
+* pass linter -> ?
+* pass tests -> pytest
+* make documentation -> sphinx
+* install and pass tests in different systems -> github actions
+
+*For all the SO (Windows, Linux, Mac), and python versions (3.10) required!*

@@ -5,7 +5,7 @@
 
 .. autoapi-nested-parse::
 
-   Python library to centralize and standarize python modules to manage TESEO model
+   Python package developed to simplify and facilitate the setup and processing of TESEO simulations (TESEO is a lagrangian numerical model developed by IHCantabria)
 
 
 
@@ -24,6 +24,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   cli/index.rst
    config/index.rst
    export/index.rst
    io/index.rst
@@ -33,43 +34,8 @@ Submodules
 Package Contents
 ----------------
 
-
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   pyteseo.test
-   pyteseo.coverage
-   pyteseo.coverage_html
-
-
-
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   pyteseo.__version__
-
-
 .. py:data:: __version__
    :annotation: = 0.0.1
 
    
-
-.. py:function:: test()
-
-   run all available tests
-
-
-.. py:function:: coverage()
-
-   run all available tests
-
-
-.. py:function:: coverage_html()
-
-   run all available tests
-
 

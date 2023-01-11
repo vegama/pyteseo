@@ -1,6 +1,0 @@
-:py:mod:`pyteseo.tests.test_export`
-===================================
-
-.. py:module:: pyteseo.tests.test_export
-
-

@@ -1,0 +1,24 @@
+:py:mod:`pyteseo.cli`
+=====================
+
+.. py:module:: pyteseo.cli
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyteseo.cli.run_tests
+
+
+
+.. py:function:: run_tests()
+
+   run all available tests
+
+

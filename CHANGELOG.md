@@ -1,4 +1,4 @@
-# CHANGELOG
+# Changelog
 
 ## v0.0.2 - xx/xx/xxx
 ### Added:
