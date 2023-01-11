@@ -22,7 +22,7 @@ dependencies = [
     "ipykernel",
     "matplotlib",
     "geojson",
-    "pytest>=6",
+    "pytest >=7",
     "coverage[toml]",
 ]
 

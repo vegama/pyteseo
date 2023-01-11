@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.0.4 - 11/01/2023
+### Added:
+1) required version pytest >=7
+### Changed:
+### Fixed:
+1) relative paths to pyteseo installtion for notebooks
+<br/><br/>
+
+
+# Changelog
+
 ## v0.0.3 - 11/01/2023
 ### Added:
 1) add google colab for notebooks
