@@ -365,13 +365,14 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="Read-TESEO’s-domain-files">
 <h1><span class="section-number">1. </span>Read TESEO’s domain files<a class="headerlink" href="#Read-TESEO’s-domain-files" title="Permalink to this headline"></a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/IHCantabria/pyteseo/blob/main/docs/notebooks/01_read_domain.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <ol class="arabic simple">
 <li><p>Read bathymetry and coastline from TESEO’s format files</p></li>
 <li><p>Select one polygon of the coastline by its index</p></li>
 <li><p>Plot bathymetry, coastline and the selected polygon</p></li>
 </ol>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
@@ -383,16 +384,16 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">read_grid</span><span class="p">(</span><span class="s2">&quot;../../data/mock/grid.dat&quot;</span><span class="p">,</span> <span class="n">nan_value</span><span class="o">=-</span><span class="mi">9999</span><span class="p">)</span>
-<span class="n">coast</span> <span class="o">=</span> <span class="n">read_coastline</span><span class="p">(</span><span class="s2">&quot;../../data/mock/coastline.dat&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">read_grid</span><span class="p">(</span><span class="s2">&quot;../../pyteseo/tests/data/grid.dat&quot;</span><span class="p">,</span> <span class="n">nan_value</span><span class="o">=-</span><span class="mi">9999</span><span class="p">)</span>
+<span class="n">coast</span> <span class="o">=</span> <span class="n">read_coastline</span><span class="p">(</span><span class="s2">&quot;../../pyteseo/tests/data/coastline.dat&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select polygon index</span>
@@ -402,7 +403,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -727,7 +728,7 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot grid and coastline</span>
@@ -740,7 +741,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
