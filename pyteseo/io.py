@@ -1,5 +1,13 @@
+
 """Input and Output functionality for specific TESEO file formats
 """
+from __future__ import annotations
+
+from pathlib import Path, PosixPath
+from typing import Tuple
+
+import pandas as pd
+
 # NOTE - Restricts the loading when from "pyteseo.io import *"" to the names defined here but it are loaded in pytest.CHECK BEHAVIOUR
 # NOTE - Restricts what is documented by Sphinx (!!!)
 __all__ = [
@@ -12,11 +20,6 @@ __all__ = [
     "write_currents",
     "write_winds",
 ]
-
-from pathlib import Path, PosixPath
-from typing import Tuple
-
-import pandas as pd
 
 
 # 1. DOMAIN
@@ -228,25 +231,59 @@ def read_winds(path: str | PosixPath) -> Tuple[pd.DataFrame, float, float]:
     return pd.concat(df_list), len(files), n_rows[0]
 
 
-def write_currents(df: pd.DataFrame, path: PosixPath | str, nan_value: int=0) -> None:
-    
+def write_currents(df: pd.DataFrame, dir_path: PosixPath | str) -> None:
+    """Write TESEO currents-files from a DataFrame
+
+    Args:
+        df (pd.DataFrame): DataFrame containing columns "time", "lon", "lat", "u", and "v".
+        dir_path (PosixPath | str): directory path where will be created the files "lstcurr_UVW.pre" and all the "currents_*.txt"
+        nan_value (int, optional): Value for replacing nans. Defaults to 0.
+    """
+
+    lst_filename = "lstcurr_UVW.pre"
     forcing = "currents"
+    path = Path(dir_path, lst_filename)
+    
     _write_2dh_uv(df, path, forcing)
 
 
-def write_winds(df: pd.DataFrame, path: PosixPath | str, nan_value: int=0) -> None:
-    
+def write_winds(df: pd.DataFrame, dir_path: PosixPath | str) -> None:
+    """Write TESEO winds-files from a DataFrame
+
+    Args:
+        df (pd.DataFrame): DataFrame containing columns "time", "lon", "lat", "u", and "v".
+        dir_path (PosixPath | str): directory path where will be created the files "lstwinds.pre" and all the "winds_*.txt"
+        nan_value (int, optional): Value for replacing nans. Defaults to 0.
+    """
+    lst_filename = "lstwinds.pre"
     forcing = "winds"
+    path = Path(dir_path, lst_filename)
+
     _write_2dh_uv(df, path, forcing)
 
 
 def _write_2dh_uv(df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_value: int=0):
     
     path = Path(path) if isinstance(path, str) else path
+
+    # Check variable-names
+    for varname in ["time", "lon", "lat", "u", "v"]:
+        if varname not in df.keys():
+            raise ValueError(f"{varname} not founded in the DataFrame")
+
+    if (
+        df.lon.max() >= 180
+        or df.lon.min() <= -180
+        or df.lat.max() >= 90
+        or df.lat.min() <= -90
+    ):
+        raise ValueError(
+            "lon and lat values should be inside ranges lon[-180,180] and lat[-90,90]!"
+        )
+
     df = df.sort_values(["time", "lon", "lat"])
     
     grouped = df.groupby("time")
-    
     for time, group in grouped:
         with open(path,"a") as f:
             f.write(f"{forcing}_{int(time):03d}h.txt\n")

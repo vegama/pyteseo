@@ -241,10 +241,9 @@ def test_write_currents():
     if not tmp_path.exists():
         tmp_path.mkdir()
 
-    lstcurr_path = tmp_path / "lstcurr_UVW.pre"
-    write_currents(df, lstcurr_path)
+    write_currents(df, tmp_path)
 
-    assert Path(lstcurr_path).exists()
+    assert Path(tmp_path, "lstcurr_UVW.pre").exists()
 
     if tmp_path.exists():
         rmtree(tmp_path)
@@ -258,10 +257,9 @@ def test_write_winds():
     if not tmp_path.exists():
         tmp_path.mkdir()
 
-    lstwinds_path = tmp_path / "lstwinds.pre"
-    write_winds(df, lstwinds_path)
+    write_winds(df, tmp_path)
 
-    assert Path(lstwinds_path).exists()
+    assert Path(tmp_path, "lstwinds.pre").exists()
 
     if tmp_path.exists():
         rmtree(tmp_path)

@@ -8,7 +8,7 @@ name = "pyteseo"
 authors = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
 mantainers = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.7"
 classifiers = ["Topic :: Scientific/Engineering", "Programming Language :: Python"]
 dynamic = ["version", "description"]
 
