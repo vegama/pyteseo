@@ -4,13 +4,17 @@
 ### Added:
 1) coverage functionality
 2) tools configuration in pyproject.toml
-3) 
-4) 
-5) 
-6) 
-7) 
+3) write currents and winds with io module
+4) build and publish in pypi.test
+5) build and publish in pypi
+6) user able to use tests to validate installation
+7) add jupyter notebooks in docs
+8) publish docs in github repo page-service
 ### Changed:
-1) Upgrade logic for coastlines
+1) upgrade logic for coastlines
+2) change structure to add tests as subpackage
+3) update doc
+4) visibility of the repo to public
 ### Fixed:
 1) None
 <br/><br/>
