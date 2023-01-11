@@ -18,6 +18,14 @@ pip install pyteseo
 
 ---
 
+## Package structure
+* {py:mod}`pyteseo.io` - Bunch of functions to read and write all the necesary files for a TESEO simulation.
+* {py:mod}`pyteseo.config` - Bunch of functions to obtain configuration variables to write TESEO's configuration files (*.cfg and *.run)
+* {py:mod}`pyteseo.plot` - Bunch of functions to plot default figures of all the results calculated by TESEO model.
+* {py:mod}`pyteseo.export` - Bunch of functions to export TESEO results to standard formats (*.csv, *.json, *.geojson, *.nc)
+
+---
+
 ## Testing and coverage
 Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`. 
 Tests have been developed using [pytest](https://docs.pytest.org/).
@@ -35,14 +43,6 @@ coverage run        # For run tests and generate ".coverage" file
 coverage report     # For prompt results from ".coverage" file
 coverage html       # For generate html report on "htmlcov" folder
 ```
-
----
-
-## Structure
-* {py:mod}`pyteseo.io` - Bunch of functions to read and write all the necesary files for a TESEO simulation.
-* {py:mod}`pyteseo.config` - Bunch of functions to obtain configuration variables to write TESEO's configuration files (*.cfg and *.run)
-* {py:mod}`pyteseo.plot` - Bunch of functions to plot default figures of all the results calculated by TESEO model.
-* {py:mod}`pyteseo.export` - Bunch of functions to export TESEO results to standard formats (*.csv, *.json, *.geojson, *.nc)
 
 ---
 

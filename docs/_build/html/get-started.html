@@ -44,8 +44,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-structure">Package structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#testing-and-coverage">Testing and coverage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#structure">Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#use-cases">Use cases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous integration</a></li>
 </ul>
@@ -133,6 +133,16 @@
 </div>
 </section>
 <hr class="docutils" />
+<section id="package-structure">
+<h2>Package structure<a class="headerlink" href="#package-structure" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="autoapi/pyteseo/io/index.html#module-pyteseo.io" title="pyteseo.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.io</span></code></a> - Bunch of functions to read and write all the necesary files for a TESEO simulation.</p></li>
+<li><p><a class="reference internal" href="autoapi/pyteseo/config/index.html#module-pyteseo.config" title="pyteseo.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.config</span></code></a> - Bunch of functions to obtain configuration variables to write TESEO’s configuration files (*.cfg and *.run)</p></li>
+<li><p><a class="reference internal" href="autoapi/pyteseo/plot/index.html#module-pyteseo.plot" title="pyteseo.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.plot</span></code></a> - Bunch of functions to plot default figures of all the results calculated by TESEO model.</p></li>
+<li><p><a class="reference internal" href="autoapi/pyteseo/export/index.html#module-pyteseo.export" title="pyteseo.export"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.export</span></code></a> - Bunch of functions to export TESEO results to standard formats (*.csv, *.json, *.geojson, *.nc)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
 <section id="testing-and-coverage">
 <h2>Testing and coverage<a class="headerlink" href="#testing-and-coverage" title="Permalink to this headline"></a></h2>
 <p>Tests are located in <code class="docutils literal notranslate"><span class="pre">pyteseo/tests/</span></code> and data required for tests are located in <code class="docutils literal notranslate"><span class="pre">pyteseo/tests/data/</span></code>.
@@ -149,16 +159,6 @@ coverage report     <span class="c1"># For prompt results from &quot;.coverage&q
 coverage html       <span class="c1"># For generate html report on &quot;htmlcov&quot; folder</span>
 </pre></div>
 </div>
-</section>
-<hr class="docutils" />
-<section id="structure">
-<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="autoapi/pyteseo/io/index.html#module-pyteseo.io" title="pyteseo.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.io</span></code></a> - Bunch of functions to read and write all the necesary files for a TESEO simulation.</p></li>
-<li><p><a class="reference internal" href="autoapi/pyteseo/config/index.html#module-pyteseo.config" title="pyteseo.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.config</span></code></a> - Bunch of functions to obtain configuration variables to write TESEO’s configuration files (*.cfg and *.run)</p></li>
-<li><p><a class="reference internal" href="autoapi/pyteseo/plot/index.html#module-pyteseo.plot" title="pyteseo.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.plot</span></code></a> - Bunch of functions to plot default figures of all the results calculated by TESEO model.</p></li>
-<li><p><a class="reference internal" href="autoapi/pyteseo/export/index.html#module-pyteseo.export" title="pyteseo.export"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.export</span></code></a> - Bunch of functions to export TESEO results to standard formats (*.csv, *.json, *.geojson, *.nc)</p></li>
-</ul>
 </section>
 <hr class="docutils" />
 <section id="use-cases">
