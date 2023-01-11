@@ -48,7 +48,9 @@ coverage html       # For generate html report on "htmlcov" folder
 
 ## Use cases
 List of use cases has been developed as an examples of use of this package.
-All the use cases are provided as notebooks in the source code repository under the path `docs/notebooks`. Moreover, all the notebooks include a link to be opened and executed in `Google Colab`. Check **USE CASES** section at left panel to access them. 
+All the use cases are provided as notebooks in the source code repository under the path `docs/notebooks`. Moreover, all the notebooks include a link to be opened and executed in `Google Colab`. 
+
+Check **USE CASES** section at left panel to access them. 
 
 ---
 
