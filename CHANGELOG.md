@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.0.3 - 11/01/2023
+### Added:
+1) add google colab for notebooks
+### Changed:
+1) update python version requirement to 3.7
+### Fixed:
+1) Compatibility for python versions >=3.7
+<br/><br/>
+
+
 ## v0.0.2 - 11/01/2023
 ### Added:
 1) coverage functionality
