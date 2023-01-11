@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.0.2 - xx/xx/xxx
+## v0.0.2 - 11/01/2023
 ### Added:
 1) coverage functionality
 2) tools configuration in pyproject.toml
