@@ -25,28 +25,24 @@
 
 ---
 
-## :computer: Installation
+## Installation
 
-* Install from github repositorie using `pip`:
+Directly from `github`:
 ```bash
 pip install git+https://github.com/IHCantabria/pyteseo
-# To install extra dev dependencies: pip install git+https://github.com/IHCantabria/pyteseo[dev]
-# Using editable mode: pip install -e git+https://github.com/IHCantabria/pyteseo[dev]
-
 ```
-
-* :warning: `UNDER CONSTRUCTION` :construction: - Installation from github repository using pip:
+from `pypi` repository:
 ```bash
 pip install pyteseo
 ```
-* :warning: `UNDER CONSTRUCTION` :construction: - Install from conda-forge repository:
+Run tests to verify your package installation:
 ```bash
-conda install -c conda-forge pyteseo 
+pyteseo-test        # Run tests and prompt pytest-report
 ```
 
 ---
 
-## :books: Documentation
+## Documentation
 
 Comprenhensive documentation is developed and mantained at https://ihcantabria.github.io/pyteseo
 
@@ -54,41 +50,6 @@ Documentation of all the package, usage and examples based on mockup input data 
 
 
 ![pyteseo_doc](docs/_static/doc_snapshoot.png)
-
----
-
-## :heavy_check_mark: Testing & Coverage
-Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`. 
-Tests have been developed using [pytest](https://docs.pytest.org/).
-
-Run tests to verify your package installation:
-```bash
-pyteseo-test        # Run tests and prompt pytest-report
-```
-
-If you have cloned the repository, you also can run `coverage.py` functionalities based on current `pytproyect.toml` configuration from your terminal command line interface:
-```bash
-# Commands should be executed from the root directory of the repo
-
-coverage run        # For run tests and generate ".coverage" file
-coverage report     # For prompt results from ".coverage" file
-coverage html       # For generate html report on "htmlcov" folder
-```
-
-
----
-
-## :recycle: Continuous integration and deployment (CI & CD)
-
-:warning: `THINK AND DEVELOP!` (If able use precommit and github actions when push tags)
-* deploy documentation on github page -> github action :heavy_check_mark:
-* pass format -> Balck :x:
-* pass linter -> ? :x:
-* pass tests -> pytest :x:
-* make documentation -> sphinx :x:
-* install and pass tests in different systems -> github actions :x:
-
-*For all the SO (Windows, Linux, Mac), and python versions (3.10) required!*
 
 ---
 
