@@ -97,9 +97,27 @@ Functions
    :rtype: Tuple[pd.DataFrame, float, float]
 
 
-.. py:function:: write_currents(df: pandas.DataFrame, path: PosixPath | str, nan_value: int = 0) -> None
+.. py:function:: write_currents(df: pandas.DataFrame, dir_path: PosixPath | str) -> None
+
+   Write TESEO currents-files from a DataFrame
+
+   :param df: DataFrame containing columns "time", "lon", "lat", "u", and "v".
+   :type df: pd.DataFrame
+   :param dir_path: directory path where will be created the files "lstcurr_UVW.pre" and all the "currents_*.txt"
+   :type dir_path: PosixPath | str
+   :param nan_value: Value for replacing nans. Defaults to 0.
+   :type nan_value: int, optional
 
 
-.. py:function:: write_winds(df: pandas.DataFrame, path: PosixPath | str, nan_value: int = 0) -> None
+.. py:function:: write_winds(df: pandas.DataFrame, dir_path: PosixPath | str) -> None
+
+   Write TESEO winds-files from a DataFrame
+
+   :param df: DataFrame containing columns "time", "lon", "lat", "u", and "v".
+   :type df: pd.DataFrame
+   :param dir_path: directory path where will be created the files "lstwinds.pre" and all the "winds_*.txt"
+   :type dir_path: PosixPath | str
+   :param nan_value: Value for replacing nans. Defaults to 0.
+   :type nan_value: int, optional
 
 
