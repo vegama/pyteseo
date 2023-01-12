@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyteseo.io &mdash; pyTESEO v0.0.3</title>
+  <title>pyteseo.io &mdash; pyTESEO v0.0.4</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
@@ -49,7 +49,6 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo</span></code></a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../cli/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.cli</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.config</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../export/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.export</span></code></a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyteseo.io</span></code></a></li>
@@ -159,6 +158,15 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.write_winds" title="pyteseo.io.write_winds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_winds</span></code></a>(→ None)</p></td>
 <td><p>Write TESEO winds-files from a DataFrame</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.read_particles_results" title="pyteseo.io.read_particles_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_particles_results</span></code></a>(→ pandas.DataFrame)</p></td>
+<td><p>Load TESEO's particles results files &quot;<em>_properties_</em>.txt&quot; to DataFrame</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyteseo.io.read_properties_results" title="pyteseo.io.read_properties_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_properties_results</span></code></a>(→ pandas.DataFrame)</p></td>
+<td><p>Load TESEO's propierties results files &quot;<em>_properties_</em>.txt&quot; to DataFrame</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyteseo.io.read_grids_results" title="pyteseo.io.read_grids_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_grids_results</span></code></a>(→ pandas.DataFrame)</p></td>
+<td><p>Load TESEO's grids results files &quot;<em>_grid_</em>.txt&quot; to DataFrame</p></td>
 </tr>
 </tbody>
 </table>
@@ -286,6 +294,67 @@
 <li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame containing columns “time”, “lon”, “lat”, “u”, and “v”.</p></li>
 <li><p><strong>dir_path</strong> (<em>PosixPath</em><em> | </em><em>str</em>) – directory path where will be created the files “lstwinds.pre” and all the “winds_*.txt”</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.read_particles_results">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_particles_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PosixPath</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*_particles_*.txt'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#pyteseo.io.read_particles_results" title="Permalink to this definition"></a></dt>
+<dd><p>Load TESEO’s particles results files “<em>_properties_</em>.txt” to DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir_path</strong> (<em>PosixPath</em><em> | </em><em>str</em>) – path to the results directory</p></li>
+<li><p><strong>file_pattern</strong> (<em>str</em><em>, </em><em>optional</em>) – file pattern of particles restuls. Defaults to “<em>_particles_</em>.txt”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dataframe with all the results (including times and spill_id)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.read_properties_results">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_properties_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PosixPath</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*_properties_*.txt'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#pyteseo.io.read_properties_results" title="Permalink to this definition"></a></dt>
+<dd><p>Load TESEO’s propierties results files “<em>_properties_</em>.txt” to DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir_path</strong> (<em>PosixPath</em><em> | </em><em>str</em>) – path to the results directory</p></li>
+<li><p><strong>file_pattern</strong> (<em>str</em><em>, </em><em>optional</em>) – file pattern of particles restuls. Defaults to “<em>_properties_</em>.txt”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dataframe with all the results (including times and spill_id)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyteseo.io.read_grids_results">
+<span class="sig-prename descclassname"><span class="pre">pyteseo.io.</span></span><span class="sig-name descname"><span class="pre">read_grids_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PosixPath</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*_grid_*.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fullgrid_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'grid_coordinates.txt'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#pyteseo.io.read_grids_results" title="Permalink to this definition"></a></dt>
+<dd><p>Load TESEO’s grids results files “<em>_grid_</em>.txt” to DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir_path</strong> (<em>PosixPath</em><em> | </em><em>str</em>) – path to the results directory</p></li>
+<li><p><strong>file_pattern</strong> (<em>str</em><em>, </em><em>optional</em>) – file pattern of particles restuls. Defaults to “<em>_grid_</em>.txt”.</p></li>
+<li><p><strong>fullgrid_filename</strong> (<em>str</em><em>, </em><em>optional</em>) – filename of the full domain-grid for results. Defaults to “grid_coordinates.txt”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dataframe with all the results (including times and spill_id)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
 </dd>
 </dl>
 </dd></dl>

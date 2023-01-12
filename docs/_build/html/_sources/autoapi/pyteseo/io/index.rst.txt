@@ -26,6 +26,9 @@ Functions
    pyteseo.io.read_winds
    pyteseo.io.write_currents
    pyteseo.io.write_winds
+   pyteseo.io.read_particles_results
+   pyteseo.io.read_properties_results
+   pyteseo.io.read_grids_results
 
 
 
@@ -115,5 +118,46 @@ Functions
    :type df: pd.DataFrame
    :param dir_path: directory path where will be created the files "lstwinds.pre" and all the "winds_*.txt"
    :type dir_path: PosixPath | str
+
+
+.. py:function:: read_particles_results(dir_path: PosixPath | str, file_pattern: str = '*_particles_*.txt') -> pandas.DataFrame
+
+   Load TESEO's particles results files "*_properties_*.txt" to DataFrame
+
+   :param dir_path: path to the results directory
+   :type dir_path: PosixPath | str
+   :param file_pattern: file pattern of particles restuls. Defaults to "*_particles_*.txt".
+   :type file_pattern: str, optional
+
+   :returns: Dataframe with all the results (including times and spill_id)
+   :rtype: pd.DataFrame
+
+
+.. py:function:: read_properties_results(dir_path: PosixPath | str, file_pattern: str = '*_properties_*.txt') -> pandas.DataFrame
+
+   Load TESEO's propierties results files "*_properties_*.txt" to DataFrame
+
+   :param dir_path: path to the results directory
+   :type dir_path: PosixPath | str
+   :param file_pattern: file pattern of particles restuls. Defaults to "*_properties_*.txt".
+   :type file_pattern: str, optional
+
+   :returns: Dataframe with all the results (including times and spill_id)
+   :rtype: pd.DataFrame
+
+
+.. py:function:: read_grids_results(dir_path: PosixPath | str, file_pattern: str = '*_grid_*.txt', fullgrid_filename='grid_coordinates.txt') -> pandas.DataFrame
+
+   Load TESEO's grids results files "*_grid_*.txt" to DataFrame
+
+   :param dir_path: path to the results directory
+   :type dir_path: PosixPath | str
+   :param file_pattern: file pattern of particles restuls. Defaults to "*_grid_*.txt".
+   :type file_pattern: str, optional
+   :param fullgrid_filename: filename of the full domain-grid for results. Defaults to "grid_coordinates.txt".
+   :type fullgrid_filename: str, optional
+
+   :returns: Dataframe with all the results (including times and spill_id)
+   :rtype: pd.DataFrame
 
 

@@ -24,7 +24,6 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   cli/index.rst
    config/index.rst
    export/index.rst
    io/index.rst
