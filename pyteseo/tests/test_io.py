@@ -233,34 +233,56 @@ def test_read_winds(file, error):
         assert n_grid_nodes == 12
 
 
-def test_write_currents():
+@pytest.mark.parametrize("error", [(None), ("df_varnames"), ("lonlat_range")])
+def test_write_currents(error):
 
     currents_path = Path(data_path, "lstcurr_UVW.pre")
     df, files, nodes = read_currents(currents_path)
-    
+
     if not tmp_path.exists():
         tmp_path.mkdir()
 
-    write_currents(df, tmp_path)
+    if error == "df_varnames":
+        df = df.rename(columns={"lon": "longitude"})
+        with pytest.raises(ValueError):
+            write_currents(df, tmp_path)
 
-    assert Path(tmp_path, "lstcurr_UVW.pre").exists()
+    elif error == "lonlat_range":
+        df.loc[:, ("lon")].values[0] = 360
+        with pytest.raises(ValueError):
+            write_currents(df, tmp_path)
+
+    else:
+        write_currents(df, tmp_path)
+        assert Path(tmp_path, "lstcurr_UVW.pre").exists()
 
     if tmp_path.exists():
         rmtree(tmp_path)
 
 
-def test_write_winds():
+@pytest.mark.parametrize("error", [(None), ("df_varnames"), ("lonlat_range")])
+def test_write_winds(error):
 
     winds_path = Path(data_path, "lstwinds.pre")
     df, files, nodes = read_currents(winds_path)
-    
+
     if not tmp_path.exists():
         tmp_path.mkdir()
 
-    write_winds(df, tmp_path)
 
-    assert Path(tmp_path, "lstwinds.pre").exists()
+    if error == "df_varnames":
+        df = df.rename(columns={"lon": "longitude"})
+        with pytest.raises(ValueError):
+            write_winds(df, tmp_path)
+    
+    elif error == "lonlat_range":
+        df.loc[:, ("lon")].values[0] = 360
+        with pytest.raises(ValueError):
+            write_winds(df, tmp_path)
+    
+    else:
+        write_winds(df, tmp_path)
+        assert Path(tmp_path, "lstwinds.pre").exists()
 
     if tmp_path.exists():
         rmtree(tmp_path)
-
