@@ -105,8 +105,6 @@ Functions
    :type df: pd.DataFrame
    :param dir_path: directory path where will be created the files "lstcurr_UVW.pre" and all the "currents_*.txt"
    :type dir_path: PosixPath | str
-   :param nan_value: Value for replacing nans. Defaults to 0.
-   :type nan_value: int, optional
 
 
 .. py:function:: write_winds(df: pandas.DataFrame, dir_path: PosixPath | str) -> None
@@ -117,7 +115,5 @@ Functions
    :type df: pd.DataFrame
    :param dir_path: directory path where will be created the files "lstwinds.pre" and all the "winds_*.txt"
    :type dir_path: PosixPath | str
-   :param nan_value: Value for replacing nans. Defaults to 0.
-   :type nan_value: int, optional
 
 
