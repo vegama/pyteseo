@@ -9,8 +9,6 @@
 <br/><br/>
 
 
-# Changelog
-
 ## v0.0.3 - 11/01/2023
 ### Added:
 1) add google colab for notebooks
