@@ -1,4 +1,3 @@
-
 """Input and Output functionality for specific TESEO file formats
 """
 from __future__ import annotations
@@ -19,6 +18,9 @@ __all__ = [
     "read_winds",
     "write_currents",
     "write_winds",
+    "read_particles_results",
+    "read_properties_results",
+    "read_grids_results",
 ]
 
 
@@ -242,7 +244,7 @@ def write_currents(df: pd.DataFrame, dir_path: PosixPath | str) -> None:
     lst_filename = "lstcurr_UVW.pre"
     forcing = "currents"
     path = Path(dir_path, lst_filename)
-    
+
     _write_2dh_uv(df, path, forcing)
 
 
@@ -260,7 +262,9 @@ def write_winds(df: pd.DataFrame, dir_path: PosixPath | str) -> None:
     _write_2dh_uv(df, path, forcing)
 
 
-def _write_2dh_uv(df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_value: int=0):
+def _write_2dh_uv(
+    df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_value: int = 0
+):
     """Write 2dh fields [time, lon, lat, u, v] to TESEO's format files
 
     Args:
@@ -269,7 +273,7 @@ def _write_2dh_uv(df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_val
         forcing (str): one of the following: ["winds", "currents"]
         nan_value (int, optional): value for nan's in the file. Defaults to 0.
     """
-        
+
     path = Path(path) if isinstance(path, str) else path
 
     # Check variable-names
@@ -288,12 +292,12 @@ def _write_2dh_uv(df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_val
         )
 
     df = df.sort_values(["time", "lon", "lat"])
-    
+
     grouped = df.groupby("time")
     for time, group in grouped:
-        with open(path,"a") as f:
+        with open(path, "a") as f:
             f.write(f"{forcing}_{int(time):03d}h.txt\n")
-        
+
         path_currents = Path(path.parent, f"{forcing}_{int(time):03d}h.txt")
         group.to_csv(
             path_currents,
@@ -306,19 +310,19 @@ def _write_2dh_uv(df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_val
         )
 
 
-# def read_waves(path_list):
-#     print("doing something...")
-
-
-# def write_waves(dir_path):
-#     print("doing something...")
-
-
 # def read_currents_depth_avg(path_list):
 #     print("doing something...")
 
 
 # def write_currents_depth_avg(dir_path):
+#     print("doing something...")
+
+
+# def read_waves(path_list):
+#     print("doing something...")
+
+
+# def write_waves(dir_path):
 #     print("doing something...")
 
 
@@ -340,16 +344,116 @@ def _write_2dh_uv(df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_val
 
 
 # # 4. RESULTS
-# def read_particles(path_list):
-#     print("doing something...")
+def read_particles_results(
+    dir_path: PosixPath | str, file_pattern: str = "*_particles_*.txt"
+) -> pd.DataFrame:
+
+    dir_path = Path(dir_path) if isinstance(dir_path, str) else dir_path
+
+    files = list(dir_path.glob(file_pattern))
+    if not files:
+        raise ValueError(f"No files matching the pattern {file_pattern}")
+    files.sort()
+
+    dfs = [
+        pd.read_csv(
+            file, sep=",", header=0, encoding="iso-8859-1", skipinitialspace=True
+        )
+        for file in files
+    ]
+
+    return pd.concat(dfs)
 
 
-# def read_properties(path_list):
-#     print("doing something...")
+def read_properties_results(
+    dir_path: PosixPath | str, file_pattern: str = "*_properties_*.txt"
+) -> pd.DataFrame:
+
+    dir_path = Path(dir_path) if isinstance(dir_path, str) else dir_path
+
+    files = list(dir_path.glob(file_pattern))
+    if not files:
+        raise ValueError(f"No files matching the pattern {file_pattern}")
+    files.sort()
+
+    spill_ids = [file.stem.split("_")[2] for file in files]
+
+    dfs = []
+    for file, spill_id in zip(files, spill_ids):
+        df_ = pd.read_csv(
+            file, sep=",", header=0, encoding="iso-8859-1", skipinitialspace=True
+        )
+        df_["spill_id (-)"] = spill_id
+
+        dfs.append(df_)
+
+    return pd.concat(dfs)
 
 
-# def read_grids(path_list):
-#     print("doing something...")
+def read_grids_results(
+    dir_path: PosixPath | str,
+    file_pattern: str = "*_grid_*.txt",
+    fullgrid_filename="grid_coordinates.txt",
+) -> pd.DataFrame:
+
+    dir_path = Path(dir_path) if isinstance(dir_path, str) else dir_path
+    files = list(dir_path.glob(file_pattern))
+    if not files:
+        raise ValueError(f"No files matching the pattern {file_pattern}")
+    files.sort()
+
+    spill_ids = [int(file.stem.split("_")[2]) for file in files]
+
+    dfs = []
+    for file, spill_id in zip(files, spill_ids):
+        df_ = pd.read_csv(
+            file, sep=",", header=0, encoding="iso-8859-1", skipinitialspace=True
+        )
+        df_["spill_id (-)"] = spill_id
+
+        dfs.append(df_)
+    df = pd.concat(dfs)
+
+    fullgrid = pd.read_csv(
+        dir_path / fullgrid_filename,
+        sep=",",
+        header=0,
+        encoding="iso-8859-1",
+        skipinitialspace=True,
+    )
+
+    dfs = []
+    for spill_id, df_spill in df.groupby("spill_id (-)"):
+        minimum_grid = get_minimum_grid(fullgrid, df_spill)
+        dfs.append(add_minimum_lonlat(df_spill, minimum_grid, spill_id))
+    return pd.concat(dfs)
+
+
+def add_minimum_lonlat(df_spill, minimum_grid, spill_id):
+    full_df = []
+    for time, df in df_spill.groupby("time (h)"):
+        tmp = pd.concat([minimum_grid, df_spill])
+        tmp["spill_id (-)"] = spill_id
+        full_df.append(tmp)
+
+    return pd.concat(full_df).drop_duplicates(
+        ["longitude (º)", "latitude (º)"], ignore_index=True, keep="last"
+    )
+
+
+def get_minimum_grid(fullgrid, df_spill):
+    lon = (df_spill["longitude (º)"].min(), df_spill["longitude (º)"].max())
+    lat = (df_spill["latitude (º)"].min(), df_spill["latitude (º)"].max())
+
+    minimum_grid = fullgrid.loc[
+        (fullgrid["longitude (º)"] >= lon[0])
+        & (fullgrid["longitude (º)"] <= lon[1])
+        & (fullgrid["latitude (º)"] >= lat[0])
+        & (fullgrid["latitude (º)"] <= lat[1]),
+        :,
+    ]
+    minimum_grid = minimum_grid.reset_index(drop=True)
+    return minimum_grid
 
 
 def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
@@ -430,4 +534,3 @@ def _read_2dh_uv(files: list[PosixPath | str]) -> list[pd.DataFrame]:
         df["time"] = float(file.stem[-4:-1])
         df_list.append(df)
     return df_list
-

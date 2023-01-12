@@ -1,4 +1,8 @@
-from pyteseo.io import read_particles, read_properties, read_grids
+from pyteseo.io import (
+    read_particles_results,
+    read_properties_results,
+    read_grids_results,
+)
 
 
 def particles_to_csv():

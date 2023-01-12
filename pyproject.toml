@@ -42,7 +42,7 @@ changelog = "https://github.com/IHCantabria/pyteseo/blob/main/CHANGELOG.md"
 pyteseo-tests = "pyteseo.cli:run_tests"
 
 [tool.pytest.ini_options]
-addopts = "-v --durations=0 --durations-min=0.05"
+addopts = "-v --durations=0 --durations-min=0.1"
 testpaths = "pyteseo"
 
 [tool.coverage.run]

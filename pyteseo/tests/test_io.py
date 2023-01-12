@@ -8,6 +8,9 @@ from pyteseo.io import (
     read_winds,
     write_currents,
     write_winds,
+    read_particles_results,
+    read_properties_results,
+    read_grids_results,
 )
 
 
@@ -269,20 +272,50 @@ def test_write_winds(error):
     if not tmp_path.exists():
         tmp_path.mkdir()
 
-
     if error == "df_varnames":
         df = df.rename(columns={"lon": "longitude"})
         with pytest.raises(ValueError):
             write_winds(df, tmp_path)
-    
+
     elif error == "lonlat_range":
         df.loc[:, ("lon")].values[0] = 360
         with pytest.raises(ValueError):
             write_winds(df, tmp_path)
-    
+
     else:
         write_winds(df, tmp_path)
         assert Path(tmp_path, "lstwinds.pre").exists()
 
     if tmp_path.exists():
         rmtree(tmp_path)
+
+
+@pytest.mark.parametrize("error", [(None), ("no_match")])
+def test_read_particles_results(error):
+
+    if error == "no_match":
+        with pytest.raises(ValueError):
+            df = read_particles_results(dir_path="data_path")
+
+    df = read_particles_results(dir_path=data_path)
+    assert isinstance(df, pd.DataFrame)
+
+
+@pytest.mark.parametrize("error", [(None), ("no_match")])
+def test_read_properties_results(error):
+    if error == "no_match":
+        with pytest.raises(ValueError):
+            df = read_properties_results(dir_path="data_path")
+
+    df = read_properties_results(dir_path=data_path)
+    assert isinstance(df, pd.DataFrame)
+
+
+@pytest.mark.parametrize("error", [(None), ("no_match")])
+def test_read_grids_results(error):
+    if error == "no_match":
+        with pytest.raises(ValueError):
+            df = read_grids_results(dir_path="data_path")
+
+    df = read_grids_results(dir_path=data_path)
+    assert isinstance(df, pd.DataFrame)
