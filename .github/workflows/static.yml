@@ -30,8 +30,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: build documentation
-        run: cd docs && make html
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
