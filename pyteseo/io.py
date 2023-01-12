@@ -347,7 +347,15 @@ def _write_2dh_uv(
 def read_particles_results(
     dir_path: PosixPath | str, file_pattern: str = "*_particles_*.txt"
 ) -> pd.DataFrame:
+    """Load TESEO's particles results files "*_properties_*.txt" to DataFrame
 
+    Args:
+        dir_path (PosixPath | str): path to the results directory
+        file_pattern (str, optional): file pattern of particles restuls. Defaults to "*_particles_*.txt".
+
+    Returns:
+        pd.DataFrame: Dataframe with all the results (including times and spill_id)
+    """
     dir_path = Path(dir_path) if isinstance(dir_path, str) else dir_path
 
     files = list(dir_path.glob(file_pattern))
@@ -368,7 +376,15 @@ def read_particles_results(
 def read_properties_results(
     dir_path: PosixPath | str, file_pattern: str = "*_properties_*.txt"
 ) -> pd.DataFrame:
+    """Load TESEO's propierties results files "*_properties_*.txt" to DataFrame
 
+    Args:
+        dir_path (PosixPath | str): path to the results directory
+        file_pattern (str, optional): file pattern of particles restuls. Defaults to "*_properties_*.txt".
+
+    Returns:
+        pd.DataFrame: Dataframe with all the results (including times and spill_id)
+    """
     dir_path = Path(dir_path) if isinstance(dir_path, str) else dir_path
 
     files = list(dir_path.glob(file_pattern))
@@ -395,7 +411,16 @@ def read_grids_results(
     file_pattern: str = "*_grid_*.txt",
     fullgrid_filename="grid_coordinates.txt",
 ) -> pd.DataFrame:
+    """Load TESEO's grids results files "*_grid_*.txt" to DataFrame
 
+    Args:
+        dir_path (PosixPath | str):  path to the results directory
+        file_pattern (str, optional): file pattern of particles restuls. Defaults to "*_grid_*.txt".
+        fullgrid_filename (str, optional): filename of the full domain-grid for results. Defaults to "grid_coordinates.txt".
+
+    Returns:
+        pd.DataFrame: Dataframe with all the results (including times and spill_id)
+    """
     dir_path = Path(dir_path) if isinstance(dir_path, str) else dir_path
     files = list(dir_path.glob(file_pattern))
     if not files:
@@ -425,14 +450,24 @@ def read_grids_results(
     dfs = []
     for spill_id, df_spill in df.groupby("spill_id (-)"):
         minimum_grid = get_minimum_grid(fullgrid, df_spill)
-        dfs.append(add_minimum_lonlat(df_spill, minimum_grid, spill_id))
+        dfs.append(add_inactive_cells(df_spill, minimum_grid, spill_id))
     return pd.concat(dfs)
 
 
-def add_minimum_lonlat(df_spill, minimum_grid, spill_id):
+def add_inactive_cells(df_spill: pd.DataFrame, minimum_grid: pd.DataFrame, spill_id: int) -> pd.DataFrame:
+    """Concatenate active and inactive cells of grids results.
+
+    Args:
+        df_spill (pd.DataFrame): active celss for specific spill.
+        minimum_grid (pd.DataFrame): minimum grid to represent the evolution of this specific spill.
+        spill_id (int): spill identification number.
+
+    Returns:
+        pd.DataFrame: spill grid results in minimum grid-results area
+    """
     full_df = []
     for time, df in df_spill.groupby("time (h)"):
-        tmp = pd.concat([minimum_grid, df_spill])
+        tmp = pd.concat([minimum_grid, df])
         tmp["spill_id (-)"] = spill_id
         full_df.append(tmp)
 
@@ -441,7 +476,16 @@ def add_minimum_lonlat(df_spill, minimum_grid, spill_id):
     )
 
 
-def get_minimum_grid(fullgrid, df_spill):
+def get_minimum_grid(fullgrid: pd.DataFrame, df_spill: pd.DataFrame) -> pd.DataFrame:
+    """Obatain minimum grid area to represent the complete evolution for an specific spill.
+
+    Args:
+        fullgrid (pd.DataFrame): Full grid of results (usually equals to model domain).
+        df_spill (pd.DataFrame): Results on active cells for specific spill.
+
+    Returns:
+        pd.DataFrame: minimum grid coordinates for represent this specific spill.
+    """    
     lon = (df_spill["longitude (º)"].min(), df_spill["longitude (º)"].max())
     lat = (df_spill["latitude (º)"].min(), df_spill["latitude (º)"].max())
 
