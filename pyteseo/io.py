@@ -237,7 +237,6 @@ def write_currents(df: pd.DataFrame, dir_path: PosixPath | str) -> None:
     Args:
         df (pd.DataFrame): DataFrame containing columns "time", "lon", "lat", "u", and "v".
         dir_path (PosixPath | str): directory path where will be created the files "lstcurr_UVW.pre" and all the "currents_*.txt"
-        nan_value (int, optional): Value for replacing nans. Defaults to 0.
     """
 
     lst_filename = "lstcurr_UVW.pre"
@@ -253,7 +252,6 @@ def write_winds(df: pd.DataFrame, dir_path: PosixPath | str) -> None:
     Args:
         df (pd.DataFrame): DataFrame containing columns "time", "lon", "lat", "u", and "v".
         dir_path (PosixPath | str): directory path where will be created the files "lstwinds.pre" and all the "winds_*.txt"
-        nan_value (int, optional): Value for replacing nans. Defaults to 0.
     """
     lst_filename = "lstwinds.pre"
     forcing = "winds"
@@ -263,7 +261,15 @@ def write_winds(df: pd.DataFrame, dir_path: PosixPath | str) -> None:
 
 
 def _write_2dh_uv(df: pd.DataFrame, path: PosixPath | str, forcing: str, nan_value: int=0):
-    
+    """Write 2dh fields [time, lon, lat, u, v] to TESEO's format files
+
+    Args:
+        df (pd.DataFrame): DataFrame with the currents or fields
+        path (PosixPath | str): path to the lstfile of teseo
+        forcing (str): one of the following: ["winds", "currents"]
+        nan_value (int, optional): value for nan's in the file. Defaults to 0.
+    """
+        
     path = Path(path) if isinstance(path, str) else path
 
     # Check variable-names
