@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.0.5 - ??/??/????
+### Added:
+1) read results (particles, properties, and grids)
+### Changed:
+2) cli pyteseo-tests move to pyteseo/tests.__init__.py
+### Fixed:
+<br/><br/>
+
+
 ## v0.0.4 - 11/01/2023
 ### Added:
 1) required version pytest >=7
