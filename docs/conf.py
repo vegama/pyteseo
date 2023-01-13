@@ -21,7 +21,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "autoapi.extension",
     "sphinx_rtd_theme",
-    "nbsphinx",
+    "myst_nb",
 ]
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
