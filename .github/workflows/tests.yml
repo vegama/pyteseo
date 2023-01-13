@@ -1,5 +1,5 @@
 # Test installation in different environments
-name: Test_environments
+name: tests
 
 on:
   push:
