@@ -15,7 +15,7 @@ dynamic = ["version", "description"]
 dependencies = [
     "numpy",
     "pandas",
-    "xarray[complete]",
+    "xarray",
     "dask",
     "netcdf4",
     "bottleneck",
