@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Build and deploy documentation to Github Pages
+name: build and deploy docs in github pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -37,8 +37,8 @@ jobs:
       - name: Build doc html
         run: sphinx-build -W --keep-going docs/ docs/_build/html
 
-      - name: prompt tree
-        run: tree -a
+      - name: Prompt tree
+        run: tree -d
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
