@@ -46,5 +46,3 @@ Functions
 
 
 .. py:function:: plot_grids(ds)
-
-

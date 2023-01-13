@@ -51,5 +51,3 @@ Functions
 
 
 .. py:function:: simulation_type()
-
-

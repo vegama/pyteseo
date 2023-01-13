@@ -1,9 +1,0 @@
-name: test_install
-channels:
-  - conda-forge
-  - defaults
-dependencies:
-  - python=3.7
-  - pip
-  - pip:
-    - git+https://github.com/IHCantabria/pyteseo

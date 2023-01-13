@@ -6,6 +6,3 @@
 .. autoapi-nested-parse::
 
    Testing subpackage for pyteseo
-
-
-

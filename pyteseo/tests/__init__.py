@@ -5,6 +5,7 @@ __all__ = []
 from pathlib import Path
 import pytest
 
+
 def run_tests():
     """run all available tests"""
     tests_path = Path(__file__).parent

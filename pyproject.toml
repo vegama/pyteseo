@@ -23,12 +23,11 @@ dependencies = [
     "matplotlib",
     "geojson",
     "pytest >=7",
-    "coverage[toml]",
 ]
 
 
 [project.optional-dependencies]
-dev = ["flit", "black", "sphinx", "myst-parser", "myst-nb", "sphinx-autoapi", "furo", "sphinx_rtd_theme"]
+dev = ["flit", "black", "sphinx", "coverage[toml]", "myst-parser", "myst-nb", "sphinx-autoapi", "furo", "sphinx_rtd_theme"]
 
 
 [project.urls]
@@ -51,4 +50,3 @@ testpaths = "pyteseo"
 command_line = "-m pytest"
 omit = ["*/tests/*"]
 source = ["pyteseo"]
-

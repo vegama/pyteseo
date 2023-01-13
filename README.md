@@ -41,13 +41,13 @@ pip install pyteseo
 ```
 :warning: `UNDER DEVELOPMENT` :construction: - From conda-forge:
 ```bash
-conda install -c conda-forge pyteseo 
+conda install -c conda-forge pyteseo
 ```
 
 ---
 
 ## :heavy_check_mark: Testing & Coverage
-Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`. 
+Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`.
 Tests have been developed using [pytest](https://docs.pytest.org/).
 
 Run tests to verify your package installation:

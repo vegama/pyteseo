@@ -50,5 +50,3 @@ Functions
 
 
 .. py:function:: grids_to_json()
-
-

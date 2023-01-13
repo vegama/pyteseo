@@ -454,7 +454,9 @@ def read_grids_results(
     return pd.concat(dfs)
 
 
-def add_inactive_cells(df_spill: pd.DataFrame, minimum_grid: pd.DataFrame, spill_id: int) -> pd.DataFrame:
+def add_inactive_cells(
+    df_spill: pd.DataFrame, minimum_grid: pd.DataFrame, spill_id: int
+) -> pd.DataFrame:
     """Concatenate active and inactive cells of grids results.
 
     Args:
@@ -485,7 +487,7 @@ def get_minimum_grid(fullgrid: pd.DataFrame, df_spill: pd.DataFrame) -> pd.DataF
 
     Returns:
         pd.DataFrame: minimum grid coordinates for represent this specific spill.
-    """    
+    """
     lon = (df_spill["longitude (º)"].min(), df_spill["longitude (º)"].max())
     lat = (df_spill["latitude (º)"].min(), df_spill["latitude (º)"].max())
 

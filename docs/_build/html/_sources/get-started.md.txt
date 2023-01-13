@@ -27,7 +27,7 @@ pip install pyteseo
 ---
 
 ## Testing and coverage
-Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`. 
+Tests are located in `pyteseo/tests/` and data required for tests are located in `pyteseo/tests/data/`.
 Tests have been developed using [pytest](https://docs.pytest.org/).
 
 Run tests to verify your package installation:
@@ -48,14 +48,14 @@ coverage html       # For generate html report on "htmlcov" folder
 
 ## Use cases
 Some use cases have been developed as an examples of use of this package.
-All the use cases are provided as notebooks (*.ipynb) in the source code repository under the path `docs/notebooks`. Moreover, all the notebooks include a link to be opened and executed in `Google Colab`. 
+All the use cases are provided as notebooks (*.ipynb) in the source code repository under the path `docs/notebooks`. Moreover, all the notebooks include a link to be opened and executed in `Google Colab`.
 
-Check **USE CASES** section at left panel to access them. 
+Check **USE CASES** section at left panel to access them.
 
 ---
 
 ## Continuous integration
-* deploy documentation on github page -> github action 
+* deploy documentation on github page -> github action
 * pass format -> Balck?
 * pass linter -> ?
 * pass tests -> pytest

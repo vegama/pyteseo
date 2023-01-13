@@ -20,5 +20,3 @@ Functions
 .. py:function:: run_tests()
 
    run all available tests
-
-

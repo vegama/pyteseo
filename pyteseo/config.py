@@ -1,4 +1,4 @@
-""" Logic needed to define variables needed to write cfg and run files 
+""" Logic needed to define variables needed to write cfg and run files
 """
 
 # TODO - THINK, DEFINE MODULE AND ADD TASKS TO THE BACKLOG!!!
