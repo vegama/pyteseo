@@ -41,7 +41,7 @@ jobs:
         run: sphinx-build -W --keep-going docs/ docs/_build/html
 
       - name: Prompt tree
-        run: tree --dirsfirst -P "*.py|*.md|*.toml|*.yml|*.yaml|*.ipynb"
+        run: tree --dirsfirst -L 3 -P "*.py|*.md|*.toml|*.yml|*.yaml|*.ipynb|index.html"
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
