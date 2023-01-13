@@ -1,20 +1,23 @@
-name: Install and test python package
+name: Test
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+        os: [ubuntu-latest, macOS-latest, windows-latest]
 
     steps:
       - name: Checkout
@@ -26,7 +29,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install package
-        run: pip install .
+        run: pip install "."
 
       - name: Test
         run: pyteseo-tests
