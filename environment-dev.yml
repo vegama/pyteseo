@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10
+  - python>=3.7
   - xarray
   - dask
   - netcdf4
@@ -16,9 +16,7 @@ dependencies:
   - flit
   - black
   - sphinx
-  - myst-parser
   - myst-nb
   - sphinx-autoapi
-  - furo
   - sphinx_rtd_theme
   - pre_commit
