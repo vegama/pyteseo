@@ -10,6 +10,7 @@ htmlcov/
 tmp/
 tmp_*/
 dist/
+docs/_build
 
 # Files
 *.nc

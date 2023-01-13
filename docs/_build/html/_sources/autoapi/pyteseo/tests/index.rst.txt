@@ -1,8 +1,0 @@
-:py:mod:`pyteseo.tests`
-=======================
-
-.. py:module:: pyteseo.tests
-
-.. autoapi-nested-parse::
-
-   Testing subpackage for pyteseo

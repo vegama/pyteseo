@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Build and deploy documentation to Github Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -30,13 +30,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Install pyteseo
+        run: pip install -e ".[dev]"
+
+      - name: Build doc html
+        run: sphinx-build -W --keep-going docs/ docs/_build
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
           path: './docs/_build/html'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
