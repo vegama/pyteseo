@@ -28,7 +28,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["flit", "black", "sphinx", "coverage[toml]", "myst-nb", "sphinx-autoapi", "sphinx_rtd_theme"]
-# dev = ["flit", "black", "sphinx", "coverage[toml]", "myst-parser", "myst-nb", "sphinx-autoapi", "sphinx_rtd_theme"]
 
 
 [project.urls]
