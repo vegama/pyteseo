@@ -6,7 +6,6 @@
 <img align="center" width="600" src="https://ihcantabria.github.io/pyteseo/_images/pyTESEO_logo.png">
 </p>
 
-
 [![Github release (latest by date)](https://img.shields.io/github/v/release/ihcantabria/pyteseo?label=last%20release)](https://github.com/IHCantabria/pyteseo/releases)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=last%20tag)](https://github.com/IHCantabria/pyteseo/tags)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ihcantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/commits/main)
