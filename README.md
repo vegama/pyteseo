@@ -69,15 +69,12 @@ coverage html       # For generate html report on "htmlcov" folder
 
 ## :recycle: Continuous integration (CI)
 
-:warning: `UNDER DEVELOPMENT` :construction:
-* deploy documentation on github page -> github action :heavy_check_mark:
-* pass format -> Balck :x:
-* pass linter -> ? :x:
-* pass tests -> pytest :x:
-* make documentation -> sphinx :x:
-* install and pass tests in different systems -> github actions :x:
 
-*For all the SO (Windows, Linux, Mac), and python versions (3.10) required!*
+* Build and deploy documentation on Github Pages -> github action `.github/workflow/documentation.yml`
+* Precommit hooks for formats and linting --> `.pre-commit-config.yaml`
+* :warning: `UNDER DEVELOPMENT` :construction: Install and test package in diferent environments --> github action `.github/workflow/test_installation.yml`
+
+*For all the SO (Windows, Linux, Mac), and python versions (>=3.7)*
 
 ---
 
