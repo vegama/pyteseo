@@ -9,6 +9,7 @@ import pandas as pd
 
 # NOTE - Restricts the loading when from "pyteseo.io import *"" to the names defined here but it are loaded in pytest.CHECK BEHAVIOUR
 # NOTE - Restricts what is documented by Sphinx (!!!)
+
 __all__ = [
     "read_grid",
     "read_coastline",
