@@ -37,6 +37,9 @@ jobs:
       - name: Build doc html
         run: sphinx-build -W --keep-going docs/ docs/_build
 
+      - name: prompt tree
+        run: tree -a
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
 
