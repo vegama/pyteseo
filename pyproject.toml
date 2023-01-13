@@ -9,7 +9,19 @@ authors = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
 mantainers = [{name = "German Aragon Caminero", email = "german.aragon@unican.es"}]
 readme = "README.md"
 requires-python = ">=3.7"
-classifiers = ["Topic :: Scientific/Engineering", "Programming Language :: Python"]
+classifiers = [
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Development Status :: 1 - Planning",
+    "Programming Language :: Python",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
 dynamic = ["version", "description"]
 
 dependencies = [
