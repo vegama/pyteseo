@@ -22,17 +22,6 @@
 
 **pyTESEO** is a python package developed by [IHCantabria](https://ihcantabria.com/en/) to simplify and facilitate the setup and processing of [TESEO](https://ihcantabria.com/en/specialized-software/teseo/) simulations *(TESEO is a lagrangian numerical model also developed by IHCantabria.)*
 
----
-
-<center>
-
-
-| SO         | python         |
-|:----------:|:--------------:|
-|Linux, MacOS| `python>=3.7`  |
-|Windows     | `python>=3.8`  |
-
-</center>
 
 ---
 
@@ -53,6 +42,17 @@ pip install pyteseo
 ```bash
 conda install -c conda-forge pyteseo
 ```
+<center>
+
+*Required python version by Operating System*
+
+| SO         | python version |
+|:----------:|:--------------:|
+|Linux       | >= 3.7         |
+|MacOS       | >= 3.7         |
+|Windows     | >= 3.8         |
+
+</center>
 
 ---
 
