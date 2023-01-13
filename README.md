@@ -6,17 +6,14 @@
 <img align="center" width="600" src="https://ihcantabria.github.io/pyteseo/_images/pyTESEO_logo.png">
 </p>
 
-
+[![pypi](https://img.shields.io/pypi/v/pyteseo)](https://pypi.org/project/pyteseo/)
 [![Github release (latest by date)](https://img.shields.io/github/v/release/ihcantabria/pyteseo?label=last%20release)](https://github.com/IHCantabria/pyteseo/releases)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/IHCantabria/pyteseo?label=last%20tag)](https://github.com/IHCantabria/pyteseo/tags)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ihcantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/commits/main)
 [![docs](https://github.com/IHCantabria/pyteseo/actions/workflows/docs.yml/badge.svg)](https://github.com/IHCantabria/pyteseo/actions/workflows/docs.yml)
 [![tests](https://github.com/IHCantabria/pyteseo/actions/workflows/tests.yml/badge.svg)](https://github.com/IHCantabria/pyteseo/actions/workflows/tests.yml)
-[![GitHub license](https://img.shields.io/github/license/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/blob/main/LICENSE.md)
 [![GitHub repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
-[![GitHub file count](https://img.shields.io/github/directory-file-count/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
-[![GitHub file count](https://img.shields.io/github/languages/count/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
-[![GitHub file count](https://img.shields.io/github/languages/top/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
+[![GitHub license](https://img.shields.io/github/license/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/blob/main/LICENSE.md)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
@@ -27,7 +24,13 @@
 ---
 
 ## :computer: Installation
-From github repositorie using `pip`:
+
+|                         | Linux  | MacOS  | Windows|
+|:-----------------------:|:------:|:------:|:------:|
+| Required python version | >= 3.7 | >= 3.7 | >= 3.8 |
+*Python versions newer than 3.10 have not been tested!*
+
+* From `github` repository using `pip`:
 ```bash
 pip install git+https://github.com/IHCantabria/pyteseo
 # To install extra dev dependencies: pip install git+https://github.com/IHCantabria/pyteseo[dev]
@@ -35,25 +38,14 @@ pip install git+https://github.com/IHCantabria/pyteseo
 
 ```
 
-:warning: `UNDER DEVELOPMENT` :construction: - From pypi:
+:warning: `UNDER DEVELOPMENT` :construction: - * From `pypi` using `pip`:
 ```bash
 pip install pyteseo
 ```
-:warning: `UNDER DEVELOPMENT` :construction: - From conda-forge:
+:warning: `UNDER DEVELOPMENT` :construction: - * From `conda-forge` using `conda`:
 ```bash
 conda install -c conda-forge pyteseo
 ```
-<center>
-
-*Required python version by Operating System*
-
-| SO         | python version |
-|:----------:|:--------------:|
-|Linux       | >= 3.7         |
-|MacOS       | >= 3.7         |
-|Windows     | >= 3.8         |
-
-</center>
 
 ---
 
@@ -81,11 +73,11 @@ coverage html       # For generate html report on "htmlcov" folder
 ## :recycle: Continuous integration (CI)
 
 
-* Build and deploy documentation on Github Pages -> github action `.github/workflow/documentation.yml`
-* Precommit hooks for formats and linting --> `.pre-commit-config.yaml`
-* :warning: `UNDER DEVELOPMENT` :construction: Install and test package in diferent environments --> github action `.github/workflow/test_installation.yml`
+* Build and deploy documentation on Github Pages in [.github/workflows/docs.yml](.github/workflows/docs.yml)
+* Install and test package in diferent environments in [.github/workflows/tests.yml](.github/workflows/tests.yml)
+* Precommit hooks for formats and linting in [.pre-commit-config.yaml](.pre-commit-config.yaml)
 
-*For all the SO (Windows, Linux, Mac), and python versions (>=3.7)*
+*For Linux, Windows, MacOS and compatible python versions defined in installation section*
 
 ---
 
