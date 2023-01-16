@@ -62,3 +62,13 @@ testpaths = "pyteseo"
 command_line = "-m pytest"
 omit = ["*/tests/*"]
 source = ["pyteseo"]
+
+
+[tool.black]
+line-length = 88
+addopts = "-v"
+
+
+[tool.flake8]
+max-line-length = 88
+ignore = ["E203", "E501"]
