@@ -6,6 +6,7 @@ from pathlib import Path, PosixPath
 from typing import Tuple
 
 import pandas as pd
+import numpy as np
 
 # NOTE - Restricts the loading when from "pyteseo.io import *"" to the names defined here but it are loaded in pytest.CHECK BEHAVIOUR
 # NOTE - Restricts what is documented by Sphinx (!!!)
@@ -602,6 +603,8 @@ def _read_2dh_uv(files: list[PosixPath | str]) -> list[pd.DataFrame]:
         ):
             raise ValueError("lon and lat values should be monotonic increasing!")
 
-        df["time"] = float(file.stem[-4:-1])
+        df["mod"] = np.sqrt(df.u**2 + df.v**2)
+        df.insert(loc=0, column="time", value=float(file.stem[-4:-1]))
         df_list.append(df)
+
     return df_list
