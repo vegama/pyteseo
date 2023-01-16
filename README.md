@@ -14,6 +14,7 @@
 [![tests](https://github.com/IHCantabria/pyteseo/actions/workflows/tests.yml/badge.svg)](https://github.com/IHCantabria/pyteseo/actions/workflows/tests.yml)
 [![GitHub repo size](https://img.shields.io/github/repo-size/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo)
 [![GitHub license](https://img.shields.io/github/license/IHCantabria/pyteseo)](https://github.com/IHCantabria/pyteseo/blob/main/LICENSE.md)
+[![Python versions](https://img.shields.io/pypi/pyversions/pyteseo)](https://www.python.org/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
