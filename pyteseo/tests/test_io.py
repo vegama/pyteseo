@@ -52,7 +52,8 @@ def test_read_grid(file, error):
 
 
 @pytest.mark.parametrize(
-    "error", [(None), ("df_n_var"), ("df_varnames"), ("lonlat_range"), ("sorting")]
+    "error",
+    [(None), ("df_n_var"), ("df_varnames"), ("lonlat_range"), ("sorting")],
 )
 def test_write_grid(error):
     if not tmp_path.exists():

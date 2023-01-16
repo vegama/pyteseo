@@ -37,7 +37,7 @@ def read_grid(path: str | PosixPath, nan_value: int | float = -999) -> pd.DataFr
         pd.DataFrame: DataFrame with TESEO grid data [lon, lat, depth]
     """
 
-    df = pd.read_csv(path, delimiter="\s+", na_values=nan_value, header=None)
+    df = pd.read_csv(path, delimiter="\s+", na_values=str(nan_value), header=None)
 
     if df.shape[1] != 3:
         raise ValueError(
@@ -132,7 +132,12 @@ def write_grid(
         df = df.sort_values(["lon", "lat"])
 
     df.to_csv(
-        path, sep="\t", na_rep=nan_value, header=False, index=False, float_format="%.8e"
+        path,
+        sep="\t",
+        na_rep=nan_value,
+        header=False,
+        index=False,
+        float_format="%.8e",
     )
 
 
@@ -145,7 +150,9 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
     """
 
     def _write_polygons(
-        df: pd.DataFrame, dir_path: str | PosixPath, filename: str = "coastline_polygon"
+        df: pd.DataFrame,
+        dir_path: str | PosixPath,
+        filename: str = "coastline_polygon",
     ) -> None:
         """Write polygons from a coastline DataFrame
 
@@ -184,7 +191,12 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
         )
 
     df.to_csv(
-        path, sep="\t", header=False, index=False, float_format="%.8e", na_rep="NaN"
+        path,
+        sep="\t",
+        header=False,
+        index=False,
+        float_format="%.8e",
+        na_rep="NaN",
     )
     _write_polygons(df, path.parent)
 
@@ -366,7 +378,11 @@ def read_particles_results(
 
     dfs = [
         pd.read_csv(
-            file, sep=",", header=0, encoding="iso-8859-1", skipinitialspace=True
+            file,
+            sep=",",
+            header=0,
+            encoding="iso-8859-1",
+            skipinitialspace=True,
         )
         for file in files
     ]
@@ -398,7 +414,11 @@ def read_properties_results(
     dfs = []
     for file, spill_id in zip(files, spill_ids):
         df_ = pd.read_csv(
-            file, sep=",", header=0, encoding="iso-8859-1", skipinitialspace=True
+            file,
+            sep=",",
+            header=0,
+            encoding="iso-8859-1",
+            skipinitialspace=True,
         )
         df_["spill_id (-)"] = spill_id
 
@@ -433,7 +453,11 @@ def read_grids_results(
     dfs = []
     for file, spill_id in zip(files, spill_ids):
         df_ = pd.read_csv(
-            file, sep=",", header=0, encoding="iso-8859-1", skipinitialspace=True
+            file,
+            sep=",",
+            header=0,
+            encoding="iso-8859-1",
+            skipinitialspace=True,
         )
         df_["spill_id (-)"] = spill_id
 
