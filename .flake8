@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 88
+; W605 - invalid escape sequence '\s' (pd.read_csv)
+; E203 - whitespace before ':'
+extend-ignore = E203, E501, W605
