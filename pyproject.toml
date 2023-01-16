@@ -67,9 +67,6 @@ source = ["pyteseo"]
 [tool.black]
 addopts = "-v"
 
-[tool.isort]
-profile = "black"
-
 ## FIXME - Use file .flake8 for now!
 # [tool.flake8]
 # max-line-length = 88
