@@ -33,7 +33,7 @@ dependencies = [
     "netcdf4",
     "bottleneck",
     "ipykernel",
-    # "matplotlib",
+    "matplotlib",
     "geojson",
     "pytest >=7",
 ]
