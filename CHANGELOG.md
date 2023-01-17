@@ -5,7 +5,8 @@
 1) read results (particles, properties, and grids)
 2) add mod calculation to read_currents and read_winds
 3) notebook - USE CASE 02
-4)
+4) add py3.11 to test workflow
+5) exclude windows w/ py3.7
 ### Changed:
 2) cli pyteseo-tests move to pyteseo/tests.__init__.py
 ### Fixed:
