@@ -92,6 +92,46 @@ def read_coastline(path: str | PosixPath) -> pd.DataFrame:
     return _split_polygons(df)
 
 
+def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
+    """Split DataFrame between nan values
+
+    Args:
+        df (pd.DataFrame): input DataFrame with nans
+
+    Returns:
+        pd.DataFrame: DataFrame with polygon and point number as indexes
+    """
+    splitted_dfs = []
+    previous_i = count = 0
+    n_nans = len(df[df.isna().any(axis=1)])
+
+    for i in df[df.isna().any(axis=1)].index.values:
+        count += 1
+        if i == 0:
+            continue
+        if count == n_nans:
+            splitted_dfs.append(df.iloc[previous_i:i])
+            if i == df.iloc[[-1]].index.values:
+                break
+            else:
+                splitted_dfs.append(df.iloc[i:])
+        else:
+            splitted_dfs.append(df.iloc[previous_i:i])
+            previous_i = i
+
+    if splitted_dfs[0].equals(df):
+        print("WARNING - There is nothing to split in this DataFrame!")
+
+    new_polygons = []
+    for i, polygon in enumerate(splitted_dfs):
+        polygon.loc[:, ("polygon")] = i + 1
+        polygon.loc[:, ("point")] = polygon.index
+        polygon = polygon.set_index(["polygon", "point"])
+        new_polygons.append(polygon)
+
+    return pd.concat(new_polygons)
+
+
 def write_grid(
     df: pd.DataFrame, path: str | PosixPath, nan_value: int | float = -999
 ) -> None:
@@ -150,31 +190,6 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
         path (str | PosixPath): path to the new coastline-file
     """
 
-    def _write_polygons(
-        df: pd.DataFrame,
-        dir_path: str | PosixPath,
-        filename: str = "coastline_polygon",
-    ) -> None:
-        """Write polygons from a coastline DataFrame
-
-        Args:
-            df (pd.DataFrame): input coastline DataFrame
-            dir_path (str | PosixPath): directory where polygon files will be created
-            filename (str, optional): filename for polygon-files (numbering and extension will be added). Defaults to "coastline_polygon".
-        """
-        grouped = df.groupby("polygon")
-
-        for polygon, group in grouped:
-            path_polygon = Path(dir_path, f"{filename}_{polygon:03d}.dat")
-            group.to_csv(
-                path_polygon,
-                sep="\t",
-                header=False,
-                index=False,
-                float_format="%.8e",
-                na_rep="NaN",
-            )
-
     if "lon" not in df.keys().values or "lat" not in df.keys().values:
         raise ValueError("variable names in DataFrame should be 'lon' and 'lat'!")
 
@@ -200,6 +215,32 @@ def write_coastline(df: pd.DataFrame, path: str | PosixPath) -> None:
         na_rep="NaN",
     )
     _write_polygons(df, path.parent)
+
+
+def _write_polygons(
+    df: pd.DataFrame,
+    dir_path: str | PosixPath,
+    filename: str = "coastline_polygon",
+) -> None:
+    """Write polygons from a coastline DataFrame
+
+    Args:
+        df (pd.DataFrame): input coastline DataFrame
+        dir_path (str | PosixPath): directory where polygon files will be created
+        filename (str, optional): filename for polygon-files (numbering and extension will be added). Defaults to "coastline_polygon".
+    """
+
+    grouped = df.groupby("polygon")
+    for polygon, group in grouped:
+        path_polygon = Path(dir_path, f"{filename}_{polygon:03d}.dat")
+        group.to_csv(
+            path_polygon,
+            sep="\t",
+            header=False,
+            index=False,
+            float_format="%.8e",
+            na_rep="NaN",
+        )
 
 
 # 2. FORCINGS
@@ -526,46 +567,6 @@ def get_minimum_grid(fullgrid: pd.DataFrame, df_spill: pd.DataFrame) -> pd.DataF
     ]
     minimum_grid = minimum_grid.reset_index(drop=True)
     return minimum_grid
-
-
-def _split_polygons(df: pd.DataFrame) -> pd.DataFrame:
-    """Split DataFrame between nan values
-
-    Args:
-        df (pd.DataFrame): input DataFrame with nans
-
-    Returns:
-        pd.DataFrame: DataFrame with polygon and point number as indexes
-    """
-    splitted_dfs = []
-    previous_i = count = 0
-    n_nans = len(df[df.isna().any(axis=1)])
-
-    for i in df[df.isna().any(axis=1)].index.values:
-        count += 1
-        if i == 0:
-            continue
-        if count == n_nans:
-            splitted_dfs.append(df.iloc[previous_i:i])
-            if i == df.iloc[[-1]].index.values:
-                break
-            else:
-                splitted_dfs.append(df.iloc[i:])
-        else:
-            splitted_dfs.append(df.iloc[previous_i:i])
-            previous_i = i
-
-    if splitted_dfs[0].equals(df):
-        print("WARNING - There is nothing to split in this DataFrame!")
-
-    new_polygons = []
-    for i, polygon in enumerate(splitted_dfs):
-        polygon.loc[:, ("polygon")] = i + 1
-        polygon.loc[:, ("point")] = polygon.index
-        polygon = polygon.set_index(["polygon", "point"])
-        new_polygons.append(polygon)
-
-    return pd.concat(new_polygons)
 
 
 def _read_2dh_uv(files: list[PosixPath | str]) -> list[pd.DataFrame]:
