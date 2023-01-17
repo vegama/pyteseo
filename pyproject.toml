@@ -26,8 +26,6 @@ classifiers = [
 dynamic = ["version", "description"]
 
 dependencies = [
-    # "numpy",
-    # "pandas",
     "xarray",
     "dask",
     "netcdf4",
