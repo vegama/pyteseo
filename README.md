@@ -29,7 +29,7 @@
 |                         | Linux  | MacOS  | Windows|
 |:-----------------------:|:------:|:------:|:------:|
 | Required python version | >= 3.7 | >= 3.7 | >= 3.8 |
-*Python versions newer than 3.10 have not been tested!*
+
 
 * From `github` repository using `pip`:
 ```bash
