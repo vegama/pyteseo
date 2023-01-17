@@ -32,7 +32,7 @@ dependencies = [
     "dask",
     "netcdf4",
     "bottleneck",
-    # "ipykernel",
+    "ipykernel",
     # "matplotlib",
     "geojson",
     "pytest >=7",
